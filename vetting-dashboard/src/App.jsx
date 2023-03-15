@@ -1,10 +1,10 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import OTP from './Auth/verify';
 
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
-
 
 const router = createBrowserRouter([
   {
@@ -12,6 +12,19 @@ const router = createBrowserRouter([
     element: (
       <React.Suspense fallback={<>...</>}>
         <Login />
+      </React.Suspense>
+    ),
+    errorElement: (
+      <React.Suspense fallback={<>...</>}>
+        <ErrorPage />
+      </React.Suspense>
+    ),
+  },
+  {
+    path: 'verify',
+    element: (
+      <React.Suspense fallback={<>...</>}>
+        <OTP />
       </React.Suspense>
     ),
     errorElement: (
@@ -34,7 +47,7 @@ const router = createBrowserRouter([
   //   ),
   //   loader: checkAuthLoader,
   // },
-])
+]);
 
 function App() {
   return (
