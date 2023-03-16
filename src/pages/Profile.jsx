@@ -1,4 +1,4 @@
-import Header from '../components/dashboard/header';
+import Header from '../dashboard/header';
 
 const ProfilePage = () => {
   return (
