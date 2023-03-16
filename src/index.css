@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* To prevent arrows from showing - number input */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.otp-input {
+  @apply border-b border-black outline-none w-16 text-center pb-5 font-semibold text-[2rem];
+}
