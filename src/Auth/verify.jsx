@@ -1,15 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import useOTPInput from '../hooks/use-input-otp';
-import logo from '../../assets/logo.svg';
-import back from '../../assets/back-arrow.svg';
-import logo2 from '../../assets/logo-plain.svg';
+import logo from '../assets/logo.svg';
+import back from '../assets/back-arrow.svg';
+import logo2 from '../assets/logo-plain.svg';
 import { Link } from 'react-router-dom';
-import facebook from '../../assets/facebook.svg';
-import amazon from '../../assets/amazon.svg';
-import apple from '../../assets/apple.svg';
-import netflix from '../../assets/netflix.svg';
-import google from '../../assets/google.svg';
-import microsoft from '../../assets/microsoft.svg';
+import facebook from '../assets/facebook.svg';
+import amazon from '../assets/amazon.svg';
+import apple from '../assets/apple.svg';
+import netflix from '../assets/netflix.svg';
+import google from '../assets/google.svg';
+import microsoft from '../assets/microsoft.svg';
+
 
 const OTP = () => {
   const [seconds, setSeconds] = useState(0);

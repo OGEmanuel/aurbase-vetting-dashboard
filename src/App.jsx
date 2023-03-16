@@ -1,13 +1,12 @@
 import React from 'react';
-import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import OTP from './components/Auth/verify';
+import OTP from './Auth/verify';
 import RootLayout from './pages/Root';
 import ProfilePage from './pages/Profile';
 import Root from './pages/Root';
 
 const ErrorPage = React.lazy(() => import('./pages/Error'));
-const Login = React.lazy(() => import('./components/Auth/Login'));
+const Login = React.lazy(() => import('./Auth/Login'));
 
 const router = createBrowserRouter([
   {

@@ -1,5 +1,5 @@
-import slider from '../../assets/dummy-slider.svg';
-import notify from '../../assets/dummy-notify.svg';
+import slider from '../assets/dummy-slider.svg';
+import notify from '../assets/dummy-notify.svg';
 
 const Header = ({ title = 'My Profile' }) => {
   return (

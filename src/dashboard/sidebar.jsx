@@ -1,12 +1,12 @@
-import logo from '../../assets/logo.svg';
-import dashboard from '../../assets/dashboard.svg';
-import ellipse from '../../assets/ellipse.svg';
-import ellipses from '../../assets/ellipses.svg';
-import track from '../../assets/track-changes.svg';
-import assign from '../../assets/assignment.svg';
-import cancel from '../../assets/cancel.svg';
-import logout from '../../assets/logout.svg';
-import message from '../../assets/message.svg';
+import logo from '../assets/logo.svg';
+import dashboard from '../assets/dashboard.svg';
+import ellipse from '../assets/ellipse.svg';
+import ellipses from '../assets/ellipses.svg';
+import track from '../assets/track-changes.svg';
+import assign from '../assets/assignment.svg';
+import cancel from '../assets/cancel.svg';
+import logout from '../assets/logout.svg';
+import message from '../assets/message.svg';
 import { Link } from 'react-router-dom';
 
 const SideBar = () => {
