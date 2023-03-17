@@ -52,7 +52,7 @@ const SideBar = () => {
                 <img src={cancel} alt="" />
               </div>
               <div className="flex mb-5 justify-between items-center">
-                <Link to="/dashboard">Assessment</Link>
+                <Link to="assessment">Assessment</Link>
                 <img src={cancel} alt="" />
               </div>
               <div className="flex justify-between items-center">

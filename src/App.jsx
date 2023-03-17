@@ -5,9 +5,11 @@ import RootLayout from './pages/Root';
 import ProfilePage from './pages/Profile';
 import Root from './pages/Root';
 
+
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
 const Apply = React.lazy(() => import('./Auth/Apply'));
+const StackTest = React.lazy(() => import('./dashboard/StackTest'));
 
 const router = createBrowserRouter([
   {
@@ -67,6 +69,19 @@ const router = createBrowserRouter([
         element: (
           <React.Suspense fallback={<>...</>}>
             <ProfilePage />
+          </React.Suspense>
+        ),
+        errorElement: (
+          <React.Suspense fallback={<>...</>}>
+            <ErrorPage />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: 'assessment',
+        element: (
+          <React.Suspense fallback={<>...</>}>
+            <StackTest />
           </React.Suspense>
         ),
         errorElement: (
