@@ -68,7 +68,12 @@ const SideBar = () => {
           className="flex gap-4 font-semibold text-tertiary items-center py-2 px-1 mb-4"
         >
           <img src={message} alt="" />
-          <p>Practice</p>
+          <div className="relative w-[35%]">
+            <p>Practice</p>
+            <span className="text-secondary text-[7px] bg-extra-3 absolute -top-[.3rem] right-0 px-2 rounded-custom-tiny">
+              Coming Soon
+            </span>
+          </div>
         </Link>
       </div>
       <Link
