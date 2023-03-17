@@ -29,10 +29,6 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
-/* input[type='checkbox'] {
-  -webkit-appearance: none;
-} */
-
 .otp-input {
   @apply border-b border-black outline-none w-16 text-center pb-5 font-semibold text-[2rem];
 }

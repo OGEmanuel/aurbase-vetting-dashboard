@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 const SideBar = () => {
   return (
-    <nav className="border-r border-primary bg-white pb-20 pt-8 min-h-screen">
+    <nav className="border-r border-primary bg-white pb-20 pt-8 min-h-screen -translate-x-[100vw] xl:translate-x-0">
       <div className="pb-4 mb-8">
         <Link to="/dashboard">
           <img src={logo} alt="" className="pl-2.5 pr-10 pb-3" />
