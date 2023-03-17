@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         'bg-1': 'rgba(255, 255, 255, 0.9)',
         'bg-2': '#FCFBFB',
-        'bg-pattern': "url('/src/assets/bg-pattern.png')",
+        'bg-pattern': "url('/src/assets/images/bg-pattern.png')",
         secondary: '#FFCA14',
         primary: '#E5E5E5',
         tertiary: 'rgba(58, 58, 58, 0.7)',

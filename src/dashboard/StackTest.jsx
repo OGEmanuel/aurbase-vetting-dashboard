@@ -96,7 +96,7 @@ const StackTest = () => {
       {/* Frontend stack */}
       {stacks.map((stack, i) => (
         <div className="relative mb-7 flex flex-col bg-white py-4 md:pt-5 px-[17px] md:pl-[42px] md:pb-[30px] md:pr-[49px]">
-          <div className="absolute left-0 top-0 h-full w-1.5 rounded-r-full bg-black"></div>
+          <div className="absolute left-0 top-0 h-full w-1.5 rounded-r-[50px] bg-black"></div>
           <div className="gap-1.5 flex items-center md:justify-end">
             <img src={important_2} alt="An Svg that signifies important" className="w-4 h-4 md:w-auto md:h-auto" />
             <p className="text-[#EC1C24A6] text-[8px] md:text-xs">Not Taken Yet</p>
