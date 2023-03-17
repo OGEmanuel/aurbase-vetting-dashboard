@@ -11,13 +11,14 @@ import { Link } from 'react-router-dom';
 
 const SideBar = () => {
   return (
-    <nav className="px-4 pt-8 border-r border-primary bg-white min-h-screen pb-20">
-      <div className="pb-4 mb-10 border-b border-bg-1">
+    <nav className="border-r border-primary bg-white pb-20 pt-8 min-h-screen">
+      <div className="pb-4 mb-8">
         <Link to="/dashboard">
-          <img src={logo} alt="" />
+          <img src={logo} alt="" className="pl-2.5 pr-10 pb-3" />
         </Link>
+        <hr className="border border-extra-1" />
       </div>
-      <div className="mb-60">
+      <div className="mb-60 px-2.5">
         <Link
           to="/dashboard"
           className="flex gap-4 font-semibold items-center mb-8 py-2 px-1"
@@ -40,7 +41,7 @@ const SideBar = () => {
             <img src={track} alt="" />
             <p>Progress</p>
           </Link>
-          <div className="mx-2 font-semibold flex items-start gap-6">
+          <div className="mx-2 font-semibold flex items-start gap-4">
             <img src={ellipses} alt="" />
             <div className="text-extra">
               <div className="flex mb-5 -mt-1 justify-between gap-16 items-center">
@@ -72,7 +73,7 @@ const SideBar = () => {
       </div>
       <Link
         to="/dashboard"
-        className="flex gap-4 font-semibold text-tertiary items-center py-2 px-1"
+        className="flex gap-4 font-semibold text-tertiary items-center py-2 px-3.5"
       >
         <img src={logout} alt="" />
         <p>Logout</p>

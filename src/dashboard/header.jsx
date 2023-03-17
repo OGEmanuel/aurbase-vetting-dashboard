@@ -3,7 +3,7 @@ import notify from '../assets/dummy-notify.svg';
 
 const Header = ({ title = 'My Profile' }) => {
   return (
-    <nav className="flex justify-between items-center p-16">
+    <nav className="flex justify-between items-center px-16 py-[3.8rem]">
       <h1 className="font-bold text-[2.5rem]">{title}</h1>
       <div className="flex items-center gap-5">
         <div className="flex items-center gap-2">
