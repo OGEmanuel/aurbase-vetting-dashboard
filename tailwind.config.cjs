@@ -15,6 +15,7 @@ module.exports = {
         tertiary: 'rgba(58, 58, 58, 0.7)',
         extra: 'rgba(58, 58, 58, 0.3)',
         'extra-1': 'rgba(229, 229, 229, 0.6)',
+        'extra-2': '#00C667',
       },
     },
   },
