@@ -70,7 +70,7 @@ const SideBar = () => {
           <img src={message} alt="" />
           <div className="relative w-[35%]">
             <p>Practice</p>
-            <span className="text-secondary text-[7px] bg-extra-3 absolute -top-[.3rem] right-0 px-2 rounded-custom-tiny">
+            <span className="text-secondary text-[7px] bg-extra-3 absolute -top-[.3rem] right-0 px-2 py-[2px] rounded-custom-tiny">
               Coming Soon
             </span>
           </div>
