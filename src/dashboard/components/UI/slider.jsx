@@ -17,7 +17,7 @@ const Slider = () => {
       />
       <label
         htmlFor="toggle"
-        className={`w-9 h-[1.2rem] ${
+        className={`w-9 h-[1.2rem] cursor-pointer ${
           checked
             ? 'bg-extra-2 before:left-[1.3rem]'
             : 'bg-white before:bg-extra-2'
