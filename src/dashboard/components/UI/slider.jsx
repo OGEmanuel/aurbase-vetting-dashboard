@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Slider = () => {
   const [checked, setChecked] = useState(false);
+  const display = useSelector(state => state.display);
 
   const handleChange = e => {
     setChecked(e.target.checked);
   };
 
   return (
-    <div className="relative">
+    <div className={`relative ${display ? 'overflow-hidden' : ''}`}>
       <input
         type="checkbox"
         id="toggle"
@@ -17,7 +19,7 @@ const Slider = () => {
       />
       <label
         htmlFor="toggle"
-        className={`w-9 h-[1.2rem] cursor-pointer ${
+        className={`w-9 z-[1] h-[1.2rem] cursor-pointer ${
           checked
             ? 'bg-extra-2 before:left-[1.3rem] before:bg-white'
             : 'bg-white before:bg-extra-2'

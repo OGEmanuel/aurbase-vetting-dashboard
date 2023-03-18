@@ -3,12 +3,26 @@ import Slider from './components/UI/slider';
 import logo from '../assets/logo.svg';
 import menu from '../assets/menu.svg';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+// import { useState } from 'react';
 
 const Header = ({ title = 'My Profile' }) => {
+  // const [clicked, setClicked] = useState(false);
+  const dispatch = useDispatch();
+  const display = useSelector(state => state.display);
+
+  const handleClick = () => {
+    dispatch({ type: 'toggle' });
+  };
+
   return (
     <nav className="flex justify-between items-center px-5 xl:px-16 py-[1.9rem] xl:py-[3.8rem]">
-      <div className="flex xl:hidden items-end gap-4 z-20">
-        <button>
+      <div
+        className={`flex xl:hidden items-end gap-4 ${
+          display ? 'z-auto' : 'z-20'
+        }`}
+      >
+        <button onClick={handleClick}>
           <img src={menu} alt="" />
         </button>
         <Link to="/">

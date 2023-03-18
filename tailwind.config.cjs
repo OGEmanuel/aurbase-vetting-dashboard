@@ -174,6 +174,7 @@ module.exports = {
       'extra-1': 'rgba(229, 229, 229, 0.6)',
       'extra-2': '#00C667',
       'extra-3': 'rgba(255, 202, 20, 0.18)',
+      'overlay': 'rgba(0, 0, 0, 0.75)',
     }),
     columns: {
       auto: 'auto',
