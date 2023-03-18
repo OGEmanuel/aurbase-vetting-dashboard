@@ -38,17 +38,25 @@ input[type='number'] {
 }
 
 .p-head {
-  @apply font-semibold text-2xl text-extra-4;
+  @apply font-semibold text-sm md:text-lg xl:text-2xl text-extra-4;
 }
 
 .p-body {
-  @apply text-lg text-center mx-auto;
+  @apply text-xs md:text-base xl:text-lg text-center mx-auto;
+}
+
+.p-small {
+  @apply text-xs hidden md:block;
 }
 
 .span-body {
-  @apply font-bold text-2xl;
+  @apply font-bold text-xs md:text-base xl:text-2xl;
 }
 
 .flex-btn {
   @apply flex flex-col gap-1;
+}
+
+.max-width {
+  @apply mx-auto max-w-[30rem] md:max-w-[60rem] xl:max-w-[90rem];
 }

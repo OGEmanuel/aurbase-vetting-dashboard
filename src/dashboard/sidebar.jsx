@@ -21,7 +21,7 @@ const SideBar = () => {
     <>
       {display && <Overlay />}
       <nav
-        className={`border-r border-primary bg-white pb-20 pt-2 xl:pt-4 min-h-screen transition-[.2s] overflow-y-auto scroll w-max ${
+        className={`border-r border-primary bg-white pb-20 pt-2 xl:pt-4 min-h-screen transition-[.2s] overflow-y-auto scroll xl:z-auto ${
           display
             ? 'translate-x-0 z-[9999] block fixed top-0 bottom-0'
             : '-translate-x-[100vw]'
