@@ -32,3 +32,23 @@ input[type='number'] {
 .otp-input {
   @apply border-b border-black outline-none w-16 text-center pb-5 font-semibold text-[2rem];
 }
+
+.flex-between-center {
+  @apply flex justify-between items-center;
+}
+
+.p-head {
+  @apply font-semibold text-2xl text-extra-4;
+}
+
+.p-body {
+  @apply text-lg text-center mx-auto;
+}
+
+.span-body {
+  @apply font-bold text-2xl;
+}
+
+.flex-btn {
+  @apply flex flex-col gap-1;
+}

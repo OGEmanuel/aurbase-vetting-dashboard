@@ -101,6 +101,7 @@ module.exports = {
       custom: '20px',
       'custom-xs': '4px',
       'custom-tiny': '3px',
+      'custom-sm': '5px',
     },
     borderSpacing: ({ theme }) => ({
       ...theme('spacing'),
@@ -174,7 +175,9 @@ module.exports = {
       'extra-1': 'rgba(229, 229, 229, 0.6)',
       'extra-2': '#00C667',
       'extra-3': 'rgba(255, 202, 20, 0.18)',
-      'overlay': 'rgba(0, 0, 0, 0.75)',
+      overlay: 'rgba(0, 0, 0, 0.75)',
+      'extra-4': '#3A3A3A',
+      'extra-5': 'rgba(0, 0, 0, 0.4)',
     }),
     columns: {
       auto: 'auto',

@@ -16,7 +16,7 @@ const Header = ({ title = 'My Profile' }) => {
   };
 
   return (
-    <nav className="flex justify-between items-center px-5 xl:px-16 py-[1.9rem] xl:py-[3.8rem]">
+    <nav className="flex justify-between items-center py-[1.9rem] xl:pt-[2.9rem] xl:pb-4">
       <div
         className={`flex xl:hidden items-end gap-4 ${
           display ? 'z-auto' : 'z-20'

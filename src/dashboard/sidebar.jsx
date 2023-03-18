@@ -21,13 +21,13 @@ const SideBar = () => {
     <>
       {display && <Overlay />}
       <nav
-        className={`border-r border-primary bg-white pb-20 pt-2 xl:pt-8 min-h-screen transition-[.2s] overflow-y-auto scroll w-max ${
+        className={`border-r border-primary bg-white pb-20 pt-2 xl:pt-4 min-h-screen transition-[.2s] overflow-y-auto scroll w-max ${
           display
             ? 'translate-x-0 z-[9999] block fixed top-0 bottom-0'
             : '-translate-x-[100vw]'
         } xl:translate-x-0`}
       >
-        <div className="pb-4 mb-8">
+        <div className="pb-4 mb-5">
           <Link onClick={handleClick} to="/dashboard">
             <img src={logo} alt="" className="pl-2.5 pr-10 pb-3" />
           </Link>
@@ -37,7 +37,7 @@ const SideBar = () => {
           <Link
             onClick={handleClick}
             to="/dashboard"
-            className="flex gap-4 font-semibold items-center mb-8 py-2 px-1"
+            className="flex gap-4 font-semibold items-center mb-6 py-2 px-1"
           >
             <img src={dashboard} alt="" />
             <p>Dashboard</p>
@@ -45,12 +45,12 @@ const SideBar = () => {
           <Link
             onClick={handleClick}
             to="/profile"
-            className="flex gap-4 mb-8 bg-black text-white font-semibold items-center py-2 px-1 rounded-custom-xs"
+            className="flex gap-4 mb-6 bg-black text-white font-semibold items-center py-2 px-1 rounded-custom-xs"
           >
             <img src={assign} alt="" />
             <p>Profile</p>
           </Link>
-          <div className="mb-8">
+          <div className="mb-6">
             <Link
               onClick={handleClick}
               to="/dashboard"
@@ -59,7 +59,7 @@ const SideBar = () => {
               <img src={track} alt="" />
               <p>Progress</p>
             </Link>
-            <div className="mx-2 font-semibold flex items-start gap-4">
+            <div className="mx-2 font-semibold flex items-start gap-6">
               <img src={ellipses} alt="" />
               <div className="text-extra">
                 <div className="flex mb-5 -mt-1 justify-between gap-16 items-center">
@@ -74,7 +74,7 @@ const SideBar = () => {
                   </Link>
                   <img src={cancel} alt="" />
                 </div>
-                <div className="flex mb-5 justify-between items-center">
+                <div className="flex mb-6 justify-between items-center">
                   <Link onClick={handleClick} to="/dashboard">
                     Assessment
                   </Link>

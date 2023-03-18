@@ -1,3 +1,4 @@
+import Profile from '../dashboard/components/Profile';
 import Header from '../dashboard/header';
 
 const ProfilePage = () => {
@@ -5,6 +6,7 @@ const ProfilePage = () => {
     <>
       {' '}
       <Header />
+      <Profile />
     </>
   );
 };
