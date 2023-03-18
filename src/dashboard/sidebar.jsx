@@ -44,11 +44,11 @@ const SideBar = () => {
             <img src={ellipses} alt="" />
             <div className="text-extra">
               <div className="flex mb-5 -mt-1 justify-between gap-16 items-center">
-                <Link to="/dashboard">Personality Test</Link>
+                <Link to="/progress">Personality Test</Link>
                 <img src={cancel} alt="" />
               </div>
               <div className="flex mb-6 justify-between items-center">
-                <Link to="/dashboard">Language Test</Link>
+                <Link to="/language">Language Test</Link>
                 <img src={cancel} alt="" />
               </div>
               <div className="flex mb-5 justify-between items-center">
