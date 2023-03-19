@@ -1,5 +1,5 @@
 import React from "react";
-import Header from '../dashboard/header'
+import Header from './header'
 import stack from "../assets/stack.png";
 import important from "../assets/important.svg";
 import radioBlack from "../assets/radioBlack.svg";
@@ -45,7 +45,7 @@ const stacks = [
   },
 ];
 
-const StackTest = () => {
+const Assessment = () => {
   return (
     <div className='bg-[#F2F2F2]'>
     <Header/>
@@ -135,4 +135,4 @@ const StackTest = () => {
   );
 };
 
-export default StackTest;
+export default Assessment;

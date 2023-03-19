@@ -9,7 +9,7 @@ import Root from './pages/Root';
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
 const Apply = React.lazy(() => import('./Auth/Apply'));
-const StackTest = React.lazy(() => import('./dashboard/StackTest'));
+const Assessment = React.lazy(() => import('./dashboard/Assessment'));
 
 const router = createBrowserRouter([
   {
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
         path: 'assessment',
         element: (
           <React.Suspense fallback={<>...</>}>
-            <StackTest />
+            <Assessment />
           </React.Suspense>
         ),
         errorElement: (
