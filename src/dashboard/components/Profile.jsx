@@ -84,14 +84,9 @@ const Profile = () => {
                 show ? 'opacity-100' : 'opacity-40'
               } `}
             />
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="7"
-              placeholder="Tell us about yourself in 300 words"
-              className="w-full resize-none outline-none"
-            ></textarea>
+            <p className="text-lg text-tertiary pb-32">
+              Tell us about yourself in 300 words
+            </p>
           </Card>
           <Card>
             <div className="flex-between-center">
@@ -106,7 +101,7 @@ const Profile = () => {
                 show ? 'opacity-100' : 'opacity-40'
               } `}
             />
-            <p className="p-body w-[65%] py-1.5">
+            <p className="p-body w-[65%] py-2">
               click on the <span className="span-body">“+”</span> button to add
               your salary expectation
             </p>
