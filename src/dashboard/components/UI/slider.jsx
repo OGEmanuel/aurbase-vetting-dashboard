@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const Slider = () => {
   const [checked, setChecked] = useState(false);
-  const show = useSelector(state => state.displayNav.display);
+  const displayNav = useSelector(state => state.display.sideNav);
 
   const handleChange = e => {
     setChecked(e.target.checked);
@@ -12,7 +12,7 @@ const Slider = () => {
   return (
     <div
       className={`relative xl:overflow-visible
-    ${show ? 'overflow-hidden' : ''}
+    ${displayNav ? 'overflow-hidden' : ''}
 
     `}
     >

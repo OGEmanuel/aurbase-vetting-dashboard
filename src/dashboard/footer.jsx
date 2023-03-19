@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Footer = () => {
-  const show = useSelector(state => state.displayNav.display);
+  const displayNav = useSelector(state => state.display.sideNav);
 
   return (
     <footer
       className={`text-xs md:text-base xl:text-lg font-semibold xl:opacity-50 text-extra-4 flex flex-col md:flex-row gap-5 md:gap-0 justify-between mt-16 pb-10 md:pb-5 max-width 
-      ${show ? 'opacity-100' : 'opacity-50'}
+      ${displayNav ? 'opacity-100' : 'opacity-50'}
       
       `}
     >

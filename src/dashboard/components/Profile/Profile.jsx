@@ -1,11 +1,16 @@
-import pen from '../../assets/pen.svg';
-import dp from '../../assets/assets/images/user-photo.png';
-import add from '../../assets/add.svg';
+import pen from '../../../assets/pen.svg';
+import dp from '../../../assets/assets/images/user-photo.png';
+import add from '../../../assets/add.svg';
 import Card from './UI/profile-card';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Profile = () => {
-  const show = useSelector(state => state.displayNav.display);
+  const displayNav = useSelector(state => state.display.sideNav);
+  const dispatch = useDispatch();
+
+  const handleClickBio = () => {
+    dispatch(modal());
+  };
 
   return (
     <div className="max-width">
@@ -20,14 +25,14 @@ const Profile = () => {
         <Card>
           <div className="flex-between-center">
             <p className="p-head">BIO DATA</p>
-            <button className="flex-btn">
+            <button className="flex-btn" onClick={handleClickBio}>
               <img src={pen} alt="" className="w-[1rem] md:w-auto" />
               <p className="p-small">Edit</p>
             </button>
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              show ? 'opacity-100' : 'opacity-40'
+              displayNav ? 'opacity-100' : 'opacity-40'
             } `}
           />
           <div className="flex items-center gap-5">
@@ -44,7 +49,7 @@ const Profile = () => {
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              show ? 'opacity-100' : 'opacity-40'
+              displayNav ? 'opacity-100' : 'opacity-40'
             } `}
           />
           <div className="flex flex-col gap-4 text-xs md:text-base xl:text-lg">
@@ -81,10 +86,10 @@ const Profile = () => {
             </div>
             <hr
               className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                show ? 'opacity-100' : 'opacity-40'
+                displayNav ? 'opacity-100' : 'opacity-40'
               } `}
             />
-            <p className="text-lg text-tertiary pb-32">
+            <p className="text-[11px] md:text-lg text-tertiary pb-32">
               Tell us about yourself in 300 words
             </p>
           </Card>
@@ -98,7 +103,7 @@ const Profile = () => {
             </div>
             <hr
               className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                show ? 'opacity-100' : 'opacity-40'
+                displayNav ? 'opacity-100' : 'opacity-40'
               } `}
             />
             <p className="p-body w-[65%] py-2">
@@ -117,10 +122,10 @@ const Profile = () => {
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              show ? 'opacity-100' : 'opacity-40'
+              displayNav ? 'opacity-100' : 'opacity-40'
             } `}
           />
-          <p className="p-body w-[35%] py-12">
+          <p className="p-body w-[70%] md:w-[35%] py-12">
             click on the <span className="span-body">“+”</span> button to add
             your Roles and Stack{' '}
           </p>
@@ -135,7 +140,7 @@ const Profile = () => {
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              show ? 'opacity-100' : 'opacity-40'
+              displayNav ? 'opacity-100' : 'opacity-40'
             } `}
           />
           <p className="p-body w-[70%] py-20">
@@ -153,7 +158,7 @@ const Profile = () => {
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              show ? 'opacity-100' : 'opacity-40'
+              displayNav ? 'opacity-100' : 'opacity-40'
             } `}
           />
           <p className="p-body w-[70%] py-20">

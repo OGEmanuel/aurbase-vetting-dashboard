@@ -9,22 +9,24 @@ import message from '../assets/message.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Overlay from './components/UI/overlay';
+import { nav } from '../redux-store/features/display';
 const SideBar = () => {
   const dispatch = useDispatch();
-  const show = useSelector(state => state.displayNav.display);
+  const displayNav = useSelector(state => state.display.sideNav);
+  console.log(displayNav);
 
   const handleClick = () => {
-    dispatch(display());
+    dispatch(nav());
   };
 
   return (
     <>
-      {show && <Overlay />}
+      {displayNav && <Overlay />}
       <nav
         className={`border-r border-primary bg-white pb-20 pt-2 xl:pt-4 min-h-screen transition-[.2s] overflow-y-auto scroll xl:z-auto  xl:translate-x-0  
         
         ${
-          show
+          displayNav
             ? 'translate-x-0 z-[9999] block fixed top-0 bottom-0'
             : '-translate-x-[100vw]'
         }

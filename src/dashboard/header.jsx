@@ -4,14 +4,14 @@ import logo from '../assets/logo.svg';
 import menu from '../assets/menu.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { display } from '../redux-store/features/displayNav';
+import { nav } from '../redux-store/features/display';
 
 const Header = ({ title = 'My Profile' }) => {
   const dispatch = useDispatch();
-  const show = useSelector(state => state.displayNav.display);
+  const displayNav = useSelector(state => state.display.sideNav);
 
   const handleClick = () => {
-    dispatch(display());
+    dispatch(nav());
   };
 
   return (
@@ -19,7 +19,7 @@ const Header = ({ title = 'My Profile' }) => {
       <div
         className={`flex xl:hidden items-end gap-4
       
-      ${show ? 'z-auto' : 'z-20'}
+      ${displayNav ? 'z-auto' : 'z-20'}
 
       `}
       >
