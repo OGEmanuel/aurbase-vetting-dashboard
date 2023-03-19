@@ -45,7 +45,7 @@ const Login = () => {
       />
       <img src={wavyLeft} alt="" className="z-[5] absolute top-0 left-0" />
       <img src={wavyRight} alt="" className="z-[5] absolute bottom-0 right-0" />
-      {/* <AuthLayout> */}
+      
         <div className="rounded-[10px] z-[10] bg-white w-[700px] px-[115.5px] pt-[67px] pb-[73px] m-auto flex flex-col justify-center">
           <img
             src={logo}
