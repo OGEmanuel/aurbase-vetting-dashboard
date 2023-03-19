@@ -4,7 +4,7 @@ const initialState = {
   sideNav: false,
 };
 
-export const displaySlice = createSlice({
+export const displayNavSlice = createSlice({
   name: 'display',
   initialState,
   reducers: {
@@ -14,6 +14,6 @@ export const displaySlice = createSlice({
   },
 });
 
-export const { nav } = displaySlice.actions;
+export const { nav } = displayNavSlice.actions;
 
-export default displaySlice.reducer;
+export default displayNavSlice.reducer;

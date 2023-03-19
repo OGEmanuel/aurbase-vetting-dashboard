@@ -4,14 +4,19 @@ import logo from '../assets/logo.svg';
 import menu from '../assets/menu.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { nav } from '../redux-store/features/display';
+import { nav } from '../redux-store/features/display-nav';
+import { overlay } from '../redux-store/features/display-modal';
 
 const Header = ({ title = 'My Profile' }) => {
   const dispatch = useDispatch();
   const displayNav = useSelector(state => state.display.sideNav);
+  const displayOverlay = useSelector(state => state.show.modal);
+  // console.log(`displayNav is ${displayNav}`);
+  // console.log(`displayOverlay is ${displayOverlay}`);
 
   const handleClick = () => {
     dispatch(nav());
+    dispatch(overlay());
   };
 
   return (
