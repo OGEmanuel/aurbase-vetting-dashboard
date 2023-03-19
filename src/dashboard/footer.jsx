@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Footer = () => {
-  const display = useSelector(state => state.display);
+  const show = useSelector(state => state.displayNav.display);
 
   return (
     <footer
-      className={`text-xs md:text-base xl:text-lg font-semibold xl:opacity-50 text-extra-4 flex flex-col md:flex-row gap-5 md:gap-0 justify-between mt-16 pb-10 md:pb-5 max-width ${
-        display ? 'opacity-100' : 'opacity-50'
-      }`}
+      className={`text-xs md:text-base xl:text-lg font-semibold xl:opacity-50 text-extra-4 flex flex-col md:flex-row gap-5 md:gap-0 justify-between mt-16 pb-10 md:pb-5 max-width 
+      ${show ? 'opacity-100' : 'opacity-50'}
+      
+      `}
     >
       <p>© 2022 Aurbase Technologies inc</p>
       <ul className="flex flex-col md:flex-row gap-5 md:gap-10">

@@ -11,21 +11,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import Overlay from './components/UI/overlay';
 const SideBar = () => {
   const dispatch = useDispatch();
-  const display = useSelector(state => state.display);
+  const show = useSelector(state => state.displayNav.display);
 
   const handleClick = () => {
-    dispatch({ type: 'toggle' });
+    dispatch(display());
   };
 
   return (
     <>
-      {display && <Overlay />}
+      {show && <Overlay />}
       <nav
-        className={`border-r border-primary bg-white pb-20 pt-2 xl:pt-4 min-h-screen transition-[.2s] overflow-y-auto scroll xl:z-auto ${
-          display
+        className={`border-r border-primary bg-white pb-20 pt-2 xl:pt-4 min-h-screen transition-[.2s] overflow-y-auto scroll xl:z-auto  xl:translate-x-0  
+        
+        ${
+          show
             ? 'translate-x-0 z-[9999] block fixed top-0 bottom-0'
             : '-translate-x-[100vw]'
-        } xl:translate-x-0`}
+        }
+
+        `}
       >
         <div className="pb-4 mb-5">
           <Link onClick={handleClick} to="/dashboard">

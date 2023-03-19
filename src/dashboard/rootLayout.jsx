@@ -3,14 +3,15 @@ import SideBar from './sidebar';
 import { useSelector } from 'react-redux';
 
 const RootLayout = ({ children }) => {
-  const display = useSelector(state => state.display);
+  const show = useSelector(state => state.displayNav.display);
 
   return (
     <div className="xl:grid grid-cols-[20vw,_1fr] min-h-screen">
       <div
-        className={`fixed xl:w-[20vw] overflow-y-scroll overscroll-contain h-full scroll col-[1_/_span_1] xl:z-auto ${
-          display ? '' : '-z-10'
-        }`}
+        className={`fixed xl:w-[20vw] overflow-y-scroll overscroll-contain h-full scroll col-[1_/_span_1] xl:z-auto 
+        ${show ? '' : '-z-10'}
+        
+        `}
       >
         <SideBar />
       </div>

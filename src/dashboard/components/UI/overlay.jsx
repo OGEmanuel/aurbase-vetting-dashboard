@@ -1,10 +1,11 @@
 import { useDispatch } from 'react-redux';
+import { display } from '../../../redux-store/features/displayNav';
 
 const Overlay = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch({ type: 'toggle' });
+    dispatch(display());
   };
 
   return (

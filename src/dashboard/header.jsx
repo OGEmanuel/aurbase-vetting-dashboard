@@ -4,21 +4,24 @@ import logo from '../assets/logo.svg';
 import menu from '../assets/menu.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { display } from '../redux-store/features/displayNav';
 
 const Header = ({ title = 'My Profile' }) => {
   const dispatch = useDispatch();
-  const display = useSelector(state => state.display);
+  const show = useSelector(state => state.displayNav.display);
 
   const handleClick = () => {
-    dispatch({ type: 'toggle' });
+    dispatch(display());
   };
 
   return (
     <nav className="flex justify-between items-center py-[1.9rem] xl:pt-[2.9rem] xl:pb-4 max-width">
       <div
-        className={`flex xl:hidden items-end gap-4 ${
-          display ? 'z-auto' : 'z-20'
-        }`}
+        className={`flex xl:hidden items-end gap-4
+      
+      ${show ? 'z-auto' : 'z-20'}
+
+      `}
       >
         <button onClick={handleClick}>
           <img src={menu} alt="" />

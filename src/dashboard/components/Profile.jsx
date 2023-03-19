@@ -5,7 +5,7 @@ import Card from './UI/profile-card';
 import { useSelector } from 'react-redux';
 
 const Profile = () => {
-  const display = useSelector(state => state.display);
+  const show = useSelector(state => state.displayNav.display);
 
   return (
     <div className="max-width">
@@ -27,7 +27,7 @@ const Profile = () => {
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              display ? 'opacity-100' : 'opacity-40'
+              show ? 'opacity-100' : 'opacity-40'
             } `}
           />
           <div className="flex items-center gap-5">
@@ -44,7 +44,7 @@ const Profile = () => {
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              display ? 'opacity-100' : 'opacity-40'
+              show ? 'opacity-100' : 'opacity-40'
             } `}
           />
           <div className="flex flex-col gap-4 text-xs md:text-base xl:text-lg">
@@ -81,7 +81,7 @@ const Profile = () => {
             </div>
             <hr
               className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                display ? 'opacity-100' : 'opacity-40'
+                show ? 'opacity-100' : 'opacity-40'
               } `}
             />
             <textarea
@@ -103,7 +103,7 @@ const Profile = () => {
             </div>
             <hr
               className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                display ? 'opacity-100' : 'opacity-40'
+                show ? 'opacity-100' : 'opacity-40'
               } `}
             />
             <p className="p-body w-[65%] py-1.5">
@@ -122,7 +122,7 @@ const Profile = () => {
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              display ? 'opacity-100' : 'opacity-40'
+              show ? 'opacity-100' : 'opacity-40'
             } `}
           />
           <p className="p-body w-[35%] py-12">
@@ -140,7 +140,7 @@ const Profile = () => {
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              display ? 'opacity-100' : 'opacity-40'
+              show ? 'opacity-100' : 'opacity-40'
             } `}
           />
           <p className="p-body w-[70%] py-20">
@@ -158,7 +158,7 @@ const Profile = () => {
           </div>
           <hr
             className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-              display ? 'opacity-100' : 'opacity-40'
+              show ? 'opacity-100' : 'opacity-40'
             } `}
           />
           <p className="p-body w-[70%] py-20">
