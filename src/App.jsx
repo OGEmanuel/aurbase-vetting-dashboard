@@ -12,6 +12,7 @@ import Interview from './pages/Interview';
 
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
+const Apply = React.lazy(() => import('./Auth/Apply'));
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,19 @@ const router = createBrowserRouter([
     element: (
       <React.Suspense fallback={<>...</>}>
         <Login />
+      </React.Suspense>
+    ),
+    errorElement: (
+      <React.Suspense fallback={<>...</>}>
+        <ErrorPage />
+      </React.Suspense>
+    ),
+  },
+  {
+    path: 'apply',
+    element: (
+      <React.Suspense fallback={<>...</>}>
+        <Apply />
       </React.Suspense>
     ),
     errorElement: (

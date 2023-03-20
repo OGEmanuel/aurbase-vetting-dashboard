@@ -8,6 +8,16 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* To prevent arrows from showing - number input */
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
@@ -21,4 +31,32 @@ input[type='number'] {
 
 .otp-input {
   @apply border-b border-black outline-none w-16 text-center pb-5 font-semibold text-[2rem];
+}
+
+.flex-between-center {
+  @apply flex justify-between items-center;
+}
+
+.p-head {
+  @apply font-semibold text-sm md:text-lg xl:text-2xl text-extra-4;
+}
+
+.p-body {
+  @apply text-xs md:text-base xl:text-lg text-center mx-auto;
+}
+
+.p-small {
+  @apply text-xs hidden md:block;
+}
+
+.span-body {
+  @apply font-bold text-xs md:text-base xl:text-2xl;
+}
+
+.flex-btn {
+  @apply flex flex-col gap-1;
+}
+
+.max-width {
+  @apply mx-auto max-w-[30rem] md:max-w-[60rem] xl:max-w-[90rem];
 }
