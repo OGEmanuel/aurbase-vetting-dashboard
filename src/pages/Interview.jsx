@@ -1,12 +1,12 @@
 import React from 'react'
-import Header from '../components/Header'
+import Header from '../dashboard/header'
 import User from '../assets/images/user.png'
 import BCheck from '../assets/blackcheck.png'
 import GCheck from '../assets/greencheck.png'
 
 const Interview = () => {
   return (
-    <div className='px-8'>
+    <div>
         <Header title='Progress'/>
         <p>Schedule a Live Interview</p>
         <section className='bg-white p-8 px-10 flex justify-between '>

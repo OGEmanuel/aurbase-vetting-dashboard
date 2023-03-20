@@ -3,13 +3,16 @@ import Circle from '../Circle'
 import next from '../../assets/next.png'
 const Personality3 = ({onClick}) => {
   return (
-    <section className='bg-white p-8 px-20'>
+    <section className='bg-white p-4 py-8  md:p-8 md:px-20'>
       
-            <section className='flex  justify-between'>
-            <div className='font-semibold'>
-            <h1 className='font-bold text-[36px]'>Question 1</h1>
-           <p className='text-[32px]'>What do you consider your greatest accomplishment?</p>
-           <span className='flex items-center gap-2 mt-2'>
+            <section className='flex   md:justify-between'>
+            <div className='font-semibold relative'>
+            <div className='absolute w-1/3 -top-5 -right-[2rem] md:hidden'>
+            <Circle/>
+           </div>
+            <h1 className='font-bold text-[20px] md:text-[36px]'>Question 1</h1>
+           <p className='text-[18px] md:text-[32px] border  w-[210px] md:w-full '>What do you consider your greatest accomplishment?</p>
+           <span className='flex items-center gap-2 mt-2  '>
            <input type="radio" name='one' />
           <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
            </span>
@@ -29,7 +32,7 @@ const Personality3 = ({onClick}) => {
          
          
            </div>
-           <div>
+           <div className='hidden md:flex justify-end'>
             <Circle/>
            </div>
             </section>

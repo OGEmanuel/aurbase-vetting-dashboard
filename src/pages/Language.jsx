@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Language1,Language2,Language3} from '../components/Language'
-import Header from '../components/Header'
+import Header from '../dashboard/header'
 const Language = () => {
   const [state,setState]=useState(1)
 
@@ -8,7 +8,7 @@ const Language = () => {
      setState(state+1)
   }
   return (
-    <div className="px-14 ">
+    <div>
     <Header title='Progress'/>
     {state===1 && <Language1 onClick={handleClick}/>}
     {state===2 && <Language2 onClick={handleClick}/>}

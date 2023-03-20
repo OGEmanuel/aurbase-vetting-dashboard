@@ -37,26 +37,6 @@ const SideBar = () => {
           <Link onClick={handleClick} to="/dashboard">
             <img src={logo} alt="" className="pl-2.5 pr-10 pb-3" />
           </Link>
-<<<<<<< HEAD
-          <div className="mx-2 font-semibold flex items-start gap-6">
-            <img src={ellipses} alt="" />
-            <div className="text-extra">
-              <div className="flex mb-5 -mt-1 justify-between gap-16 items-center">
-                <Link to="/progress">Personality Test</Link>
-                <img src={cancel} alt="" />
-              </div>
-              <div className="flex mb-6 justify-between items-center">
-                <Link to="/language">Language Test</Link>
-                <img src={cancel} alt="" />
-              </div>
-              <div className="flex mb-5 justify-between items-center">
-                <Link to="/dashboard">Assessment</Link>
-                <img src={cancel} alt="" />
-              </div>
-              <div className="flex justify-between items-center">
-                <Link to="/dashboard">Live Interview</Link>
-                <img src={cancel} alt="" />
-=======
           <hr className="border border-extra-1" />
         </div>
         <div className="mb-60 px-2.5">
@@ -112,7 +92,6 @@ const SideBar = () => {
                   </Link>
                   <img src={cancel} alt="" />
                 </div>
->>>>>>> 3ae8830d85af4e1be65dd88cef498ec0bfd8a4ea
               </div>
             </div>
           </div>

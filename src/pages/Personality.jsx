@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import Header from '../components/Header'
+import Header from '../dashboard/header'
 import { Personality1,Personality2,Personality3,Personality4 } from '../components/Personality'
 const Personality = () => {
   const [state,setState]=useState(1)
@@ -8,7 +8,7 @@ const Personality = () => {
     console.log(state)
   }
   return (
-    <div className='px-14'>
+    <div>
     <Header title='Progress'/>
     <section className='mt-5'>
        {state===1 && <Personality1 onClick={handleClick}/>} 
