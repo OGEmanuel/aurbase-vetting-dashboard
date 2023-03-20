@@ -25,6 +25,12 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.select,
+.selector {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
 }
@@ -59,4 +65,56 @@ input[type='number'] {
 
 .max-width {
   @apply mx-auto max-w-[30rem] md:max-w-[60rem] xl:max-w-[90rem];
+}
+
+.tel-box {
+  @apply flex mb-4 relative;
+}
+
+.select-box {
+  @apply mt-4 w-[3.75rem] h-10;
+}
+
+.flag-img {
+  @apply w-[29.09px] h-5 absolute rounded-custom-sm z-50 mx-auto top-[50%] left-[60%] translate-x-[-50%] translate-y-[-50%] opacity-80;
+}
+
+.select-box {
+  @apply relative;
+}
+
+.select {
+  @apply w-[3.75rem] h-10 bg-none absolute z-auto outline-none border-2 border-black pl-16;
+}
+
+.tel {
+  @apply w-full h-10 bg-none border-2 border-black outline-none mt-4 mx-7;
+}
+
+.arrow {
+  @apply absolute z-50 top-[50%] right-[-45%] translate-x-[-50%] translate-y-[-50%] pointer-events-none;
+}
+
+.label {
+  @apply font-semibold text-lg;
+}
+
+.label-p {
+  @apply text-lg mb-1.5;
+}
+
+.input-general {
+  @apply outline-none border border-extra-6 rounded-custom-lg bg-bg-3 w-[21.875rem] px-5;
+}
+
+.input {
+  @apply input-general py-[0.9375rem] placeholder:opacity-50;
+}
+
+.selector {
+  @apply input-general py-[1.094rem];
+}
+
+.selector-arrow {
+  @apply absolute right-5 top-[65%] pointer-events-none;
 }

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import Overlay from '../UI/overlay';
 import { overlayMain } from '../../../redux-store/features/open-overlay-body';
-import Biodata from './modals/bio-data';
+import Biodata from './modals/bio-data/bio-data';
 
 const Profile = () => {
   const [modal, setModal] = useState(false);
