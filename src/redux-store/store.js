@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import display from './features/display';
-// import { nav } from './features/display';
-import displayReducer from './features/display';
+import displayOverlayReducer from './features/display-modal';
+import displayNavReducer from './features/display-nav';
+import openMainOverlayReducer from './features/open-overlay-body';
 
 export const store = configureStore({
   reducer: {
-    display: displayReducer,
+    display: displayNavReducer,
+    show: displayOverlayReducer,
+    mainOverlay: openMainOverlayReducer,
   },
 });

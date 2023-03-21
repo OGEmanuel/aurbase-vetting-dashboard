@@ -1,11 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { nav } from '../../../redux-store/features/display';
+import { overlay } from '../../../redux-store/features/display-modal';
+import { nav } from '../../../redux-store/features/display-nav';
 
 const Overlay = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
     dispatch(nav());
+    dispatch(overlay());
   };
 
   return (
