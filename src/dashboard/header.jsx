@@ -10,9 +10,6 @@ import { overlay } from '../redux-store/features/display-modal';
 const Header = ({ title = 'My Profile' }) => {
   const dispatch = useDispatch();
   const displayNav = useSelector(state => state.display.sideNav);
-  const displayOverlay = useSelector(state => state.show.modal);
-  // console.log(`displayNav is ${displayNav}`);
-  // console.log(`displayOverlay is ${displayOverlay}`);
 
   const handleClick = () => {
     dispatch(nav());

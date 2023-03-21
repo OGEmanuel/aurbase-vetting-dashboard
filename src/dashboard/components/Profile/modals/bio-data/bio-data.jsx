@@ -46,7 +46,7 @@ const Education = ({ setModal, modal }) => {
       <form
         onSubmit={submitHandler}
         action=""
-        className="grid grid-rows-[repeat(5,_minmax(0,_max-content))] xl:grid-cols-[repeat(2,_minmax(0,_max-content))] w-full xl:w-max gap-6 md:gap-10 justify-items-end"
+        className="grid grid-rows-[repeat(5,_minmax(0,_max-content))] xl:grid-cols-[repeat(2,_minmax(0,_max-content))] w-full xl:w-max gap-6 md:gap-10 xl:justify-items-end"
       >
         <label htmlFor="" className="label">
           <p className="label-p">FIRST NAME</p>

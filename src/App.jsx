@@ -87,11 +87,6 @@ const router = createBrowserRouter([
             <Dashboard />
           </React.Suspense>
         ),
-        errorElement: (
-          <React.Suspense fallback={<>...</>}>
-            <ErrorPage />
-          </React.Suspense>
-        ),
       },
     ],
   },
@@ -115,11 +110,6 @@ const router = createBrowserRouter([
             <ProfilePage />
           </React.Suspense>
         ),
-        errorElement: (
-          <React.Suspense fallback={<>...</>}>
-            <ErrorPage />
-          </React.Suspense>
-        ),
       },
     ],
   },
@@ -137,76 +127,88 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '',
+        index: true,
+        path: 'personality',
         element: (
           <React.Suspense fallback={<>...</>}>
             <Personality />
           </React.Suspense>
         ),
-        errorElement: (
-          <React.Suspense fallback={<>...</>}>
-            <ErrorPage />
-          </React.Suspense>
-        ),
       },
-    ],
-  },
-  {
-    path: 'language',
-    element: (
-      <React.Suspense fallback={<>...</>}>
-        <Root />
-      </React.Suspense>
-    ),
-    errorElement: (
-      <React.Suspense fallback={<>...</>}>
-        <ErrorPage />
-      </React.Suspense>
-    ),
-    children: [
       {
-        path: '',
+        path: 'language',
         element: (
           <React.Suspense fallback={<>...</>}>
             <Language />
           </React.Suspense>
         ),
-        errorElement: (
-          <React.Suspense fallback={<>...</>}>
-            <ErrorPage />
-          </React.Suspense>
-        ),
       },
-    ],
-  },
-  {
-    path: 'interview',
-    element: (
-      <React.Suspense fallback={<>...</>}>
-        <Root />
-      </React.Suspense>
-    ),
-    errorElement: (
-      <React.Suspense fallback={<>...</>}>
-        <ErrorPage />
-      </React.Suspense>
-    ),
-    children: [
       {
-        path: '',
+        path: 'interview',
         element: (
           <React.Suspense fallback={<>...</>}>
             <Interview />
           </React.Suspense>
         ),
-        errorElement: (
-          <React.Suspense fallback={<>...</>}>
-            <ErrorPage />
-          </React.Suspense>
-        ),
       },
     ],
   },
+  // {
+  //   path: 'language',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Root />
+  //     </React.Suspense>
+  //   ),
+  //   errorElement: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ErrorPage />
+  //     </React.Suspense>
+  //   ),
+  //   children: [
+  //     {
+  //       path: '',
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <Language />
+  //         </React.Suspense>
+  //       ),
+  //       errorElement: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <ErrorPage />
+  //         </React.Suspense>
+  //       ),
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: 'interview',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Root />
+  //     </React.Suspense>
+  //   ),
+  //   errorElement: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ErrorPage />
+  //     </React.Suspense>
+  //   ),
+  //   children: [
+  //     {
+  //       path: '',
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <Interview />
+  //         </React.Suspense>
+  //       ),
+  //       errorElement: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <ErrorPage />
+  //         </React.Suspense>
+  //       ),
+  //     },
+  //   ],
+  // },
   // {
   //   path: 'dashboard',
   //   element: (

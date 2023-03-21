@@ -172,6 +172,7 @@ module.exports = {
       'bg-2': '#FCFBFB',
       'bg-3': 'rgba(255, 255, 255, 0.7)',
       'bg-4': '#D9D9D9',
+      'bg-5': 'rgba(18, 18, 18, 0.2)',
       secondary: '#FFCA14',
       primary: '#E5E5E5',
       tertiary: 'rgba(58, 58, 58, 0.7)',
