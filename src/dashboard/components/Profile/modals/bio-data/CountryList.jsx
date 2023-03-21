@@ -1,6 +1,11 @@
 const CountryList = () => {
   return (
-    <select id="country" name="country" className="selector relative">
+    <select
+      id="country"
+      name="country"
+      className="selector relative"
+      defaultValue="United States"
+    >
       <option value="Afghanistan">Afghanistan</option>
       <option value="Åland Islands">Åland Islands</option>
       <option value="Albania">Albania</option>
@@ -263,9 +268,7 @@ const CountryList = () => {
       <option value="Ukraine">Ukraine</option>
       <option value="United Arab Emirates">United Arab Emirates</option>
       <option value="United Kingdom">United Kingdom</option>
-      <option value="United States" selected>
-        United States
-      </option>
+      <option value="United States">United States</option>
       <option value="United States Minor Outlying Islands">
         United States Minor Outlying Islands
       </option>

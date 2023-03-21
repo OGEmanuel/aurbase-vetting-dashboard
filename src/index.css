@@ -68,15 +68,15 @@ input[type='number'] {
 }
 
 .tel-box {
-  @apply flex mb-4 relative;
+  @apply flex relative;
 }
 
 .select-box {
-  @apply mt-4 w-[3.75rem] h-10;
+  @apply w-[3.75rem] h-10;
 }
 
 .flag-img {
-  @apply w-[29.09px] h-5 absolute rounded-custom-sm z-50 mx-auto top-[50%] left-[60%] translate-x-[-50%] translate-y-[-50%] opacity-80;
+  @apply w-[29.09px] h-5 absolute rounded-custom-sm z-50 mx-auto top-[70%] md:top-[80%] left-[50%] md:left-[60%] xl:left-[70%] translate-x-[-50%] translate-y-[-50%] opacity-80;
 }
 
 .select-box {
@@ -84,37 +84,37 @@ input[type='number'] {
 }
 
 .select {
-  @apply w-[3.75rem] h-10 bg-none absolute z-auto outline-none border-2 border-black pl-16;
+  @apply w-[12%] md:w-[4.6875rem] py-[0.9375rem] bg-bg-4 absolute z-auto outline-none pl-16 md:pl-20 border border-extra-6 rounded-l-custom-lg rounded-r-none;
 }
 
 .tel {
-  @apply w-full h-10 bg-none border-2 border-black outline-none mt-4 mx-7;
+  @apply w-full py-[0.9375rem] bg-none border-black outline-none px-7 md:px-9 xl:px-[2.2rem] border border-extra-6 rounded-custom-lg bg-bg-3;
 }
 
 .arrow {
-  @apply absolute z-50 top-[50%] right-[-45%] translate-x-[-50%] translate-y-[-50%] pointer-events-none;
+  @apply absolute z-50 top-[70%] md:top-[80%] right-[-20%] md:right-[-40%] xl:right-[-50%] translate-x-[-50%] translate-y-[-50%] pointer-events-none;
 }
 
 .label {
-  @apply font-semibold text-lg;
+  @apply font-semibold text-xs md:text-lg;
 }
 
 .label-p {
-  @apply text-lg mb-1.5;
+  @apply mb-1.5;
 }
 
 .input-general {
-  @apply outline-none border border-extra-6 rounded-custom-lg bg-bg-3 w-[21.875rem] px-5;
+  @apply outline-none border py-[0.9375rem] border-extra-6 rounded-custom-lg bg-bg-3 w-full xl:w-[21.875rem] px-5;
 }
 
 .input {
-  @apply input-general py-[0.9375rem] placeholder:opacity-50;
+  @apply input-general placeholder:opacity-50;
 }
 
 .selector {
-  @apply input-general py-[1.094rem];
+  @apply input-general;
 }
 
 .selector-arrow {
-  @apply absolute right-5 top-[65%] pointer-events-none;
+  @apply absolute right-5 top-[60%] md:top-[65%] pointer-events-none;
 }

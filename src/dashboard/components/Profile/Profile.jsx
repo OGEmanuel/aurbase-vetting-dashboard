@@ -20,7 +20,7 @@ const Profile = () => {
 
   return (
     <>
-      {modal && <Biodata />}
+      {modal && <Biodata setModal={setModal} modal={modal} />}
       <div className="max-width">
         <div className="mb-4">
           <p className="text-2xl hidden xl:block">Let’s get to know you</p>

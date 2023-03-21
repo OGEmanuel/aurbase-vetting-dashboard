@@ -54,7 +54,7 @@ module.exports = {
       'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
       'gradient-to-tl':
         'linear-gradient(to top left, var(--tw-gradient-stops))',
-        'dp':'url(/src/assets/images/dash-pattern.png)',
+      dp: 'url(/src/assets/images/dash-pattern.png)',
     },
     backgroundOpacity: ({ theme }) => theme('opacity'),
     backgroundPosition: {
@@ -171,6 +171,7 @@ module.exports = {
       'bg-1': 'rgba(255, 255, 255, 0.9)',
       'bg-2': '#FCFBFB',
       'bg-3': 'rgba(255, 255, 255, 0.7)',
+      'bg-4': '#D9D9D9',
       secondary: '#FFCA14',
       primary: '#E5E5E5',
       tertiary: 'rgba(58, 58, 58, 0.7)',
