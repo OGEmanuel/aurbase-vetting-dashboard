@@ -26,10 +26,10 @@ const Header = ({ title = 'My Profile' }) => {
       `}
       >
         <button onClick={handleClick}>
-          <img src={menu} alt="" />
+          <img src={menu}  />
         </button>
         <Link to="/">
-          <img src={logo} alt="" className="w-[7rem]" />
+          <img src={logo}  className="w-[7rem]" />
         </Link>
       </div>
       <h1 className="font-bold text-[2.5rem] hidden xl:block">{title}</h1>
@@ -40,7 +40,7 @@ const Header = ({ title = 'My Profile' }) => {
           </p>
           <Slider />
         </div>
-        <img src={notify} alt="" />
+        <img src={notify}  />
       </div>
     </nav>
   );
