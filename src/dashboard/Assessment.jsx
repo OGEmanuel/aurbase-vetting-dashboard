@@ -47,9 +47,9 @@ const stacks = [
 
 const Assessment = () => {
   return (
-    <div className='bg-[#F2F2F2]'>
+    <div >
     <Header/>
-    <section className="bg-[#F2F2F2] h-full  px-7 md:px-16">
+    <section className=" h-full ">
       {/* Hero section */}
       <div className="mb-7 md:mb-10 md:pt-1.5 md:pb-0 px-7 py-9 md:pr-5 md:pl-[52px] flex flex-col-reverse md:flex-row md:justify-between w-full h-max items-center bg-bg-pattern bg-[#121212] text-white md:rounded-[10px]">
         {/*hero left */}
