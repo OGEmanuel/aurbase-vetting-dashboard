@@ -1,6 +1,6 @@
 import Card from '../../UI/modal-cards';
 import close from '../../../../../assets/close.svg';
-import user from '../../../../../assets/assets/images/user-plain.png';
+import user from '../../../../../assets/images/user-plain.png';
 import SelectCountryCode from './country-code';
 import CountryList from './CountryList';
 import arrow from '../../../../../assets/arrow-down.svg';

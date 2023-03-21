@@ -10,9 +10,11 @@ import Personality from './pages/Personality';
 import Language from './pages/Language';
 import Interview from './pages/Interview';
 
+
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
 const Apply = React.lazy(() => import('./Auth/Apply'));
+const Assessment = React.lazy(() => import('./dashboard/Assessment'));
 
 const router = createBrowserRouter([
   {
@@ -148,6 +150,19 @@ const router = createBrowserRouter([
         element: (
           <React.Suspense fallback={<>...</>}>
             <Interview />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: 'assessment',
+        element: (
+          <React.Suspense fallback={<>...</>}>
+            <Assessment />
+          </React.Suspense>
+        ),
+        errorElement: (
+          <React.Suspense fallback={<>...</>}>
+            <ErrorPage />
           </React.Suspense>
         ),
       },

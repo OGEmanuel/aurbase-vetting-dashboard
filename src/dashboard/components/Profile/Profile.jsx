@@ -1,5 +1,5 @@
 import pen from '../../../assets/pen.svg';
-import dp from '../../../assets/assets/images/user-photo.png';
+import dp from '../../../assets/images/user-photo.png';
 import add from '../../../assets/add.svg';
 import Card from './UI/profile-card';
 import { useDispatch, useSelector } from 'react-redux';
