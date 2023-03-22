@@ -8,11 +8,15 @@ import { overlayMain } from '../../../redux-store/features/open-overlay-body';
 import Biodata from './modals/bio-data/bio-data';
 import Experience from './modals/Experience';
 import Education from './modals/Education';
+import About from './modals/About';
+import Salary from './modals/Salary';
 
 const Profile = () => {
   const [biodataModal, setBiodataModal] = useState(false);
   const [experienceModal, setExperienceModal] = useState(false);
   const [educationModal, setEducationModal] = useState(false);
+  const [aboutModal, setAboutModal] = useState(false);
+  const [salaryModal, setSalaryModal] = useState(false);
   const displayOverlay = useSelector(state => state.show.modal);
   const dispatch = useDispatch();
 
@@ -31,6 +35,16 @@ const Profile = () => {
     setEducationModal(!educationModal);
   };
 
+  const aboutHandler = () => {
+    dispatch(overlayMain());
+    setAboutModal(!aboutModal);
+  };
+
+  const salaryHandler = () => {
+    dispatch(overlayMain());
+    setSalaryModal(!salaryModal);
+  };
+
   return (
     <>
       {biodataModal && (
@@ -42,6 +56,8 @@ const Profile = () => {
       {educationModal && (
         <Education setModal={setEducationModal} modal={educationModal} />
       )}
+      {aboutModal && <About setModal={setAboutModal} modal={aboutModal} />}
+      {salaryModal && <Salary setModal={setSalaryModal} modal={salaryModal} />}
       <div id="profile" className="max-width">
         <div className="mb-4">
           <p className="text-2xl hidden xl:block">Let’s get to know you</p>
@@ -108,7 +124,7 @@ const Profile = () => {
             <Card>
               <div className="flex-between-center">
                 <p className="p-head">ABOUT/CAREER OBJECTIVE</p>
-                <button className="flex-btn">
+                <button className="flex-btn" onClick={aboutHandler}>
                   <img src={pen} alt="" className="w-[1rem] md:w-auto" />
                   <p className="p-small">Edit</p>
                 </button>
@@ -125,7 +141,7 @@ const Profile = () => {
             <Card>
               <div className="flex-between-center">
                 <p className="p-head">SALARY EXPECTATION</p>
-                <button className="flex-btn">
+                <button className="flex-btn" onClick={salaryHandler}>
                   <img src={add} alt="" className="w-[1rem] md:w-auto" />
                   <p className="p-small">Edit</p>
                 </button>

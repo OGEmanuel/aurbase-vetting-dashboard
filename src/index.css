@@ -26,7 +26,8 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .select,
-.selector {
+.selector,
+.sel {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -84,11 +85,11 @@ input[type='number'] {
 }
 
 .select {
-  @apply w-[12%] md:w-[4.6875rem] py-[0.9375rem] bg-bg-4 absolute z-auto outline-none pl-16 md:pl-20 border border-extra-6 focus:border-extra-8 rounded-l-custom-lg rounded-r-none;
+  @apply w-[12%] md:w-[4.6875rem] py-[0.9375rem] bg-bg-4 absolute z-auto outline-none pl-16 md:pl-20 border border-extra-6 focus:border-extra-8 rounded-l-custom-sm rounded-r-none;
 }
 
 .tel {
-  @apply w-full py-[0.9375rem] bg-none border-black focus:border-extra-8 outline-none px-7 md:px-9 xl:px-[2.2rem] border border-extra-6 rounded-custom-lg bg-bg-3;
+  @apply w-full py-[0.9375rem] bg-none border-black focus:border-extra-8 outline-none px-7 md:px-9 xl:px-[2.2rem] border border-extra-6 rounded-custom-sm bg-bg-3;
 }
 
 .arrow {
@@ -104,7 +105,7 @@ input[type='number'] {
 }
 
 .input-general {
-  @apply outline-none py-[0.9375rem] border border-extra-6 focus:border-extra-8 rounded-custom-lg bg-bg-3 w-full xl:w-[21.875rem] px-5;
+  @apply outline-none py-[0.9375rem] border border-extra-6 focus:border-extra-8 rounded-custom-sm bg-bg-3 w-full xl:w-[21.875rem] px-5;
 }
 
 .input {

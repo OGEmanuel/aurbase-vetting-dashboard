@@ -25,7 +25,7 @@ const Education = ({ setModal, modal }) => {
   };
 
   return (
-    <Card>
+    <Card className="h-[30rem]">
       <Header onClick={closeHandler} title="Education" />
       <form
         onSubmit={submitHandler}
@@ -37,7 +37,7 @@ const Education = ({ setModal, modal }) => {
           <input
             type="text"
             placeholder="Havard"
-            className="outline-none py-[0.9375rem] placeholder:opacity-50 border border-extra-6 focus:border-extra-8 rounded-custom-lg bg-bg-3 w-full px-5"
+            className="outline-none py-[0.9375rem] placeholder:opacity-50 border border-extra-6 focus:border-extra-8 rounded-custom-sm bg-bg-3 w-full px-5"
           />
         </label>
         <label htmlFor="" className="label relative">

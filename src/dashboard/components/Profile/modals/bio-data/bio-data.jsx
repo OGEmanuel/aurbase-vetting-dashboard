@@ -28,7 +28,7 @@ const Education = ({ setModal, modal }) => {
   };
 
   return (
-    <Card>
+    <Card className="h-[30rem]">
       <Header onClick={closeHandler} title="Bio data" />
       <div className="font-semibold mb-7">
         <p className="text-xs md:text-2xl mb-5">Profile Picture(Compulsory)</p>
