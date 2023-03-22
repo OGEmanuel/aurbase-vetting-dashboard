@@ -4,24 +4,45 @@ import add from '../../../assets/add.svg';
 import Card from './UI/profile-card';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import Overlay from '../UI/overlay';
 import { overlayMain } from '../../../redux-store/features/open-overlay-body';
 import Biodata from './modals/bio-data/bio-data';
+import Experience from './modals/Experience';
+import Education from './modals/Education';
 
 const Profile = () => {
-  const [modal, setModal] = useState(false);
+  const [biodataModal, setBiodataModal] = useState(false);
+  const [experienceModal, setExperienceModal] = useState(false);
+  const [educationModal, setEducationModal] = useState(false);
   const displayOverlay = useSelector(state => state.show.modal);
   const dispatch = useDispatch();
 
-  const handleClickBio = () => {
+  const bioHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    setBiodataModal(!biodataModal);
+  };
+
+  const experienceHandler = () => {
+    dispatch(overlayMain());
+    setExperienceModal(!experienceModal);
+  };
+
+  const educationHandler = () => {
+    dispatch(overlayMain());
+    setEducationModal(!educationModal);
   };
 
   return (
     <>
-      {modal && <Biodata setModal={setModal} modal={modal} />}
-      <div className="max-width">
+      {biodataModal && (
+        <Biodata setModal={setBiodataModal} modal={biodataModal} />
+      )}
+      {experienceModal && (
+        <Experience setModal={setExperienceModal} modal={experienceModal} />
+      )}
+      {educationModal && (
+        <Education setModal={setEducationModal} modal={educationModal} />
+      )}
+      <div id="profile" className="max-width">
         <div className="mb-4">
           <p className="text-2xl hidden xl:block">Let’s get to know you</p>
           <div className="xl:hidden">
@@ -33,7 +54,7 @@ const Profile = () => {
           <Card>
             <div className="flex-between-center">
               <p className="p-head">BIO DATA</p>
-              <button className="flex-btn" onClick={handleClickBio}>
+              <button className="flex-btn" onClick={bioHandler}>
                 <img src={pen} alt="" className="w-[1rem] md:w-auto" />
                 <p className="p-small">Edit</p>
               </button>
@@ -141,7 +162,7 @@ const Profile = () => {
           <Card className="row-[3_/_span_1]">
             <div className="flex-between-center">
               <p className="p-head">EXPERIENCE</p>
-              <button className="flex-btn">
+              <button className="flex-btn" onClick={experienceHandler}>
                 <img src={add} alt="" className="w-[1rem] md:w-auto" />
                 <p className="p-small">Edit</p>
               </button>
@@ -159,7 +180,7 @@ const Profile = () => {
           <Card>
             <div className="flex-between-center">
               <p className="p-head">EDUCATION</p>
-              <button className="flex-btn">
+              <button onClick={educationHandler} className="flex-btn">
                 <img src={add} alt="" className="w-[1rem] md:w-auto" />
                 <p className="p-small">Edit</p>
               </button>

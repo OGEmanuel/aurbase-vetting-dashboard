@@ -47,12 +47,11 @@ const SideBar = () => {
             <Link onClick={handleClick} to="/dashboard">
               <img
                 src={logo}
-                
                 className="pl-2.5 pr-10 pb-3 w-[10rem] xl:w-auto"
               />
             </Link>
-            <button onClick={handleClick}>
-              <img src={close}  />
+            <button onClick={handleClick} className="xl:hidden">
+              <img src={close} />
             </button>
           </div>
           <hr className="border border-extra-1" />
@@ -75,7 +74,6 @@ const SideBar = () => {
               <div className={isActive ? 'current-page' : 'link'}>
                 <img
                   src={isActive ? assign : assignInactive}
-                  
                   className="w-[1.5rem]"
                 />
                 <p>Profile</p>
@@ -94,7 +92,6 @@ const SideBar = () => {
                 >
                   <img
                     src={isActive ? trackActive : track}
-                  
                     className="w-[1.5rem]"
                   />
                   <p>Progress</p>
@@ -102,12 +99,8 @@ const SideBar = () => {
               )}
             </NavLink>
             <div className="font-semibold items-start relative">
-              <img
-                src={ellipses}
-              
-                className="absolute top-[8%] left-[5%]"
-              />
-              <div >
+              <img src={ellipses} className="absolute top-[8%] left-[5%]" />
+              <div>
                 <NavLink onClick={handleClick} to="/progress/personality">
                   {({ isActive }) => (
                     <div
@@ -132,7 +125,7 @@ const SideBar = () => {
                       <p className={isActive ? '' : 'text-extra'}>
                         Language Test
                       </p>
-                      <img src={cancel}  />
+                      <img src={cancel} />
                     </div>
                   )}
                 </NavLink>
@@ -146,7 +139,7 @@ const SideBar = () => {
                       <p className={isActive ? 'mt-1' : 'text-extra mt-1'}>
                         Assessment
                       </p>
-                      <img src={cancel}  />
+                      <img src={cancel} />
                     </div>
                   )}
                 </NavLink>
@@ -161,7 +154,7 @@ const SideBar = () => {
                         {' '}
                         Live Interview
                       </p>
-                      <img src={cancel}  />
+                      <img src={cancel} />
                     </div>
                   )}
                 </NavLink>
@@ -179,7 +172,7 @@ const SideBar = () => {
             to="/dashboard"
             className="flex gap-4 font-semibold text-tertiary items-center py-2 px-1 mb-4"
           >
-            <img src={message}  />
+            <img src={message} />
             <div className="relative w-[35%]">
               <p>Practice</p>
               <span className="text-secondary text-[7px] bg-extra-3 absolute -top-[.3rem] right-0 px-2 py-[2px] rounded-custom-tiny">
@@ -193,7 +186,7 @@ const SideBar = () => {
           to="/"
           className="flex gap-4 font-semibold text-tertiary items-center py-2 px-3.5"
         >
-          <img src={logout}  />
+          <img src={logout} />
           <p>Logout</p>
         </Link>
       </nav>

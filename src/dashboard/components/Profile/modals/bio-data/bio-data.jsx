@@ -1,11 +1,12 @@
 import Card from '../../UI/modal-cards';
-import close from '../../../../../assets/close.svg';
 import user from '../../../../../assets/images/user-plain.png';
 import SelectCountryCode from './country-code';
 import CountryList from './CountryList';
 import arrow from '../../../../../assets/arrow-down.svg';
 import { useDispatch } from 'react-redux';
 import { overlayMain } from '../../../../../redux-store/features/open-overlay-body';
+import Button from '../../UI/Button';
+import Header from '../../UI/ModalHeader';
 
 const Education = ({ setModal, modal }) => {
   const dispatch = useDispatch();
@@ -27,13 +28,8 @@ const Education = ({ setModal, modal }) => {
   };
 
   return (
-    <Card className="z-[9000] fixed top-[50%] left-[50%] xl:left-[60%] translate-x-[-50%] translate-y-[-50%] scroll overflow-auto h-[30rem]">
-      <div className="flex justify-between mb-5">
-        <p className="font-semibold md:text-[2.5rem]">Bio data</p>
-        <button onClick={closeHandler}>
-          <img src={close} alt="" className="w-[1rem] md:w-auto" />
-        </button>
-      </div>
+    <Card>
+      <Header onClick={closeHandler} title="Bio data" />
       <div className="font-semibold mb-7">
         <p className="text-xs md:text-2xl mb-5">Profile Picture(Compulsory)</p>
         <div className="flex items-center gap-5">
@@ -46,7 +42,7 @@ const Education = ({ setModal, modal }) => {
       <form
         onSubmit={submitHandler}
         action=""
-        className="grid grid-rows-[repeat(5,_minmax(0,_max-content))] xl:grid-cols-[repeat(2,_minmax(0,_max-content))] w-full xl:w-max gap-6 md:gap-10 xl:justify-items-end"
+        className="modal-layout grid-rows-[repeat(5,_minmax(0,_max-content))]"
       >
         <label htmlFor="" className="label">
           <p className="label-p">FIRST NAME</p>
@@ -92,21 +88,7 @@ const Education = ({ setModal, modal }) => {
           <p className="label-p">JOB TITLE</p>
           <input type="text" placeholder="Product Designer" className="input" />
         </label>
-        <div className="col-[1_/_-1] w-max ml-auto font-semibold text-xs md:text-lg flex gap-5">
-          <button
-            type="button"
-            onClick={cancelHandler}
-            className="border border-extra-7 py-3 px-10 rounded-custom-lg"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="py-3 px-10 rounded-custom-lg text-white bg-black"
-          >
-            Update
-          </button>
-        </div>
+        <Button cancelHandler={cancelHandler} title="Bio data" />
       </form>
     </Card>
   );

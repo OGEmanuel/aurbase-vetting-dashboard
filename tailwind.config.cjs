@@ -185,6 +185,7 @@ module.exports = {
       'extra-5': 'rgba(0, 0, 0, 0.4)',
       'extra-6': 'rgba(0, 0, 0, 0.5)',
       'extra-7': 'rgba(38, 50, 56, 0.5)',
+      'extra-8': 'rgba(255, 202, 20, 0.5)',
     }),
     columns: {
       auto: 'auto',
