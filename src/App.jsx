@@ -2,6 +2,7 @@ import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import OTP from './Auth/verify';
 import RootLayout from './pages/Root';
+import ChildRoot from './pages/ChildRootLayout';
 import ProfilePage from './pages/Profile';
 import Root from './pages/Root';
 import ForgetPassword from './Auth/ForgetPassword';
@@ -15,6 +16,7 @@ const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
 const Apply = React.lazy(() => import('./Auth/Apply'));
 const Assessment = React.lazy(() => import('./dashboard/Assessment'));
+const TrackTest = React.lazy(() => import('./dashboard/TrackTest'));
 
 const router = createBrowserRouter([
   {
@@ -157,14 +159,57 @@ const router = createBrowserRouter([
         path: 'assessment',
         element: (
           <React.Suspense fallback={<>...</>}>
-            <Assessment />
+            <ChildRoot />
           </React.Suspense>
         ),
+
         errorElement: (
           <React.Suspense fallback={<>...</>}>
             <ErrorPage />
           </React.Suspense>
         ),
+        children: [
+          {
+            index: true,
+            element: (
+              <React.Suspense fallback={<>...</>}>
+                <Assessment />
+              </React.Suspense>
+            ),
+            errorElement: (
+              <React.Suspense fallback={<>...</>}>
+                <ErrorPage />
+              </React.Suspense>
+            ),
+          },
+          {
+            path: ':id',
+            element: (
+              <React.Suspense fallback={<>...</>}>
+                <ChildRoot />
+              </React.Suspense>
+            ),
+            errorElement: (
+              <React.Suspense fallback={<>...</>}>
+                <ErrorPage />
+              </React.Suspense>
+            ),
+            children: [
+              {
+                index: true,
+                element: (
+                  <React.Suspense fallback={<>...</>}>
+                    <TrackTest />
+                  </React.Suspense>
+                ),
+                errorElement: (
+                  <React.Suspense fallback={<>...</>}>
+                    <ErrorPage />
+                  </React.Suspense>
+                ),
+              },]
+          },
+        ],
       },
     ],
   },

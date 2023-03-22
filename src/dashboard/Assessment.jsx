@@ -14,6 +14,7 @@ import angular from "../assets/angular.svg";
 import vue from "../assets/vue.svg";
 import circleArrowRight from "../assets/circleArrowRight.svg";
 import important_2 from "../assets/important_2.svg";
+import { Link } from "react-router-dom";
 
 const stacks = [
   {
@@ -123,10 +124,12 @@ const Assessment = () => {
             </div>
 
             {/* right */}
+            <Link to={`${i}`}>
             <button className="mt-5 md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
               View Stack test
               <img src={circleArrowRight} alt="Arrow pointing right" className="w-4 h-4 md:w-auto md:h-auto" />
             </button>
+            </Link>
           </div>
         </div>
       ))}

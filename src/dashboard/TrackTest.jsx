@@ -37,7 +37,7 @@ const TrackTest = () => {
   return (
     <>
     {showModal && <StartTestModal onOpen={openModalHandler} onClose={closeModalHandler} />}
-      <section className="h-screen w-auto relative px-[70px]">
+      <section className="h-full w-auto relative">
         <Header />
         <div className="text-2xl font-[600] flex items-center mb-8">
           <p className="mr-[11px] text-[#00000080]">Track</p>
