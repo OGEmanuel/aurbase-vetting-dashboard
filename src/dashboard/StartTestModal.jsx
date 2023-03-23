@@ -1,14 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import react from '../assets/react.svg';
 import clock from '../assets/clock.svg';
 import close from '../assets/trackClose.svg';
 
-const StartTestModal = (props) => {
-    const closeModalHandler = () =>{}
+const StartTestModal = props => {
+  const closeModalHandler = () => {};
   return (
-    <div onClick={props.onClose} className="z-[100000000] bg-black bg-opacity-50 w-[78.4%] h-screen fixed  flex items-center justify-center">
+    <div className="z-[100000000] bg-black bg-opacity-50 w-[78.4%] h-screen fixed  flex items-center justify-center">
       <div className="bg-white px-10 pt-[30px] pb-9 w-[506px]">
-        <img onClick={props.onClose} src={close} alt="Close Modal Svg" className='ml-auto' />
+        <img
+          onClick={props.onClose}
+          src={close}
+          alt="Close Modal Svg"
+          className="ml-auto"
+        />
         <div className="flex gap-3 items-center ">
           <img src={react} alt="" className="w-[58px] h-[52px]" />
           <h4 className="text-2xl font-[700]">React Js Test</h4>
@@ -43,9 +49,11 @@ const StartTestModal = (props) => {
             </div>
           </div>
 
-          <button className="bg-black text-white rounded-[5px] px-11 py-[14.5px]">
-            Start Test
-          </button>
+          <Link to='questions'>
+            <button className="bg-black text-white rounded-[5px] px-11 py-[14.5px]">
+              Start Test
+            </button>
+          </Link>
         </div>
       </div>
     </div>
