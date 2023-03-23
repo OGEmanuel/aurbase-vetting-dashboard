@@ -3,61 +3,59 @@ import dp from '../../../assets/images/user-photo.png';
 import add from '../../../assets/add.svg';
 import Card from './UI/profile-card';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 import { overlayMain } from '../../../redux-store/features/open-overlay-body';
 import Biodata from './modals/bio-data/bio-data';
 import Experience from './modals/Experience';
 import Education from './modals/Education';
 import About from './modals/About';
 import Salary from './modals/Salary';
+import { bioData } from '../../../redux-store/features/bio-modal';
+import { aboutModal } from '../../../redux-store/features/about-modal';
+import { salaryModal } from '../../../redux-store/features/salary-modal';
+import { experienceModal } from '../../../redux-store/features/experience-modal';
+import { educationModal } from '../../../redux-store/features/education-modal';
 
 const Profile = () => {
-  const [biodataModal, setBiodataModal] = useState(false);
-  const [experienceModal, setExperienceModal] = useState(false);
-  const [educationModal, setEducationModal] = useState(false);
-  const [aboutModal, setAboutModal] = useState(false);
-  const [salaryModal, setSalaryModal] = useState(false);
   const displayOverlay = useSelector(state => state.show.modal);
+  const biodataModal = useSelector(state => state.bio.open);
+  const about = useSelector(state => state.about.open);
+  const salary = useSelector(state => state.salary.open);
+  const experience = useSelector(state => state.experience.open);
+  const education = useSelector(state => state.education.open);
   const dispatch = useDispatch();
 
   const bioHandler = () => {
     dispatch(overlayMain());
-    setBiodataModal(!biodataModal);
+    dispatch(bioData());
   };
 
   const experienceHandler = () => {
     dispatch(overlayMain());
-    setExperienceModal(!experienceModal);
+    dispatch(experienceModal());
   };
 
   const educationHandler = () => {
     dispatch(overlayMain());
-    setEducationModal(!educationModal);
+    dispatch(educationModal());
   };
 
   const aboutHandler = () => {
     dispatch(overlayMain());
-    setAboutModal(!aboutModal);
+    dispatch(aboutModal());
   };
 
   const salaryHandler = () => {
     dispatch(overlayMain());
-    setSalaryModal(!salaryModal);
+    dispatch(salaryModal());
   };
 
   return (
     <>
-      {biodataModal && (
-        <Biodata setModal={setBiodataModal} modal={biodataModal} />
-      )}
-      {experienceModal && (
-        <Experience setModal={setExperienceModal} modal={experienceModal} />
-      )}
-      {educationModal && (
-        <Education setModal={setEducationModal} modal={educationModal} />
-      )}
-      {aboutModal && <About setModal={setAboutModal} modal={aboutModal} />}
-      {salaryModal && <Salary setModal={setSalaryModal} modal={salaryModal} />}
+      {biodataModal && <Biodata />}
+      {experience && <Experience />}
+      {education && <Education />}
+      {about && <About />}
+      {salary && <Salary />}
       <div id="profile" className="max-width">
         <div className="mb-4">
           <p className="text-2xl hidden xl:block">Let’s get to know you</p>

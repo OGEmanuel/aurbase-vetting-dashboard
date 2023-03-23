@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { aboutModal } from '../../../../redux-store/features/about-modal';
 import { overlayMain } from '../../../../redux-store/features/open-overlay-body';
 import Button from '../UI/Button';
 import Card from '../UI/modal-cards';
@@ -9,18 +10,18 @@ const About = ({ setModal, modal }) => {
 
   const closeHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(aboutModal());
   };
 
   const cancelHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(aboutModal());
   };
 
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(aboutModal());
   };
   return (
     <Card>
