@@ -25,7 +25,7 @@ const Salary = ({ setModal, modal }) => {
   };
 
   return (
-    <Card>
+    <Card setModal={setModal} modal={modal}>
       <Header title="Salary Expectation" onClick={closeHandler} />
       <form onSubmit={submitHandler} action="">
         <label htmlFor="" className="label relative">

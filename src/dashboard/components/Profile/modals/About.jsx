@@ -23,7 +23,7 @@ const About = ({ setModal, modal }) => {
     setModal(!modal);
   };
   return (
-    <Card>
+    <Card setModal={setModal} modal={modal}>
       <Header onClick={closeHandler} title="About" />
       <form onSubmit={submitHandler} action="" className="label">
         <textarea

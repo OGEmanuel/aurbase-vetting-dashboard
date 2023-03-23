@@ -3,7 +3,7 @@ import dp from '../../../assets/images/user-photo.png';
 import add from '../../../assets/add.svg';
 import Card from './UI/profile-card';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { overlayMain } from '../../../redux-store/features/open-overlay-body';
 import Biodata from './modals/bio-data/bio-data';
 import Experience from './modals/Experience';
@@ -18,7 +18,27 @@ const Profile = () => {
   const [aboutModal, setAboutModal] = useState(false);
   const [salaryModal, setSalaryModal] = useState(false);
   const displayOverlay = useSelector(state => state.show.modal);
+  // const openModal = useSelector(state => state.mainOverlay.open);
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   if (openModal) {
+  //     const card = document.querySelector('.CARD');
+  //     card.addEventListener('click', function () {
+  //       // const clicked = document.querySelector()
+  //       if (document.querySelector) {
+  //         console.log('Not this one!');
+  //       }
+  //       // console.log('Not This one!');
+  //       // dispatch(overlayMain());
+  //       // setBiodataModal(false);
+  //       // setExperienceModal(false);
+  //       // setEducationModal(false);
+  //       // setAboutModal(false);
+  //       // setSalaryModal(false);
+  //     });
+  //   }
+  // }, [openModal]);
 
   const bioHandler = () => {
     dispatch(overlayMain());
