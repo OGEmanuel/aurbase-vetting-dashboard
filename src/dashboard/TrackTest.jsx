@@ -10,6 +10,7 @@ import circleArrowRight from '../assets/circleArrowRight.svg';
 import important_2 from '../assets/important_2.svg';
 
 import StartTestModal from './StartTestModal';
+import PerequisiteModal from './PerequisiteModal';
 
 const skillTests = [
   {
@@ -25,18 +26,26 @@ const skillTests = [
 ];
 
 const TrackTest = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal_1, setShowModal_1] = useState(false);
+  const [showModal_2, setShowModal_2] = useState(false);
 
-  const closeModalHandler = () =>{
-    setShowModal(false)
+  const closeModal_1Handler = () =>{
+    setShowModal_1(false)
   }
-  const openModalHandler = () =>{
-    setShowModal(true)
+  const openModal_1Handler = () =>{
+    setShowModal_1(true)
+  }
+  const closeModal_2Handler = () =>{
+    setShowModal_2(false)
+  }
+  const openModal_2Handler = () =>{
+    setShowModal_2(true)
   }
 
   return (
     <>
-    {showModal && <StartTestModal onOpen={openModalHandler} onClose={closeModalHandler} />}
+    {showModal_1 && <StartTestModal onOpen={openModal_1Handler} onClose={closeModal_1Handler} />}
+    {showModal_2 && <PerequisiteModal onOpen={openModal_2Handler} onClose={closeModal_2Handler} />}
       <section className="h-full w-auto relative">
         <Header />
         <div className="text-2xl font-[600] flex items-center mb-8">
@@ -90,7 +99,7 @@ const TrackTest = () => {
             </div>
 
             {/* right */}
-            <button onClick={openModalHandler} className="mt-5 md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
+            <button onClick={openModal_1Handler} className="mt-5 md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
               View Stack test
               <img
                 src={circleArrowRight}
@@ -159,7 +168,7 @@ const TrackTest = () => {
 
               {/* right */}
               <div className="flex flex-col self-auto md:self-end">
-                <button className="mt-5 md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
+                <button onClick={openModal_2Handler}  className="mt-5 md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
                   View Stack test
                   <img
                     src={circleArrowRight}

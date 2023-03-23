@@ -16,10 +16,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import Overlay from './components/UI/overlay';
 import { nav } from '../redux-store/features/display-nav';
 import { overlay } from '../redux-store/features/display-modal';
+import { overlayMain } from '../redux-store/features/open-overlay-body';
+import { bioData } from '../redux-store/features/bio-modal';
+import { aboutModal } from '../redux-store/features/about-modal';
+import { salaryModal } from '../redux-store/features/salary-modal';
+import { experienceModal } from '../redux-store/features/experience-modal';
+import { educationModal } from '../redux-store/features/education-modal';
+import { rolesModal } from '../redux-store/features/roles-modal';
 const SideBar = () => {
   const dispatch = useDispatch();
   const displayNav = useSelector(state => state.display.sideNav);
   const displayOverlay = useSelector(state => state.show.modal);
+  const openMainOverlay = useSelector(state => state.mainOverlay.open);
+  const biodataModal = useSelector(state => state.bio.open);
+  const about = useSelector(state => state.about.open);
+  const salary = useSelector(state => state.salary.open);
+  const experience = useSelector(state => state.experience.open);
+  const education = useSelector(state => state.education.open);
+  const roles = useSelector(state => state.roles.open);
 
   const handleClick = () => {
     if (displayNav && displayOverlay) {
@@ -28,10 +42,40 @@ const SideBar = () => {
     } else return;
   };
 
+  const handleNavClick = () => {
+    if (openMainOverlay) {
+      if (biodataModal) {
+        dispatch(overlayMain());
+        dispatch(bioData());
+      }
+      if (about) {
+        dispatch(overlayMain());
+        dispatch(aboutModal());
+      }
+      if (salary) {
+        dispatch(overlayMain());
+        dispatch(salaryModal());
+      }
+      if (experience) {
+        dispatch(overlayMain());
+        dispatch(experienceModal());
+      }
+      if (education) {
+        dispatch(overlayMain());
+        dispatch(educationModal());
+      }
+      if (roles) {
+        dispatch(overlayMain());
+        dispatch(rolesModal());
+      }
+    }
+  };
+
   return (
     <>
       {displayOverlay && <Overlay />}
       <nav
+        onClick={handleNavClick}
         className={`border-r border-primary bg-white pb-20 pt-2 xl:pt-4 min-h-screen transition-[.2s] overflow-y-auto scroll xl:z-auto  xl:translate-x-0  
         
         ${

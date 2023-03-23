@@ -7,24 +7,25 @@ import { useDispatch } from 'react-redux';
 import { overlayMain } from '../../../../../redux-store/features/open-overlay-body';
 import Button from '../../UI/Button';
 import Header from '../../UI/ModalHeader';
+import { bioData } from '../../../../../redux-store/features/bio-modal';
 
-const Education = ({ setModal, modal }) => {
+const Education = () => {
   const dispatch = useDispatch();
 
   const closeHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(bioData());
   };
 
   const cancelHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(bioData());
   };
 
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(bioData());
   };
 
   return (
