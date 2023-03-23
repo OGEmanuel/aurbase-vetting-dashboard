@@ -27,25 +27,6 @@ const Profile = () => {
   const roles = useSelector(state => state.roles.open);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (openModal) {
-  //     const card = document.querySelector('.CARD');
-  //     card.addEventListener('click', function () {
-  //       // const clicked = document.querySelector()
-  //       if (document.querySelector) {
-  //         console.log('Not this one!');
-  //       }
-  //       // console.log('Not This one!');
-  //       // dispatch(overlayMain());
-  //       // setBiodataModal(false);
-  //       // setExperienceModal(false);
-  //       // setEducationModal(false);
-  //       // setAboutModal(false);
-  //       // setSalaryModal(false);
-  //     });
-  //   }
-  // }, [openModal]);
-
   const bioHandler = () => {
     dispatch(overlayMain());
     dispatch(bioData());
