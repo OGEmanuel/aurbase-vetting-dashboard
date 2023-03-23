@@ -173,6 +173,8 @@ module.exports = {
       'bg-3': 'rgba(255, 255, 255, 0.7)',
       'bg-4': '#D9D9D9',
       'bg-5': 'rgba(18, 18, 18, 0.2)',
+      'bg-6': 'rgba(242, 242, 242, 0.5)',
+      'bg-7': '#F2F2F2',
       secondary: '#FFCA14',
       primary: '#E5E5E5',
       tertiary: 'rgba(58, 58, 58, 0.7)',
@@ -186,6 +188,8 @@ module.exports = {
       'extra-6': 'rgba(0, 0, 0, 0.5)',
       'extra-7': 'rgba(38, 50, 56, 0.5)',
       'extra-8': 'rgba(255, 202, 20, 0.5)',
+      'extra-9': 'rgba(217, 217, 217, 0.5)',
+      'extra-10': '#121212',
     }),
     columns: {
       auto: 'auto',
