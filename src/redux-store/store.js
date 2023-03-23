@@ -6,6 +6,7 @@ import displayNavReducer from './features/display-nav';
 import educationReducer from './features/education-modal';
 import experienceReducer from './features/experience-modal';
 import openMainOverlayReducer from './features/open-overlay-body';
+import rolesReducer from './features/roles-modal';
 import salaryReducer from './features/salary-modal';
 
 export const store = configureStore({
@@ -18,5 +19,6 @@ export const store = configureStore({
     salary: salaryReducer,
     experience: experienceReducer,
     education: educationReducer,
+    roles: rolesReducer,
   },
 });

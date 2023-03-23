@@ -14,6 +14,8 @@ import { aboutModal } from '../../../redux-store/features/about-modal';
 import { salaryModal } from '../../../redux-store/features/salary-modal';
 import { experienceModal } from '../../../redux-store/features/experience-modal';
 import { educationModal } from '../../../redux-store/features/education-modal';
+import { rolesModal } from '../../../redux-store/features/roles-modal';
+import Roles from './modals/Roles';
 
 const Profile = () => {
   const displayOverlay = useSelector(state => state.show.modal);
@@ -22,6 +24,7 @@ const Profile = () => {
   const salary = useSelector(state => state.salary.open);
   const experience = useSelector(state => state.experience.open);
   const education = useSelector(state => state.education.open);
+  const roles = useSelector(state => state.roles.open);
   const dispatch = useDispatch();
 
   const bioHandler = () => {
@@ -49,6 +52,11 @@ const Profile = () => {
     dispatch(salaryModal());
   };
 
+  const rolesHandler = () => {
+    dispatch(overlayMain());
+    dispatch(rolesModal());
+  };
+
   return (
     <>
       {biodataModal && <Biodata />}
@@ -56,6 +64,7 @@ const Profile = () => {
       {education && <Education />}
       {about && <About />}
       {salary && <Salary />}
+      {roles && <Roles />}
       <div id="profile" className="max-width">
         <div className="mb-4">
           <p className="text-2xl hidden xl:block">Let’s get to know you</p>
@@ -158,7 +167,7 @@ const Profile = () => {
           <Card className="row-[2_/_span_1] md:col-[1_/_-1]">
             <div className="flex-between-center">
               <p className="p-head">ROLE & STACKS</p>
-              <button className="flex-btn">
+              <button className="flex-btn" onClick={rolesHandler}>
                 <img src={add} alt="" className="w-[1rem] md:w-auto" />
                 <p className="p-small">Edit</p>
               </button>

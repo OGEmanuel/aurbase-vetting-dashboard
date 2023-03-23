@@ -22,6 +22,7 @@ import { aboutModal } from '../redux-store/features/about-modal';
 import { salaryModal } from '../redux-store/features/salary-modal';
 import { experienceModal } from '../redux-store/features/experience-modal';
 import { educationModal } from '../redux-store/features/education-modal';
+import { rolesModal } from '../redux-store/features/roles-modal';
 const SideBar = () => {
   const dispatch = useDispatch();
   const displayNav = useSelector(state => state.display.sideNav);
@@ -32,6 +33,7 @@ const SideBar = () => {
   const salary = useSelector(state => state.salary.open);
   const experience = useSelector(state => state.experience.open);
   const education = useSelector(state => state.education.open);
+  const roles = useSelector(state => state.roles.open);
 
   const handleClick = () => {
     if (displayNav && displayOverlay) {
@@ -61,6 +63,10 @@ const SideBar = () => {
       if (education) {
         dispatch(overlayMain());
         dispatch(educationModal());
+      }
+      if (roles) {
+        dispatch(overlayMain());
+        dispatch(rolesModal());
       }
     }
   };
