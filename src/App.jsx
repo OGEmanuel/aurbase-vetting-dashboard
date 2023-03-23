@@ -10,13 +10,14 @@ import Dashboard from './pages/Dashboard';
 import Personality from './pages/Personality';
 import Language from './pages/Language';
 import Interview from './pages/Interview';
-
+import AssessmentQuestions from './dashboard/components/AssessmentQuestions';
 
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
 const Apply = React.lazy(() => import('./Auth/Apply'));
 const Assessment = React.lazy(() => import('./dashboard/Assessment'));
 const TrackTest = React.lazy(() => import('./dashboard/TrackTest'));
+// const AssessmentQuestions = React.lazy(() => import('./dashboard/AssessmentQuestions'));
 
 const router = createBrowserRouter([
   {
@@ -207,7 +208,37 @@ const router = createBrowserRouter([
                     <ErrorPage />
                   </React.Suspense>
                 ),
-              },]
+              },
+
+              {
+                path: ':questionId',
+                element: (
+                  <React.Suspense fallback={<>...</>}>
+                    <ChildRoot />
+                  </React.Suspense>
+                ),
+                errorElement: (
+                  <React.Suspense fallback={<>...</>}>
+                    <ErrorPage />
+                  </React.Suspense>
+                ),
+                children: [
+                  {
+                    index: true,
+                    element: (
+                      <React.Suspense fallback={<>...</>}>
+                        <AssessmentQuestions />
+                      </React.Suspense>
+                    ),
+                    errorElement: (
+                      <React.Suspense fallback={<>...</>}>
+                        <ErrorPage />
+                      </React.Suspense>
+                    ),
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
