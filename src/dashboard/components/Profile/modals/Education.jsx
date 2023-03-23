@@ -4,24 +4,25 @@ import Header from '../UI/ModalHeader';
 import arrow from '../../../../assets/arrow-down.svg';
 import { useDispatch } from 'react-redux';
 import { overlayMain } from '../../../../redux-store/features/open-overlay-body';
+import { educationModal } from '../../../../redux-store/features/education-modal';
 
-const Education = ({ setModal, modal }) => {
+const Education = () => {
   const dispatch = useDispatch();
 
   const closeHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(educationModal());
   };
 
   const cancelHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(educationModal());
   };
 
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(educationModal());
   };
 
   return (

@@ -4,24 +4,25 @@ import Header from '../UI/ModalHeader';
 import arrow from '../../../../assets/arrow-down.svg';
 import { useDispatch } from 'react-redux';
 import { overlayMain } from '../../../../redux-store/features/open-overlay-body';
+import { salaryModal } from '../../../../redux-store/features/salary-modal';
 
-const Salary = ({ setModal, modal }) => {
+const Salary = () => {
   const dispatch = useDispatch();
 
   const closeHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(salaryModal());
   };
 
   const cancelHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(salaryModal());
   };
 
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(salaryModal());
   };
 
   return (

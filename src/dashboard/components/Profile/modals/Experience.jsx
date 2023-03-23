@@ -3,24 +3,25 @@ import Button from '../UI/Button';
 import Header from '../UI/ModalHeader';
 import { useDispatch } from 'react-redux';
 import { overlayMain } from '../../../../redux-store/features/open-overlay-body';
+import { experienceModal } from '../../../../redux-store/features/experience-modal';
 
-const Experience = ({ setModal, modal }) => {
+const Experience = () => {
   const dispatch = useDispatch();
 
   const closeHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(experienceModal());
   };
 
   const cancelHandler = () => {
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(experienceModal());
   };
 
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
-    setModal(!modal);
+    dispatch(experienceModal());
   };
 
   return (
