@@ -26,7 +26,7 @@ const Education = () => {
   };
 
   return (
-    <Card setModal={setModal} modal={modal} className="h-[30rem]">
+    <Card className="h-[30rem]">
       <Header onClick={closeHandler} title="Education" />
       <form
         onSubmit={submitHandler}

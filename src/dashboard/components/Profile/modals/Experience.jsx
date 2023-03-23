@@ -25,7 +25,7 @@ const Experience = () => {
   };
 
   return (
-    <Card setModal={setModal} modal={modal} className="h-[30rem]">
+    <Card className="h-[30rem]">
       <Header onClick={closeHandler} title="Experience" />
       <form
         onSubmit={submitHandler}
