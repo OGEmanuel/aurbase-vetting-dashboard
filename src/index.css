@@ -143,3 +143,39 @@ input[type='number'] {
 .modal-layout {
   @apply grid xl:grid-cols-[repeat(2,_minmax(0,_max-content))] w-full xl:w-max gap-6 md:gap-10;
 }
+
+.roles-header {
+  @apply bg-extra-10 font-semibold text-white grid grid-cols-[repeat(4,_minmax(max-content,_1fr))] gap-10 px-5 py-3 items-center mb-5;
+}
+
+.roles-title {
+  @apply flex gap-3;
+}
+
+.flex-center {
+  @apply flex items-center;
+}
+
+.roles-title-select {
+  @apply bg-extra-10 text-xs outline-none border border-extra-11 rounded-custom-tiny py-1 pl-2.5 pr-7 sel;
+}
+
+.roles-arrow {
+  @apply absolute top-[0.75rem] right-[0.5rem] pointer-events-none;
+}
+
+.roles-body {
+  @apply font-semibold grid grid-cols-[repeat(4,_minmax(max-content,_1fr))] gap-10 px-5 py-3 items-center;
+}
+
+.roles-body-title {
+  @apply flex gap-3 w-[10.3rem];
+}
+
+.roles-body-select {
+  @apply text-xs outline-none border border-extra-13 rounded-custom-tiny py-1 pl-2.5 pr-7 sel;
+}
+
+.roles-remove-btn {
+  @apply flex gap-1 items-center justify-self-end text-sm font-normal text-extra-12;
+}

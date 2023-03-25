@@ -24,7 +24,7 @@ const About = ({ setModal, modal }) => {
     dispatch(aboutModal());
   };
   return (
-    <Card>
+    <Card setModal={setModal} modal={modal}>
       <Header onClick={closeHandler} title="About" />
       <form onSubmit={submitHandler} action="" className="label">
         <textarea
