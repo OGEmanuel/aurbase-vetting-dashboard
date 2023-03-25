@@ -15,7 +15,7 @@ import { salaryModal } from '../../../redux-store/features/salary-modal';
 import { experienceModal } from '../../../redux-store/features/experience-modal';
 import { educationModal } from '../../../redux-store/features/education-modal';
 import { rolesModal } from '../../../redux-store/features/roles-modal';
-import Roles from './modals/Roles';
+import Roles from './modals/roles/Roles';
 
 const Profile = () => {
   const displayOverlay = useSelector(state => state.show.modal);
