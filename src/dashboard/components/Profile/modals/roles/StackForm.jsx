@@ -31,7 +31,7 @@ const StackForm = () => {
   };
 
   return (
-    <form action="" className="grid grid-cols-3 gap-3.5">
+    <form action="" className="grid grid-cols-3 gap-3.5 pb-1 md:pb-0">
       {STACK.map(stack => (
         <label htmlFor={stack.id} key={stack.id}>
           <input
@@ -41,7 +41,7 @@ const StackForm = () => {
             onChange={() => handleCheckChange(stack.id)}
           />
           <div
-            className={`flex gap-1 items-center bg-bg-7 p-3 rounded-custom-sm border-[1.5px] ${
+            className={`flex gap-1 items-center bg-bg-7 py-3 px-1 justify-center md:p-3 rounded-custom-sm border-[1.5px] ${
               checked.includes(stack.id)
                 ? 'border-extra-10'
                 : 'border-transparent'
@@ -50,15 +50,17 @@ const StackForm = () => {
             <img
               src={stack.icon}
               alt=""
-              className={stack.icon === angular ? 'w-[1.2rem]' : ''}
+              className={`w-[1rem] md:w-auto ${
+                stack.icon === angular ? 'w-[1.2rem]' : ''
+              }`}
             />
-            <p>{stack.tech}</p>
+            <p className="text-xs md:text-base">{stack.tech}</p>
           </div>
         </label>
       ))}
       <button
         type="button"
-        className="text-sm text-white p-4 bg-black rounded-custom-sm col-[3_/_span_1]"
+        className="text-sm text-white px-10 py-2.5 md:p-4 w-max md:w-auto bg-black rounded-custom-sm col-[1_/_span_2] md:col-[3_/_span_1]"
       >
         Add
       </button>
