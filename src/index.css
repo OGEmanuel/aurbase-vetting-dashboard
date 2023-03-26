@@ -165,7 +165,7 @@ input[type='number'] {
 }
 
 .roles-body {
-  @apply font-semibold md:w-full overflow-x-auto snap-mandatory snap-x scroll-pl-4 scroll grid grid-cols-[repeat(4,_minmax(max-content,_1fr))] gap-1 md:gap-10 md:px-5 py-3 items-center border-b last:border-0 border-bg-5;
+  @apply font-semibold md:w-full overflow-x-auto snap-mandatory snap-x scroll-pl-4 scroll grid grid-cols-[repeat(4,_minmax(max-content,_1fr))] gap-1 md:gap-10 md:px-5 py-3 items-center border-b last:border-0 border-bg-5 xl:border-none;
 }
 
 .roles-body-title {
