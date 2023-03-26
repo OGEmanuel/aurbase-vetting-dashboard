@@ -145,11 +145,11 @@ input[type='number'] {
 }
 
 .roles-header {
-  @apply bg-extra-10 font-semibold text-white grid grid-cols-[repeat(4,_minmax(max-content,_1fr))] gap-10 px-5 py-3 items-center mb-5;
+  @apply bg-extra-10 text-sm md:text-base font-semibold text-white grid grid-cols-[repeat(2,_minmax(max-content,_1fr))] md:grid-cols-[repeat(4,_minmax(max-content,_1fr))] md:w-full overflow-x-auto scroll snap-mandatory snap-x scroll-pl-5 gap-y-5 md:gap-10 px-2.5 md:px-5 py-3 items-center mb-2.5 md:mb-5 rounded-custom-tiny md:rounded-none;
 }
 
 .roles-title {
-  @apply flex gap-3;
+  @apply flex gap-1 md:gap-3 md:w-[10.3rem];
 }
 
 .flex-center {
@@ -157,23 +157,23 @@ input[type='number'] {
 }
 
 .roles-title-select {
-  @apply bg-extra-10 text-xs outline-none border border-extra-11 rounded-custom-tiny py-1 pl-2.5 pr-7 sel;
+  @apply bg-extra-10 text-[8px] md:text-xs outline-none border border-extra-11 rounded-custom-tiny md:py-1 pl-1 md:pl-2.5 pr-6 md:pr-7 sel;
 }
 
 .roles-arrow {
-  @apply absolute top-[0.75rem] right-[0.5rem] pointer-events-none;
+  @apply absolute top-[0.6rem] md:top-[0.75rem] right-[0.5rem] pointer-events-none;
 }
 
 .roles-body {
-  @apply font-semibold grid grid-cols-[repeat(4,_minmax(max-content,_1fr))] gap-10 px-5 py-3 items-center;
+  @apply font-semibold md:w-full overflow-x-auto snap-mandatory snap-x scroll-pl-4 scroll grid grid-cols-[repeat(4,_minmax(max-content,_1fr))] gap-1 md:gap-10 md:px-5 py-3 items-center border-b last:border-0 border-bg-5;
 }
 
 .roles-body-title {
-  @apply flex gap-3 w-[10.3rem];
+  @apply flex gap-1 md:gap-3 md:w-[10.3rem] items-center;
 }
 
 .roles-body-select {
-  @apply text-xs outline-none border border-extra-13 rounded-custom-tiny py-1 pl-2.5 pr-7 sel;
+  @apply text-[8px] md:text-xs outline-none border border-extra-13 rounded-custom-tiny py-1 pl-1 md:pl-2.5 md:pr-7 sel;
 }
 
 .roles-remove-btn {
