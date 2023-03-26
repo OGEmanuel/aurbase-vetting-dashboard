@@ -8,11 +8,28 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* To prevent arrows from showing - number input */
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.select,
+.selector,
+.sel {
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 input[type='number'] {
@@ -21,4 +38,144 @@ input[type='number'] {
 
 .otp-input {
   @apply border-b border-black outline-none w-16 text-center pb-5 font-semibold text-[2rem];
+}
+
+.flex-between-center {
+  @apply flex justify-between items-center;
+}
+
+.p-head {
+  @apply font-semibold text-sm md:text-lg xl:text-2xl text-extra-4;
+}
+
+.p-body {
+  @apply text-xs md:text-base xl:text-lg text-center mx-auto;
+}
+
+.p-small {
+  @apply text-xs hidden md:block;
+}
+
+.span-body {
+  @apply font-bold text-xs md:text-base xl:text-2xl;
+}
+
+.flex-btn {
+  @apply flex flex-col gap-1;
+}
+
+.max-width {
+  @apply mx-auto max-w-[30rem] md:max-w-[60rem] xl:max-w-[90rem];
+}
+
+.tel-box {
+  @apply flex relative xl:w-[21.875rem];
+}
+
+.select-box {
+  @apply w-[3.75rem] h-10;
+}
+
+.flag-img {
+  @apply w-[29.09px] h-5 absolute rounded-custom-sm z-50 mx-auto top-[60%] md:top-[80%] left-[50%] md:left-[60%] xl:left-[70%] translate-x-[-50%] translate-y-[-50%] opacity-80;
+}
+
+.select-box {
+  @apply relative;
+}
+
+.select {
+  @apply w-[12%] md:w-[4.6875rem] py-[0.9375rem] bg-bg-4 absolute z-auto outline-none pl-16 md:pl-20 border border-extra-6 focus:border-extra-8 rounded-l-custom-sm rounded-r-none;
+}
+
+.tel {
+  @apply w-full py-[0.9375rem] bg-none border-black focus:border-extra-8 outline-none px-7 md:px-9 xl:px-[2.2rem] border border-extra-6 rounded-custom-sm bg-bg-3;
+}
+
+.arrow {
+  @apply absolute z-50 top-[60%] md:top-[80%] right-[-20%] md:right-[-40%] xl:right-[-50%] translate-x-[-50%] translate-y-[-50%] pointer-events-none;
+}
+
+.label {
+  @apply font-semibold text-xs md:text-lg;
+}
+
+.label-p {
+  @apply mb-1.5;
+}
+
+.input-general {
+  @apply outline-none py-[0.9375rem] border border-extra-6 focus:border-extra-8 rounded-custom-sm bg-bg-3 w-full xl:w-[21.875rem] px-5;
+}
+
+.input {
+  @apply input-general placeholder:opacity-50;
+}
+
+.selector {
+  @apply input-general;
+}
+
+.selector-arrow {
+  @apply absolute right-5 top-[60%] md:top-[65%] pointer-events-none;
+}
+
+.page {
+  @apply flex py-2 px-2 mb-6 gap-4 font-semibold items-center rounded-custom-xs;
+}
+
+.current-page {
+  @apply page  bg-black  text-white;
+}
+
+.link {
+  @apply page text-tertiary;
+}
+
+.progress-active {
+  @apply progress-inactive bg-bg-5;
+}
+
+.progress-inactive {
+  @apply flex rounded-custom-xs mb-1.5 pl-12 pr-7 justify-between gap-10 items-center py-2;
+}
+
+.modal-layout {
+  @apply grid xl:grid-cols-[repeat(2,_minmax(0,_max-content))] w-full xl:w-max gap-6 md:gap-10;
+}
+
+.roles-header {
+  @apply bg-extra-10 text-sm md:text-base font-semibold text-white grid grid-cols-[repeat(2,_minmax(max-content,_1fr))] md:grid-cols-[repeat(4,_minmax(max-content,_1fr))] md:w-full overflow-x-auto scroll snap-mandatory snap-x scroll-pl-5 gap-y-5 md:gap-10 px-2.5 md:px-5 py-3 items-center mb-2.5 md:mb-5 rounded-custom-tiny md:rounded-none;
+}
+
+.roles-title {
+  @apply flex gap-1 md:gap-3 md:w-[10.3rem];
+}
+
+.flex-center {
+  @apply flex items-center;
+}
+
+.roles-title-select {
+  @apply bg-extra-10 text-[8px] md:text-xs outline-none border border-extra-11 rounded-custom-tiny md:py-1 pl-1 md:pl-2.5 pr-6 md:pr-7 sel;
+}
+
+.roles-arrow {
+  @apply absolute top-[0.6rem] md:top-[0.75rem] right-[0.5rem] pointer-events-none;
+}
+
+.roles-body {
+  @apply font-semibold md:w-full overflow-x-auto snap-mandatory snap-x scroll-pl-4 scroll grid grid-cols-[repeat(4,_minmax(max-content,_1fr))] gap-1 md:gap-10 md:px-5 py-3 items-center border-b last:border-0 border-bg-5;
+}
+
+.roles-body-title {
+  @apply flex gap-1 md:gap-3 md:w-[10.3rem] items-center;
+}
+
+.roles-body-select {
+  @apply text-[8px] md:text-xs outline-none border border-extra-13 rounded-custom-tiny py-1 pl-1 md:pl-2.5 md:pr-7 sel;
+}
+
+.roles-remove-btn {
+  @apply flex gap-1 items-center justify-self-end text-sm font-normal text-extra-12;
 }
