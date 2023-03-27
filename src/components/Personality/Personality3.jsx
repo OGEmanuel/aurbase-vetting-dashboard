@@ -11,23 +11,23 @@ const Personality3 = ({onClick}) => {
             <Circle/>
            </div>
             <h1 className='font-bold text-[20px] md:text-[36px]'>Question 1</h1>
-           <p className='text-[18px] md:text-[32px] border  w-[210px] md:w-full '>What do you consider your greatest accomplishment?</p>
-           <span className='flex items-center gap-2 mt-2  '>
-           <input type="radio" name='one' />
+           <p className='text-[18px] md:text-[32px]   w-[210px] md:w-full font-normal'>What do you consider your greatest accomplishment?</p>
+           <span className='flex items-center gap-2 mt-3 '>
+           <input type="radio" name='one' className='w-5 h-5 accent-black' />
           <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
            </span>
-           <span className='flex items-center gap-2 mt-2'>
-           <input type="radio" name='one' />
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
+           <span className='flex items-center gap-2 mt-3'>
+           <input type="radio" name='one' className='w-5 h-5 accent-black' />
+          <p > Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
            </span>
          
-           <span className='flex items-center gap-2 mt-2'>
-           <input type="radio" name='one' />
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
+           <span className='flex items-center gap-2 mt-3'>
+           <input type="radio" name='one' className='w-5 h-5 accent-black'/>
+          <p > Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
            </span>
-           <span className='flex items-center gap-2 mt-2'>
-           <input type="radio" name='one' />
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
+           <span className='flex items-center gap-2 mt-3'>
+           <input type="radio" name='one' className='w-5 h-5 accent-black'/>
+          <p > Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
            </span>
          
          
@@ -36,7 +36,7 @@ const Personality3 = ({onClick}) => {
             <Circle/>
            </div>
             </section>
-             <div className='flex justify-end mt-2'><button onClick={onClick} className='bg-black rounded p-2 px-6 gap-2 text-white text-2xl flex items-center'> <p>Next</p> <span className='mt-0.5'><img src={next} alt="forward" /></span></button></div>
+             <div className='flex justify-end mt-2 pb-10'><button onClick={onClick} className='bg-black rounded p-2 px-6 gap-2 text-white text-2xl flex items-center'> <p>Next</p> <span className='mt-0.5'><img src={next} alt="forward" /></span></button></div>
 
     </section>
   )

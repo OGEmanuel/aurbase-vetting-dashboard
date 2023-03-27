@@ -55,6 +55,7 @@ module.exports = {
       'gradient-to-tl':
         'linear-gradient(to top left, var(--tw-gradient-stops))',
       dp: 'url(/src/assets/images/dash-pattern.png)',
+      matchdp:'url(/src/assets/matching-dp.png)'
     },
     backgroundOpacity: ({ theme }) => theme('opacity'),
     backgroundPosition: {

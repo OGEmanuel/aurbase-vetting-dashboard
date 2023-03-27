@@ -18,7 +18,7 @@ const Language3 = () => {
 </div>
 <div className='flex flex-wrap gap-5 mt-5 md:mt-20'>
     <button className='bg-black text-white p-2 px-14 rounded'>Retake Test</button>
-    <button className='bg-black text-white p-2 px-[60px] rounded'>Stack Test</button>
+    {/* <button className='bg-black text-white p-2 px-[60px] rounded'>Stack Test</button> */}
 
 </div>
     </div>
