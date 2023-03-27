@@ -16,6 +16,12 @@ import { experienceModal } from '../../../redux-store/features/experience-modal'
 import { educationModal } from '../../../redux-store/features/education-modal';
 import { rolesModal } from '../../../redux-store/features/roles-modal';
 import Roles from './modals/roles/Roles';
+import DisplayBiodata from './display/DisplayBiodata';
+import DisplayAbout from './display/DisplayAbout';
+import DisplaySalary from './display/DisplaySalary';
+import DisplayRoles from './display/DisplayRoles';
+import DisplayExperience from './display/DisplayExperience';
+import DisplayEducation from './display/DisplayEducation';
 
 const Profile = () => {
   const displayOverlay = useSelector(state => state.show.modal);
@@ -74,150 +80,39 @@ const Profile = () => {
           </div>
         </div>
         <div className="grid grid-rows-[repeat(3,_minmax(0,_max-content))] md:grid-cols-2 gap-6">
-          <Card>
-            <div className="flex-between-center">
-              <p className="p-head">BIO DATA</p>
-              <button className="flex-btn" onClick={bioHandler}>
-                <img src={pen} alt="" className="w-[1rem] md:w-auto" />
-                <p className="p-small">Edit</p>
-              </button>
-            </div>
-            <hr
-              className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                displayOverlay ? 'opacity-100' : 'opacity-40'
-              } `}
-            />
-            <div className="flex items-center gap-5">
-              <img src={dp} alt="user" className="w-[5rem] md:w-auto" />
-              <div className="font-semibold">
-                <p className="text-sm md:text-lg xl:text-2xl mb-1 md:mb-2 xl:mb-0 text-extra-4">
-                  Firstname Lastname
-                </p>
-                <div className="text-[0.625rem] md:text-sm flex flex-col gap-1">
-                  <p>Designer</p>
-                  <p>State, Country</p>
-                </div>
-              </div>
-            </div>
-            <hr
-              className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                displayOverlay ? 'opacity-100' : 'opacity-40'
-              } `}
-            />
-            <div className="flex flex-col gap-4 text-xs md:text-base xl:text-lg">
-              <div className="flex justify-between">
-                <p>Email Address</p>
-                <p className="font-semibold">Joemickey@work.com</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Phone Number</p>
-                <p className="font-semibold">N/A</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Gender</p>
-                <p className="font-semibold">N/A</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Country of Residence</p>
-                <p className="font-semibold">N/A</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Country of citizenship</p>
-                <p className="font-semibold">N/A</p>
-              </div>
-            </div>
-          </Card>
+          <DisplayBiodata
+            bioHandler={bioHandler}
+            pen={pen}
+            dp={dp}
+            displayOverlay={displayOverlay}
+          />
           <div className="flex flex-col justify-between gap-6 md:gap-4">
-            <Card>
-              <div className="flex-between-center">
-                <p className="p-head">ABOUT/CAREER OBJECTIVE</p>
-                <button className="flex-btn" onClick={aboutHandler}>
-                  <img src={pen} alt="" className="w-[1rem] md:w-auto" />
-                  <p className="p-small">Edit</p>
-                </button>
-              </div>
-              <hr
-                className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                  displayOverlay ? 'opacity-100' : 'opacity-40'
-                } `}
-              />
-              <p className="text-[11px] md:text-lg text-tertiary pb-32">
-                Tell us about yourself in 300 words
-              </p>
-            </Card>
-            <Card>
-              <div className="flex-between-center">
-                <p className="p-head">SALARY EXPECTATION</p>
-                <button className="flex-btn" onClick={salaryHandler}>
-                  <img src={add} alt="" className="w-[1rem] md:w-auto" />
-                  <p className="p-small">Edit</p>
-                </button>
-              </div>
-              <hr
-                className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                  displayOverlay ? 'opacity-100' : 'opacity-40'
-                } `}
-              />
-              <p className="p-body w-[65%] py-2">
-                click on the <span className="span-body">“+”</span> button to
-                add your salary expectation
-              </p>
-            </Card>
+            <DisplayAbout
+              aboutHandler={aboutHandler}
+              pen={pen}
+              displayOverlay={displayOverlay}
+            />
+            <DisplaySalary
+              salaryHandler={salaryHandler}
+              add={add}
+              displayOverlay={displayOverlay}
+            />
           </div>
-          <Card className="row-[2_/_span_1] md:col-[1_/_-1]">
-            <div className="flex-between-center">
-              <p className="p-head">ROLE & STACKS</p>
-              <button className="flex-btn" onClick={rolesHandler}>
-                <img src={add} alt="" className="w-[1rem] md:w-auto" />
-                <p className="p-small">Edit</p>
-              </button>
-            </div>
-            <hr
-              className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                displayOverlay ? 'opacity-100' : 'opacity-40'
-              } `}
-            />
-            <p className="p-body w-[70%] md:w-[35%] py-12">
-              click on the <span className="span-body">“+”</span> button to add
-              your Roles and Stack{' '}
-            </p>
-          </Card>
-          <Card className="row-[3_/_span_1]">
-            <div className="flex-between-center">
-              <p className="p-head">EXPERIENCE</p>
-              <button className="flex-btn" onClick={experienceHandler}>
-                <img src={add} alt="" className="w-[1rem] md:w-auto" />
-                <p className="p-small">Edit</p>
-              </button>
-            </div>
-            <hr
-              className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                displayOverlay ? 'opacity-100' : 'opacity-40'
-              } `}
-            />
-            <p className="p-body w-[70%] py-20">
-              Click on the <span className="span-body">“+”</span> button to add
-              your work experience
-            </p>
-          </Card>
-          <Card>
-            <div className="flex-between-center">
-              <p className="p-head">EDUCATION</p>
-              <button onClick={educationHandler} className="flex-btn">
-                <img src={add} alt="" className="w-[1rem] md:w-auto" />
-                <p className="p-small">Edit</p>
-              </button>
-            </div>
-            <hr
-              className={`border-b border-extra-5 xl:opacity-40 my-4 xl:overflow-visible ${
-                displayOverlay ? 'opacity-100' : 'opacity-40'
-              } `}
-            />
-            <p className="p-body w-[70%] py-20">
-              click on the <span className="span-body">“+”</span> button to add
-              your education experience
-            </p>
-          </Card>
+          <DisplayRoles
+            add={add}
+            rolesHandler={rolesHandler}
+            displayOverlay={displayOverlay}
+          />
+          <DisplayExperience
+            experienceHandler={experienceHandler}
+            add={add}
+            displayOverlay={displayOverlay}
+          />
+          <DisplayEducation
+            educationHandler={educationHandler}
+            add={add}
+            displayOverlay={displayOverlay}
+          />
         </div>
       </div>
     </>

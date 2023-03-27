@@ -193,6 +193,7 @@ module.exports = {
       'extra-11': 'rgba(255, 255, 255, 0.8)',
       'extra-12': '#EC1C24',
       'extra-13': 'rgba(58, 58, 58, 0.5)',
+      'extra-14': 'rgba(58, 58, 58, 0.8)',
     }),
     columns: {
       auto: 'auto',
