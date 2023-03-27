@@ -71,7 +71,7 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
           </div>
         </div>
         <div
-          className={`flex gap-4 border-b border-extra-5 xl:border-opacity-40 pb-6 xl:overflow-visible ${
+          className={`flex flex-wrap gap-4 border-b border-extra-5 xl:border-opacity-40 pb-6 xl:overflow-visible ${
             displayOverlay ? 'border-opacity-100' : 'border-opacity-40'
           }`}
         >
@@ -109,7 +109,7 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
           </div>
         </div>
         <div
-          className={`flex gap-4 border-b border-extra-5 xl:border-opacity-40 pb-6 xl:overflow-visible ${
+          className={`flex flex-wrap gap-4 border-b border-extra-5 xl:border-opacity-40 pb-6 xl:overflow-visible ${
             displayOverlay ? 'border-opacity-100' : 'border-opacity-40'
           }`}
         >
@@ -146,7 +146,7 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
             </div>
           </div>
         </div>
-        <div className={`flex gap-4`}>
+        <div className={`flex flex-wrap gap-4`}>
           {PD_STACK.map(stack => (
             <div
               key={stack.id}
