@@ -37,7 +37,7 @@ input[type='number'] {
 }
 
 .otp-input {
-  @apply border-b border-black outline-none w-16 text-center pb-5 font-semibold text-[2rem];
+  @apply border-[0.5px] md:border-b md:border-t-0 md:border-x-0 border-black outline-none w-10 xl:w-16 text-center py-2.5 md:pb-5 font-semibold md:text-[2rem];
 }
 
 .flex-between-center {

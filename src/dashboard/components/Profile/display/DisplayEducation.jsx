@@ -25,51 +25,57 @@ const DisplayEducation = ({ educationHandler, add, displayOverlay }) => {
         <div className="flex justify-between mb-2.5 items-center">
           <div className="font-semibold">
             <span className="text-[8px]">March 2017 - March 2021</span>
-            <p className="text-lg font-semibold">Havard University</p>
+            <p className="text-[0.875rem] md:text-lg font-semibold">
+              Havard University
+            </p>
             <span className="text-[10px]">BSc Computer Science</span>
           </div>
-          <div className="flex gap-5 text-[8px]">
+          <div className="flex gap-2.5 md:gap-5 text-[8px]">
             <div>
               <img src={pen} alt="" className="mb-1" />
-              <span className="text-secondary">Edit</span>
+              <span className="text-secondary hidden md:block">Edit</span>
             </div>
             <div>
               <img src={bin} alt="" className="mb-1" />
-              <span className="text-extra-12">Delete</span>
+              <span className="text-extra-12 hidden md:block">Delete</span>
             </div>
           </div>
         </div>
         <div className="flex justify-between mb-2.5 items-center">
           <div className="font-semibold">
             <span className="text-[8px]">March 2017 - March 2021</span>
-            <p className="text-lg font-semibold">Havard University</p>
+            <p className="text-[0.875rem] md:text-lg font-semibold">
+              Havard University
+            </p>
             <span className="text-[10px]">BSc Computer Science</span>
           </div>
-          <div className="flex gap-5 text-[8px]">
+          <div className="flex gap-2.5 md:gap-5 text-[8px]">
             <div>
               <img src={pen} alt="" className="mb-1" />
-              <span className="text-secondary">Edit</span>
+              <span className="text-secondary hidden md:block">Edit</span>
             </div>
             <div>
               <img src={bin} alt="" className="mb-1" />
-              <span className="text-extra-12">Delete</span>
+              <span className="text-extra-12 hidden md:block">Delete</span>
             </div>
           </div>
         </div>
         <div className="flex justify-between items-center">
           <div className="font-semibold">
             <span className="text-[8px]">March 2017 - March 2021</span>
-            <p className="text-lg font-semibold">Havard University</p>
+            <p className="text-[0.875rem] md:text-lg font-semibold">
+              Havard University
+            </p>
             <span className="text-[10px]">BSc Computer Science</span>
           </div>
-          <div className="flex gap-5 text-[8px]">
+          <div className="flex gap-2.5 md:gap-5 text-[8px]">
             <div>
               <img src={pen} alt="" className="mb-1" />
-              <span className="text-secondary">Edit</span>
+              <span className="text-secondary hidden md:block">Edit</span>
             </div>
             <div>
               <img src={bin} alt="" className="mb-1" />
-              <span className="text-extra-12">Delete</span>
+              <span className="text-extra-12 hidden md:block">Delete</span>
             </div>
           </div>
         </div>

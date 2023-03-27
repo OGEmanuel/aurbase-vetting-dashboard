@@ -56,17 +56,17 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
       </p> */}
       <div className="mb-4">
         <div className="flex justify-between mb-2.5">
-          <p className="text-lg font-semibold">
+          <p className="text-[0.875rem] md:text-lg font-semibold">
             Frontend developer : Senior Level
           </p>
-          <div className="flex gap-5 text-[8px]">
+          <div className="flex gap-2.5 md:gap-5 text-[8px]">
             <div>
               <img src={pen} alt="" className="mb-1" />
-              <span className="text-secondary">Edit</span>
+              <span className="text-secondary hidden md:block">Edit</span>
             </div>
             <div>
               <img src={bin} alt="" className="mb-1" />
-              <span className="text-extra-12">Delete</span>
+              <span className="text-extra-12 hidden md:block">Delete</span>
             </div>
           </div>
         </div>
@@ -94,17 +94,17 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
       </div>
       <div className="mb-4">
         <div className="flex justify-between mb-2.5">
-          <p className="text-lg font-semibold">
+          <p className="text-[0.875rem] md:text-lg font-semibold">
             Backend developer : Senior Level
           </p>
-          <div className="flex gap-5 text-[8px]">
+          <div className="flex gap-2.5 md:gap-5 text-[8px]">
             <div>
               <img src={pen} alt="" className="mb-1" />
-              <span className="text-secondary">Edit</span>
+              <span className="text-secondary hidden md:block">Edit</span>
             </div>
             <div>
               <img src={bin} alt="" className="mb-1" />
-              <span className="text-extra-12">Delete</span>
+              <span className="text-extra-12 hidden md:block">Delete</span>
             </div>
           </div>
         </div>
@@ -132,17 +132,17 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
       </div>
       <div>
         <div className="flex justify-between mb-2.5">
-          <p className="text-lg font-semibold">
+          <p className="text-[0.875rem] md:text-lg font-semibold">
             Product designer : Senior Level
           </p>
-          <div className="flex gap-5 text-[8px]">
+          <div className="flex gap-2.5 md:gap-5 text-[8px]">
             <div>
               <img src={pen} alt="" className="mb-1" />
-              <span className="text-secondary">Edit</span>
+              <span className="text-secondary hidden md:block">Edit</span>
             </div>
             <div>
               <img src={bin} alt="" className="mb-1" />
-              <span className="text-extra-12">Delete</span>
+              <span className="text-extra-12 hidden md:block">Delete</span>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ const DisplaySalary = ({ salaryHandler, add, displayOverlay }) => {
         click on the <span className="span-body">“+”</span> button to add your
         salary expectation
       </p> */}
-      <div className="text-lg">
+      <div className="text-[0.875rem] md:text-lg">
         <p className="font-semibold">Salary Range</p>
         <p>
           #<span>350,000.00</span>

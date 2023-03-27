@@ -28,18 +28,18 @@ const DisplayExperience = ({ experienceHandler, add, displayOverlay }) => {
       >
         <div className="flex justify-between mb-1.5 items-center">
           <p className="text-sm font-semibold">Product Design Teamlead</p>
-          <div className="flex gap-5 text-[8px]">
+          <div className="flex gap-2.5 md:gap-5 text-[8px]">
             <div>
               <img src={pen} alt="" className="mb-1" />
-              <span className="text-secondary">Edit</span>
+              <span className="text-secondary hidden md:block">Edit</span>
             </div>
             <div>
               <img src={bin} alt="" className="mb-1" />
-              <span className="text-extra-12">Delete</span>
+              <span className="text-extra-12 hidden md:block">Delete</span>
             </div>
           </div>
         </div>
-        <p className="font-semibold text-lg mb-1.5">
+        <p className="font-semibold text-[0.875rem] md:text-lg mb-1.5">
           <span className="text-extra-10">CAPRIQUOTA</span> 2019-Till date
         </p>
         <div className="w-[90%] text-sm text-extra-14">
@@ -59,18 +59,18 @@ const DisplayExperience = ({ experienceHandler, add, displayOverlay }) => {
       <div>
         <div className="flex justify-between mb-1.5 items-center">
           <p className="text-sm font-semibold">Product Design Teamlead</p>
-          <div className="flex gap-5 text-[8px]">
+          <div className="flex gap-2.5 md:gap-5 text-[8px]">
             <div>
               <img src={pen} alt="" className="mb-1" />
-              <span className="text-secondary">Edit</span>
+              <span className="text-secondary hidden md:block">Edit</span>
             </div>
             <div>
               <img src={bin} alt="" className="mb-1" />
-              <span className="text-extra-12">Delete</span>
+              <span className="text-extra-12 hidden md:block">Delete</span>
             </div>
           </div>
         </div>
-        <p className="font-semibold text-lg mb-1.5">
+        <p className="font-semibold text-[0.875rem] md:text-lg mb-1.5">
           <span className="text-extra-10">AMAZON</span> 2019-Till date
         </p>
         <div className="w-[90%] text-sm text-extra-14">

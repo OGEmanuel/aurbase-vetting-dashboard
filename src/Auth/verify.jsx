@@ -11,7 +11,6 @@ import netflix from '../assets/netflix.svg';
 import google from '../assets/google.svg';
 import microsoft from '../assets/microsoft.svg';
 
-
 const OTP = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -89,12 +88,8 @@ const OTP = () => {
   // Avoids strings in Input field for Firefox
   const inpNum = e => {
     e = e || window.event;
-    console.log(e);
     const charCode = typeof e.which == 'undefined' ? e.keyCode : e.which;
-    console.log(charCode);
-    console.log(e.keyCode);
     const charStr = String.fromCharCode(charCode);
-    console.log(charStr);
     if (!charStr.match(/^[0-9]+$/)) e.preventDefault();
   };
 
@@ -103,20 +98,26 @@ const OTP = () => {
   };
 
   return (
-    <section className="bg-bg-2 px-20 pt-10 pb-20">
-      <div className="flex justify-between items-center mb-10">
-        <img src={logo} alt="" />
+    <section className="xl:bg-bg-2 px-5 md:px-10 xl:px-20 pt-10 pb-20 max-width">
+      <div className="flex justify-between items-end mb-10">
+        <img src={logo} alt="" className="w-[8rem] md:w-[10rem] xl:w-auto" />
         <Link to="/" className="flex items-center gap-2">
-          <img src={back} alt="" />
-          <p className="font-semibold text-2xl">Go Back to website</p>
+          <img src={back} alt="" className="w-[1rem] md:w-[2rem] xl:w-auto" />
+          <p className="font-semibold text-xs md:text-2xl">
+            Go Back to website
+          </p>
         </Link>
       </div>
-      <div className="bg-bg-1 rounded-custom text-center font-semibold pb-10 mb-10">
-        <img src={logo2} alt="" className="w-max mx-auto" />
-        <h1 className="text-[2rem]">
+      <div className="bg-bg-1 rounded-custom text-center font-semibold pb-10 mb-5 md:mb-10">
+        <img
+          src={logo2}
+          alt=""
+          className="w-[5rem] md:w-[7rem] xl:w-max mx-auto"
+        />
+        <h1 className="text-sm md:text-[2rem] mb-2.5 md:mb-5">
           Kindly Enter the OTP to verify your Account
         </h1>
-        <p className="text-lg w-[60%] mx-auto mb-7">
+        <p className="text-xs md:text-lg w-[90%] md:w-[80%] xl:w-[60%] mx-auto mb-7">
           Please take a moment to check your email address. We sent an email
           with an OTP to{' '}
           <span className="font-bold">joemicky689@gmail.com.</span> If you can’t
@@ -127,7 +128,7 @@ const OTP = () => {
           onSubmit={handleSubmit}
           className="flex flex-col items-center mb-5"
         >
-          <div className="flex md:gap-20 gap-3 mb-10">
+          <div className="flex md:gap-20 gap-3 mb-7 md:mb-10">
             <input
               ref={firstInputRef}
               type="number"
@@ -197,11 +198,11 @@ const OTP = () => {
               onChange={sixthFieldChangeHandler}
             />
           </div>
-          <button className="bg-black font-semibold text-lg px-5 py-3 text-white rounded-custom-xs">
+          <button className="bg-black font-semibold text-xs md:text-lg px-5 py-3 text-white rounded-custom-xs">
             Validate OTP
           </button>
         </form>
-        <p className="font-semibold text-xl">
+        <p className="font-semibold text-xs md:text-xl">
           Didn’t receive an OTP? Resend in{' '}
           <span className="text-secondary">
             {minutes < 10 ? '0' + minutes : minutes}:
@@ -209,13 +210,13 @@ const OTP = () => {
           </span>
         </p>
       </div>
-      <div className="flex bg-white mx-3 justify-between px-7 items-center py-3">
-        <img src={facebook} alt="" />
-        <img src={amazon} alt="" />
-        <img src={apple} alt="" />
-        <img src={netflix} alt="" />
-        <img src={google} alt="" />
-        <img src={microsoft} alt="" />
+      <div className="flex flex-wrap bg-bg-2 xl:bg-white xl:mx-3 justify-center xl:justify-between gap-3 md:gap-5 xl:gap-0 xl:px-7 items-start py-3 rounded-custom-lg">
+        <img src={facebook} alt="" className="w-[4.375rem] md:w-auto" />
+        <img src={amazon} alt="" className="w-[3.75rem] md:w-auto" />
+        <img src={apple} alt="" className="w-[4.0625rem] md:w-auto" />
+        <img src={netflix} alt="" className="w-[3.75rem] md:w-auto" />
+        <img src={google} alt="" className="w-[4.375rem] md:w-auto" />
+        <img src={microsoft} alt="" className="w-[5rem] md:w-auto" />
       </div>
     </section>
   );
