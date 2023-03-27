@@ -50,12 +50,12 @@ const Roles = () => {
 
   return (
     <div className="bg-white px-6 md:px-12 rounded-custom-sm w-[88.5%] max-width xl:w-auto z-[9000] fixed top-[50%] left-[50%] xl:left-[60%] translate-x-[-50%] translate-y-[-50%] scroll overflow-auto h-[30rem] pb-10">
-      <div className="grid md:grid-cols-[1fr,_max-content] border-b-2 border-extra-10 md:border-extra-9 mb-5">
-        <div className="md:hidden pt-6 pb-2">
+      <div className="grid xl:grid-cols-[1fr,_max-content] border-b-2 border-extra-10 xl:border-extra-9 mb-5">
+        <div className="xl:hidden pt-6 pb-2">
           <Header title="Add Roles" onClick={closeHandler} />
         </div>
-        <div className="md:w-auto md:py-7 md:border-r-2 border-extra-9 md:pr-12">
-          <p className="font-semibold md:text-[2.5rem] mb-5 hidden md:block">
+        <div className="md:w-auto xl:py-7 xl:border-r-2 border-extra-9 xl:pr-12">
+          <p className="font-semibold md:text-[2.5rem] mb-5 hidden xl:block">
             Add Roles
           </p>
           <form action="" className="relative mb-2.5">
@@ -75,10 +75,10 @@ const Roles = () => {
             <p className="text-xs md:text-sm">Frontend Developer</p>
           </div>
         </div>
-        <div className="py-3 md:pt-[2.7rem] md:pb-[1.5rem] flex flex-col md:pl-6">
+        <div className="py-3 md:pt-[2.7rem] md:pb-[1.5rem] flex flex-col xl:pl-6">
           <button
             onClick={closeHandler}
-            className="w-max ml-auto mb-5 hidden md:block"
+            className="w-max ml-auto mb-5 hidden xl:block"
           >
             <img src={close} alt="" className="" />
           </button>
