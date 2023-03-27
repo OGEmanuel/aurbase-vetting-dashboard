@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../header';
 import Circle from '../../components/Circle';
+import Timer from './Timer';
 import next from '../../assets/next.png';
 
 const AssessmentQuestions = () => {
@@ -34,7 +35,7 @@ const AssessmentQuestions = () => {
               </p>
             </div>
             <div className="h-[120.84px] w-[120.84px]">
-              <Circle />
+              <Timer />
             </div>
           </div>
           <div className="mt-[34px] font-[600] flex flex-col gap-4 ">
