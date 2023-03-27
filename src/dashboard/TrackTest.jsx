@@ -43,10 +43,10 @@ const TrackTest = () => {
   }
 
   return (
-    <>
+    <div className='relative w-full'>
     {showModal_1 && <StartTestModal onOpen={openModal_1Handler} onClose={closeModal_1Handler} />}
     {showModal_2 && <PerequisiteModal onOpen={openModal_2Handler} onClose={closeModal_2Handler} />}
-      <section className="h-full w-auto relative">
+      <section className="h-full ">
         <Header />
         <div className="text-2xl font-[600] flex items-center mb-8">
           <p className="mr-[11px] text-[#00000080]">Track</p>
@@ -55,7 +55,7 @@ const TrackTest = () => {
         </div>
         <div className="relative mb-7 flex flex-col bg-white py-4 md:pt-5 px-[17px] md:pl-[42px] md:pb-[30px] md:pr-[49px]">
           <div className="absolute left-0 top-0 h-full w-1.5 rounded-r-[50px] bg-black"></div>
-          <div className="gap-1.5 flex items-center md:justify-end">
+          <div className="mb-[9px] md:mb-0 gap-1.5 flex items-center md:justify-end">
             <img
               src={important_2}
               alt="An Svg that signifies important"
@@ -99,21 +99,34 @@ const TrackTest = () => {
             </div>
 
             {/* right */}
-            <button onClick={openModal_1Handler} className="mt-5 md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
+            <div className="mt-3 flex flex-col-reverse md:gap-5 gap-[9px] md:flex-col self-start md:self-end">
+                <button onClick={openModal_2Handler}  className=" md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
+                  View Stack test
+                  <img
+                    src={circleArrowRight}
+                    alt="Arrow pointing right"
+                    className="w-4 h-4 md:w-auto md:h-auto"
+                  />
+                </button>
+                <p className="text-sm text-start md:text-end leading-[35px]">
+                  Test Duration :60mins
+                </p>
+              </div>
+            {/* <button onClick={openModal_1Handler} className="mt-5 md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
               View Stack test
               <img
                 src={circleArrowRight}
                 alt="Arrow pointing right"
                 className="w-4 h-4 md:w-auto md:h-auto"
               />
-            </button>
+            </button> */}
           </div>
         </div>
 
         {skillTests.map(skill => (
           <div className="relative mb-7 flex flex-col bg-white py-4 md:pt-5 px-[17px] md:pl-[42px] md:pb-[30px] md:pr-[49px]">
             <div className="absolute left-0 top-0 h-full w-1.5 rounded-r-[50px] bg-[#5382A1]"></div>
-            <div className="gap-1.5 flex items-center md:justify-end">
+            <div className="mb-[9px] md:mb-0 gap-1.5 flex items-center md:justify-end">
               <img
                 src={important_2}
                 alt="An Svg that signifies important"
@@ -167,8 +180,8 @@ const TrackTest = () => {
               </div>
 
               {/* right */}
-              <div className="flex flex-col self-auto md:self-end">
-                <button onClick={openModal_2Handler}  className="mt-5 md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
+              <div className="mt-3 flex flex-col-reverse md:gap-5 gap-[9px] md:flex-col self-start md:self-end">
+                <button onClick={openModal_2Handler}  className=" md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
                   View Stack test
                   <img
                     src={circleArrowRight}
@@ -176,7 +189,7 @@ const TrackTest = () => {
                     className="w-4 h-4 md:w-auto md:h-auto"
                   />
                 </button>
-                <p className="text-sm text-start md:text-end mt-5 leading-[35px]">
+                <p className="text-sm text-start md:text-end leading-[35px]">
                   Test Duration :60mins
                 </p>
               </div>
@@ -184,7 +197,7 @@ const TrackTest = () => {
           </div>
         ))}
       </section>
-    </>
+    </div>
   );
 };
 

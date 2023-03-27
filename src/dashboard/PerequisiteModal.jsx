@@ -10,7 +10,7 @@ import logo from '../assets/logo-small.svg';
 
 const PerequisiteModal = props => {
   return (
-    <div className="z-[100000000] bg-black bg-opacity-50 w-[78.4%] h-screen fixed  flex items-center justify-center">
+    <div className="z-[100000000] bg-black bg-opacity-50 w-[85vw] h-screen fixed self-start flex items-center justify-center">
       <div className="bg-white pl-[38px] pr-[46px] pt-[22px] pb-[34px] w-[506px]">
         <div className="flex justify-between items-center ">
           <div className="mr-16 w-16 h-16 bg-[#D9D9D9] flex items-center justify-center rounded-full">

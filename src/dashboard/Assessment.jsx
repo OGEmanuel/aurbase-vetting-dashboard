@@ -52,7 +52,7 @@ const Assessment = () => {
     <Header/>
     <section className=" h-full ">
       {/* Hero section */}
-      <div className="mb-7 md:mb-10 md:pt-1.5 md:pb-0 px-7 py-9 md:pr-5 md:pl-[52px] flex flex-col-reverse md:flex-row md:justify-between w-full h-max items-center bg-bg-pattern bg-[#121212] text-white md:rounded-[10px]">
+      <div className="mb-7 md:mb-10 md:pt-1.5 md:pb-0 px-7 py-9 md:pr-5 md:pl-[52px] flex flex-col-reverse md:flex-row md:justify-between w-full h-max items-center bg-dp bg-cover bg-[#121212] text-white md:rounded-[10px]">
         {/*hero left */}
         <div className="flex flex-col md:self-auto self-start ">
           <p className="text-[20px] md:text-2xl mb-3.5 md:mb-[9px]">Assessment</p>
@@ -98,7 +98,7 @@ const Assessment = () => {
       {stacks.map((stack, i) => (
         <div className="relative mb-7 flex flex-col bg-white py-4 md:pt-5 px-[17px] md:pl-[42px] md:pb-[30px] md:pr-[49px]">
           <div className="absolute left-0 top-0 h-full w-1.5 rounded-r-[50px] bg-black"></div>
-          <div className="gap-1.5 flex items-center md:justify-end">
+          <div className="gap-1.5 flex items-center md:justify-end mb-2 md:mb-0">
             <img src={important_2} alt="An Svg that signifies important" className="w-4 h-4 md:w-auto md:h-auto" />
             <p className="text-[#EC1C24A6] text-[8px] md:text-xs">Not Taken Yet</p>
           </div>
@@ -124,7 +124,7 @@ const Assessment = () => {
             </div>
 
             {/* right */}
-            <Link to={`${i}`}>
+            <Link className="flex self-start md:self-auto" to={`${i}`}>
             <button className="mt-5 md:mt-0 flex  self-start md:self-auto items-center justify-center gap-1 md:h-[42px] h-[38px] w-[115px] md:w-[154px] text-xs md:text-base text-white bg-[#121212] rounded-[5px]">
               View Stack test
               <img src={circleArrowRight} alt="Arrow pointing right" className="w-4 h-4 md:w-auto md:h-auto" />
