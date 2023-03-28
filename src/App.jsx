@@ -11,6 +11,9 @@ import Personality from './pages/Personality';
 import Language from './pages/Language';
 import Interview from './pages/Interview';
 import AssessmentQuestions from './dashboard/components/AssessmentQuestions';
+import Earnings from './pages/Earnings';
+import Matching from './pages/Matching';
+import Coding from './pages/Coding';
 
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
@@ -119,6 +122,29 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: 'earnings',
+    element: (
+      <React.Suspense fallback={<>...</>}>
+        <Root />
+      </React.Suspense>
+    ),
+    errorElement: (
+      <React.Suspense fallback={<>...</>}>
+        <ErrorPage />
+      </React.Suspense>
+    ),
+    children: [
+      {
+        path: '',
+        element: (
+          <React.Suspense fallback={<>...</>}>
+            <Earnings />
+          </React.Suspense>
+        ),
+      },
+    ],
+  },
+  {
     path: 'progress',
     element: (
       <React.Suspense fallback={<>...</>}>
@@ -153,6 +179,22 @@ const router = createBrowserRouter([
         element: (
           <React.Suspense fallback={<>...</>}>
             <Interview />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: 'matching',
+        element: (
+          <React.Suspense fallback={<>...</>}>
+            <Matching />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: 'live-coding',
+        element: (
+          <React.Suspense fallback={<>...</>}>
+            <Coding />
           </React.Suspense>
         ),
       },
