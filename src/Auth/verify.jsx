@@ -98,8 +98,8 @@ const OTP = () => {
   };
 
   return (
-    <section className="xl:bg-bg-2 px-5 md:px-10 xl:px-20 pt-10 pb-20 max-width">
-      <div className="flex justify-between items-end mb-10">
+    <section className="xl:bg-bg-2 px-5 md:px-10 xl:px-20 pt-10 pb-20 min-h-screen">
+      <div className="max-width flex justify-between items-end mb-10">
         <img src={logo} alt="" className="w-[8rem] md:w-[10rem] xl:w-auto" />
         <Link to="/" className="flex items-center gap-2">
           <img src={back} alt="" className="w-[1rem] md:w-[2rem] xl:w-auto" />
@@ -108,7 +108,7 @@ const OTP = () => {
           </p>
         </Link>
       </div>
-      <div className="bg-bg-1 rounded-custom text-center font-semibold pb-10 mb-5 md:mb-10">
+      <div className="max-width bg-bg-1 rounded-custom text-center font-semibold pb-10 mb-5 md:mb-10">
         <img
           src={logo2}
           alt=""
@@ -210,7 +210,7 @@ const OTP = () => {
           </span>
         </p>
       </div>
-      <div className="flex flex-wrap bg-bg-2 xl:bg-white xl:mx-3 justify-center xl:justify-between gap-3 md:gap-5 xl:gap-0 xl:px-7 items-start py-3 rounded-custom-lg">
+      <div className="max-width flex flex-wrap bg-bg-2 xl:bg-white justify-center xl:justify-between gap-3 md:gap-5 xl:gap-0 xl:px-7 items-start py-3 rounded-custom-lg">
         <img src={facebook} alt="" className="w-[4.375rem] md:w-auto" />
         <img src={amazon} alt="" className="w-[3.75rem] md:w-auto" />
         <img src={apple} alt="" className="w-[4.0625rem] md:w-auto" />
