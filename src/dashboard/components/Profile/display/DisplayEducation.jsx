@@ -31,14 +31,14 @@ const DisplayEducation = ({ educationHandler, add, displayOverlay }) => {
             <span className="text-[10px]">BSc Computer Science</span>
           </div>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <div>
+            <button>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
-            </div>
-            <div>
+            </button>
+            <button>
               <img src={bin} alt="" className="mb-1" />
               <span className="text-extra-12 hidden md:block">Delete</span>
-            </div>
+            </button>
           </div>
         </div>
         <div className="flex justify-between mb-2.5 items-center">
@@ -50,14 +50,14 @@ const DisplayEducation = ({ educationHandler, add, displayOverlay }) => {
             <span className="text-[10px]">BSc Computer Science</span>
           </div>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <div>
+            <button>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
-            </div>
-            <div>
+            </button>
+            <button>
               <img src={bin} alt="" className="mb-1" />
               <span className="text-extra-12 hidden md:block">Delete</span>
-            </div>
+            </button>
           </div>
         </div>
         <div className="flex justify-between items-center">
@@ -69,14 +69,14 @@ const DisplayEducation = ({ educationHandler, add, displayOverlay }) => {
             <span className="text-[10px]">BSc Computer Science</span>
           </div>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <div>
+            <button>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
-            </div>
-            <div>
+            </button>
+            <button>
               <img src={bin} alt="" className="mb-1" />
               <span className="text-extra-12 hidden md:block">Delete</span>
-            </div>
+            </button>
           </div>
         </div>
       </div>

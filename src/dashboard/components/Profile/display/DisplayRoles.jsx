@@ -60,14 +60,14 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
             Frontend developer : Senior Level
           </p>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <div>
+            <button>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
-            </div>
-            <div>
+            </button>
+            <button>
               <img src={bin} alt="" className="mb-1" />
               <span className="text-extra-12 hidden md:block">Delete</span>
-            </div>
+            </button>
           </div>
         </div>
         <div
@@ -98,14 +98,14 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
             Backend developer : Senior Level
           </p>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <div>
+            <button>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
-            </div>
-            <div>
+            </button>
+            <button>
               <img src={bin} alt="" className="mb-1" />
               <span className="text-extra-12 hidden md:block">Delete</span>
-            </div>
+            </button>
           </div>
         </div>
         <div
@@ -136,14 +136,14 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
             Product designer : Senior Level
           </p>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <div>
+            <button>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
-            </div>
-            <div>
+            </button>
+            <button>
               <img src={bin} alt="" className="mb-1" />
               <span className="text-extra-12 hidden md:block">Delete</span>
-            </div>
+            </button>
           </div>
         </div>
         <div className={`flex flex-wrap gap-4`}>
