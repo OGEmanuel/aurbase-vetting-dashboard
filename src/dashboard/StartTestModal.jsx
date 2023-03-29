@@ -7,7 +7,7 @@ import close from '../assets/trackClose.svg';
 const StartTestModal = props => {
   const closeModalHandler = () => {};
   return (
-    <div className="z-[100000000] bg-black bg-opacity-50 w-[78.4%] h-screen fixed  flex items-center justify-center">
+    <div className="md:ml-[-64px] ml-[-20px] z-[100000000] bg-black bg-opacity-50 w-[78.4%] h-screen fixed  flex items-center justify-center">
       <div className="bg-white px-10 pt-[30px] pb-9 w-[506px]">
         <img
           onClick={props.onClose}

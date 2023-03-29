@@ -6,15 +6,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 const Timer = () => {
   const [minutesLeft, setMinutesLeft] = useState(30);
   const [secondsLeft, setSecondsLeft] = useState(0);
-  //   const secondsLeftRef = useRef(secondsLeft);
-
-  //   function greet() {
-  //     // console.log('Hello world');
-  //     // setSecondsLeft(prevSecs => prevSecs - 1)
-
-  //     secondsLeftRef.current--;
-  //     setSecondsLeft(secondsLeftRef.current)
-  // }
+  
   let countdown;
   useEffect(() => {
     countdown = setInterval(() => {
