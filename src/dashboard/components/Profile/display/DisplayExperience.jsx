@@ -4,7 +4,7 @@ import bin from '../../../../assets/delete.svg';
 
 const DisplayExperience = ({ experienceHandler, add, displayOverlay }) => {
   return (
-    <Card className="row-[3_/_span_1]">
+    <Card className="row-[3_/_span_1] h-[25rem] overflow-scroll scroll">
       <div className="flex-between-center">
         <p className="p-head">EXPERIENCE</p>
         <button className="flex-btn" onClick={experienceHandler}>

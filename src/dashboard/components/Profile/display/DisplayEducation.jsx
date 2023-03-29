@@ -4,7 +4,7 @@ import bin from '../../../../assets/delete.svg';
 
 const DisplayEducation = ({ educationHandler, add, displayOverlay }) => {
   return (
-    <Card className="h-max">
+    <Card className="h-[25rem] overflow-scroll scroll">
       <div className="flex-between-center">
         <p className="p-head">EDUCATION</p>
         <button onClick={educationHandler} className="flex-btn">

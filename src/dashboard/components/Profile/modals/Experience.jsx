@@ -13,11 +13,6 @@ const Experience = () => {
     dispatch(experienceModal());
   };
 
-  const cancelHandler = () => {
-    dispatch(overlayMain());
-    dispatch(experienceModal());
-  };
-
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
@@ -62,7 +57,7 @@ const Experience = () => {
             className="outline-none p-5 border resize-none border-extra-6 focus:border-extra-8 rounded-custom-sm bg-bg-3 w-full"
           />
         </label>
-        <Button cancelHandler={cancelHandler} title="Experience" />
+        <Button cancelHandler={closeHandler} title="Experience" />
       </form>
     </Card>
   );

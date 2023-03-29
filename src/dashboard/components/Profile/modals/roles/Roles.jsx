@@ -37,11 +37,6 @@ const Roles = () => {
     dispatch(rolesModal());
   };
 
-  const cancelHandler = () => {
-    dispatch(overlayMain());
-    dispatch(rolesModal());
-  };
-
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
@@ -95,7 +90,7 @@ const Roles = () => {
         <div className="w-max ml-auto text-xs md:text-sm flex gap-2 md:gap-5">
           <button
             type="button"
-            onClick={cancelHandler}
+            onClick={closeHandler}
             className="border border-extra-7 font-semibold py-2.5 md:py-3 px-7 md:px-10 rounded-custom-sm"
           >
             Cancel

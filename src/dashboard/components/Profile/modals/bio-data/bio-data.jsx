@@ -17,11 +17,6 @@ const Education = () => {
     dispatch(bioData());
   };
 
-  const cancelHandler = () => {
-    dispatch(overlayMain());
-    dispatch(bioData());
-  };
-
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
@@ -89,7 +84,7 @@ const Education = () => {
           <p className="label-p">JOB TITLE</p>
           <input type="text" placeholder="Product Designer" className="input" />
         </label>
-        <Button cancelHandler={cancelHandler} title="Bio data" />
+        <Button cancelHandler={closeHandler} title="Bio data" />
       </form>
     </Card>
   );
