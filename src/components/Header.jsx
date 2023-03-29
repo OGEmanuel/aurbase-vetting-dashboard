@@ -1,7 +1,7 @@
 import React from 'react'
 import SwitchToggle from './SwitchToggle'
 import Bell from '../assets/bell.png'
-import Logo from '../assets/Images/Mobile-logo.png'
+import Logo from '../assets/images/Mobile-logo.png'
 import Menu from '../assets/menu.png'
 const Header = ({title}) => {
   return (

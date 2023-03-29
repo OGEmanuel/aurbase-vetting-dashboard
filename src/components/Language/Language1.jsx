@@ -1,5 +1,5 @@
 import React from 'react'
-import Checklist from '../../assets/Images/checklist.png'
+import Checklist from '../../assets/images/checklist.png'
 
 const Language1 = ({onClick}) => {
   return (

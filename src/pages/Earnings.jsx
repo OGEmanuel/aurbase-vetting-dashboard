@@ -4,15 +4,18 @@ import { EarningCardOne,EarningCardTwo } from '../components/Earning/EarningCard
 import Transaction from '../components/Earning/Transaction'
 import Modal from '../components/Earning/Modal'
 import { useSelector } from 'react-redux'
+
 const Earnings = () => {
-   const state=useSelector((state)=>state.earning.open)
-   console.log(state)
+const earning = useSelector(state => state.earning.open);
+
+   console.log(earning)
   return (
     <div>
-        <Header title='Earnings'/>
-      <main>
-        {state && <div className='fixed top-[10rem] right-[10rem]'><Modal/> </div>}
-        <section className='flex justify-between'>
+      <Header title='Earnings'/>
+      <main >
+      {/* fixed top-[10rem] right-[0rem]  md:right-[6rem] lg:right-[11rem] */}
+        {earning && <div className='relative z-[9999]  w-full flex justify-center '><Modal/> </div>}
+        <section className='flex flex-col lg:flex-row gap-4 justify-between'>
             <EarningCardOne/>
             <EarningCardTwo/>
         </section>

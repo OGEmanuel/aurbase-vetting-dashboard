@@ -14,6 +14,7 @@ import AssessmentQuestions from './dashboard/components/AssessmentQuestions';
 import Earnings from './pages/Earnings';
 import Matching from './pages/Matching';
 import Coding from './pages/Coding';
+import ScheduleInterview from './pages/ScheduleInterview';
 
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
@@ -179,6 +180,14 @@ const router = createBrowserRouter([
         element: (
           <React.Suspense fallback={<>...</>}>
             <Interview />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: 'schedule-interview',
+        element: (
+          <React.Suspense fallback={<>...</>}>
+            <ScheduleInterview />
           </React.Suspense>
         ),
       },

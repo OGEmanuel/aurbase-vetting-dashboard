@@ -1,5 +1,5 @@
 import React from 'react'
-import Checklist from '../../assets/Images/checklist.png'
+import Checklist from '../../assets/images/checklist.png'
 const Personality1 = ({onClick}) => {
   return (
     <section className='flex flex-col-reverse md:flex-row items-center bg-white p-8 mt-5 rounded pb-14'>
