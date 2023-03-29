@@ -21,7 +21,7 @@ const Salary = () => {
   };
 
   return (
-    <Card>
+    <Card className="top-[120rem] md:top-[50%]">
       <Header title="Salary Expectation" onClick={closeHandler} />
       <form onSubmit={submitHandler} action="">
         <label htmlFor="" className="label relative">

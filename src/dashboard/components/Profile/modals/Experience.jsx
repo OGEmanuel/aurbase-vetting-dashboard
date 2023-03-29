@@ -20,7 +20,7 @@ const Experience = () => {
   };
 
   return (
-    <Card className="h-[30rem]">
+    <Card className="top-[90rem] md:top-[190%]">
       <Header onClick={closeHandler} title="Experience" />
       <form
         onSubmit={submitHandler}

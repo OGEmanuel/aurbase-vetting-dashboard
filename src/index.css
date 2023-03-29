@@ -145,7 +145,7 @@ input[type='number'] {
 }
 
 .roles-header {
-  @apply bg-extra-10 text-sm md:text-base font-semibold text-white grid grid-cols-[repeat(2,_minmax(max-content,_1fr))] md:grid-cols-[repeat(4,_minmax(max-content,_1fr))] md:w-full overflow-x-auto scroll snap-mandatory snap-x scroll-pl-5 gap-y-5 md:gap-10 px-2.5 md:px-5 py-3 items-center mb-2.5 md:mb-5 rounded-custom-tiny md:rounded-none;
+  @apply bg-extra-10 text-sm md:text-base font-semibold text-white grid grid-cols-[repeat(2,_minmax(max-content,_1fr))] md:grid-cols-[repeat(4,_minmax(max-content,_1fr))] md:w-full md:overflow-x-auto scroll snap-mandatory snap-x scroll-pl-5 gap-y-5 md:gap-10 px-2.5 md:px-5 py-3 items-center mb-2.5 md:mb-5 rounded-custom-tiny md:rounded-none;
 }
 
 .roles-title {

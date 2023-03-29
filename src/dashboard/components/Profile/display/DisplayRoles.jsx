@@ -60,7 +60,7 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
             Frontend developer : Senior Level
           </p>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <button>
+            <button onClick={rolesHandler}>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
             </button>
@@ -78,7 +78,7 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
           {STACK.map(stack => (
             <div
               key={stack.id}
-              className={`flex gap-1 items-center bg-bg-7 py-3 px-1 md:p-3 rounded-custom-sm w-[6.9rem]`}
+              className={`flex gap-1 items-center bg-bg-7 py-3 px-1 md:p-2 rounded-custom-sm w-[6.9rem]`}
             >
               <img
                 src={stack.icon}
@@ -98,7 +98,7 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
             Backend developer : Senior Level
           </p>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <button>
+            <button onClick={rolesHandler}>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
             </button>
@@ -116,7 +116,7 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
           {BE_STACK.map(stack => (
             <div
               key={stack.id}
-              className={`flex gap-1 items-center bg-bg-7 py-3 px-1 md:p-3 rounded-custom-sm w-[6.9rem]`}
+              className={`flex gap-1 items-center bg-bg-7 py-3 px-1 md:p-2 rounded-custom-sm w-[6.9rem]`}
             >
               <img
                 src={stack.icon}
@@ -136,7 +136,7 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
             Product designer : Senior Level
           </p>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <button>
+            <button onClick={rolesHandler}>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
             </button>
@@ -150,7 +150,7 @@ const DisplayRoles = ({ add, rolesHandler, displayOverlay }) => {
           {PD_STACK.map(stack => (
             <div
               key={stack.id}
-              className={`flex gap-1 items-center bg-bg-7 py-3 px-1 md:p-3 rounded-custom-sm w-[6.9rem]`}
+              className={`flex gap-1 items-center bg-bg-7 py-3 px-1 md:p-2 rounded-custom-sm w-[6.9rem]`}
             >
               <img
                 src={stack.icon}

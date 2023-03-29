@@ -21,7 +21,7 @@ const Education = () => {
   };
 
   return (
-    <Card className="h-[30rem]">
+    <Card className="top-[140rem] md:top-[190%]">
       <Header onClick={closeHandler} title="Education" />
       <form
         onSubmit={submitHandler}

@@ -29,7 +29,7 @@ const DisplayExperience = ({ experienceHandler, add, displayOverlay }) => {
         <div className="flex justify-between mb-1.5 items-center">
           <p className="text-sm font-semibold">Product Design Teamlead</p>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <button>
+            <button onClick={experienceHandler}>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
             </button>
@@ -60,7 +60,7 @@ const DisplayExperience = ({ experienceHandler, add, displayOverlay }) => {
         <div className="flex justify-between mb-1.5 items-center">
           <p className="text-sm font-semibold">Product Design Teamlead</p>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <button>
+            <button onClick={experienceHandler}>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
             </button>

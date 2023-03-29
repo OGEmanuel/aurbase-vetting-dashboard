@@ -51,7 +51,7 @@ const StackForm = () => {
               src={stack.icon}
               alt=""
               className={`w-[1rem] md:w-auto ${
-                stack.icon === angular ? 'w-[1.2rem]' : ''
+                stack.icon === angular ? 'w-[.8rem]' : ''
               }`}
             />
             <p className="text-xs md:text-base">{stack.tech}</p>

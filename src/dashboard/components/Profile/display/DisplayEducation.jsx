@@ -31,7 +31,7 @@ const DisplayEducation = ({ educationHandler, add, displayOverlay }) => {
             <span className="text-[10px]">BSc Computer Science</span>
           </div>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <button>
+            <button onClick={educationHandler}>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
             </button>
@@ -50,7 +50,7 @@ const DisplayEducation = ({ educationHandler, add, displayOverlay }) => {
             <span className="text-[10px]">BSc Computer Science</span>
           </div>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <button>
+            <button onClick={educationHandler}>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
             </button>
@@ -69,7 +69,7 @@ const DisplayEducation = ({ educationHandler, add, displayOverlay }) => {
             <span className="text-[10px]">BSc Computer Science</span>
           </div>
           <div className="flex gap-2.5 md:gap-5 text-[8px]">
-            <button>
+            <button onClick={educationHandler}>
               <img src={pen} alt="" className="mb-1" />
               <span className="text-secondary hidden md:block">Edit</span>
             </button>

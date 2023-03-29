@@ -19,7 +19,11 @@ const About = ({ setModal, modal }) => {
     dispatch(aboutModal());
   };
   return (
-    <Card setModal={setModal} modal={modal}>
+    <Card
+      setModal={setModal}
+      modal={modal}
+      className="top-[100rem] md:top-[50%]"
+    >
       <Header onClick={closeHandler} title="About" />
       <form onSubmit={submitHandler} action="" className="label">
         <textarea
