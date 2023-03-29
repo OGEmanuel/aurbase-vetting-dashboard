@@ -6,6 +6,7 @@ import { experienceModal } from '../../../redux-store/features/experience-modal'
 import { overlayMain } from '../../../redux-store/features/open-overlay-body';
 import { rolesModal } from '../../../redux-store/features/roles-modal';
 import { salaryModal } from '../../../redux-store/features/salary-modal';
+import { earningModal } from '../../../redux-store/features/earning-modal';
 
 const OverlayMain = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const OverlayMain = () => {
   const experience = useSelector(state => state.experience.open);
   const education = useSelector(state => state.education.open);
   const roles = useSelector(state => state.roles.open);
-
+  const earning=useSelector(state=>state.earning.open)
   const handleClick = () => {
     if (openMainOverlay) {
       if (biodataModal) {
@@ -43,6 +44,11 @@ const OverlayMain = () => {
         dispatch(overlayMain());
         dispatch(rolesModal());
       }
+      if(earning){
+        dispatch(overlayMain());
+        dispatch(earningModal());
+      }
+      
     }
   };
 
