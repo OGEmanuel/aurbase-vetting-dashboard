@@ -14,11 +14,6 @@ const Salary = () => {
     dispatch(salaryModal());
   };
 
-  const cancelHandler = () => {
-    dispatch(overlayMain());
-    dispatch(salaryModal());
-  };
-
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
@@ -45,7 +40,7 @@ const Salary = () => {
             <option value="1">$2,000 - $5,000</option>
           </select>
         </label>
-        <Button cancelHandler={cancelHandler} />
+        <Button cancelHandler={closeHandler} />
       </form>
     </Card>
   );

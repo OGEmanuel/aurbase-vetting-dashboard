@@ -14,11 +14,6 @@ const Education = () => {
     dispatch(educationModal());
   };
 
-  const cancelHandler = () => {
-    dispatch(overlayMain());
-    dispatch(educationModal());
-  };
-
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
@@ -69,7 +64,7 @@ const Education = () => {
           <p className="label-p">END DATE</p>
           <input type="text" placeholder="28 APR 2020" className="input" />
         </label>
-        <Button cancelHandler={cancelHandler} />
+        <Button cancelHandler={closeHandler} />
       </form>
     </Card>
   );

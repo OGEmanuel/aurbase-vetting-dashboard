@@ -13,11 +13,6 @@ const About = ({ setModal, modal }) => {
     dispatch(aboutModal());
   };
 
-  const cancelHandler = () => {
-    dispatch(overlayMain());
-    dispatch(aboutModal());
-  };
-
   const submitHandler = e => {
     e.preventDefault();
     dispatch(overlayMain());
@@ -35,7 +30,7 @@ const About = ({ setModal, modal }) => {
           placeholder="Let’s get to know you"
           className="outline-none p-5 border placeholder:opacity-50 resize-none border-extra-6 focus:border-extra-8 rounded-custom-sm bg-bg-3 w-full xl:w-[46.3125rem] mb-6 md:mb-10"
         />
-        <Button cancelHandler={cancelHandler} />
+        <Button cancelHandler={closeHandler} />
       </form>
     </Card>
   );

@@ -1,7 +1,6 @@
 import pen from '../../../assets/pen.svg';
 import dp from '../../../assets/images/user-photo.png';
 import add from '../../../assets/add.svg';
-import Card from './UI/profile-card';
 import { useDispatch, useSelector } from 'react-redux';
 import { overlayMain } from '../../../redux-store/features/open-overlay-body';
 import Biodata from './modals/bio-data/bio-data';
