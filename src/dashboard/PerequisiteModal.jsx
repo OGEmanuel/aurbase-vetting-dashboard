@@ -11,7 +11,7 @@ import logo from '../assets/logo-small.svg';
 const PerequisiteModal = props => {
 
   return (
-    <div className="md:ml-[-64px] ml-[-20px] z-[100000000] bg-black bg-opacity-50 md:w-[80vw] h-screen fixed self-start flex items-center justify-center">
+    <div className="md:ml-[-64px] ml-[-20px] z-[100000000] bg-[#D9D9D9] bg-opacity-50 md:w-[80vw] h-screen fixed self-start flex items-center justify-center">
       <div className="bg-white pl-[38px] pr-[46px] pt-[22px] pb-[34px] w-[506px]">
         <div className="flex justify-between items-center ">
           <div className="mr-16 w-16 h-16 bg-[#D9D9D9] flex items-center justify-center rounded-full">
