@@ -32,7 +32,7 @@ const Timer = () => {
           textColor: '#000',
           textSize: '24px',
           text: 'bold',
-          trailColor: '#d6d6d6',
+          trailColor: '#EBEBEB', 
         })}
       ></CircularProgressbar>
     </div>

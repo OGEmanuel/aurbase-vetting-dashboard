@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../header';
 import Circle from '../../components/Circle';
 import Timer from './Timer';
@@ -68,10 +69,13 @@ const AssessmentQuestions = () => {
             </div>
           </div>
 
+<Link to='/progress/assessment/id' className='flex self-end'>
           <button className="text-white bg-black h-[47px] rounded-[5px] mt-[59px] py-[11.5px] px-[28.5px] flex self-end items-center gap-4 text-2xl font-[600]">
             Next
             <img src={next} alt="Next Svg" />
           </button>
+</Link>
+
         </div>
       </section>
     </>
