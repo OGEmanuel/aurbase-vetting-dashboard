@@ -3,6 +3,9 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   presets: [],
   darkMode: 'media', // or 'class'
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
   theme: {
     accentColor: ({ theme }) => ({
       ...theme('colors'),

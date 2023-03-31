@@ -24,7 +24,7 @@ const AssessmentQuestions = () => {
   ];
   return (
     <>
-      <Header />
+      <Header title='Assessment' />
       <section className="w-full h-full">
         <div className="flex flex-col rounded-[10px] bg-white pt-11 pl-[67px] pr-[75px] pb-11">
           <div className="flex items-center justify-between">
@@ -40,28 +40,28 @@ const AssessmentQuestions = () => {
           </div>
           <div className="mt-[34px] font-[600] flex flex-col gap-4 ">
             <div className="flex items-center gap-5">
-              <input className="w-7 h-7" type="radio" name="q1" id="" />
+              <input className="w-7 h-7 radio-btn" type="radio" name="q1" id="" />
               <p className="max-w-[431px]">
                 09:15 Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                 aliquam
               </p>
             </div>
             <div className="flex items-center gap-5">
-              <input className="w-7 h-7" type="radio" name="q1" id="" />
+              <input className="w-7 h-7 radio-btn" type="radio" name="q1" id="" />
               <p className="max-w-[431px]">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                 aliquam Lorem
               </p>
             </div>
             <div className="flex items-center gap-5">
-              <input className="w-7 h-7" type="radio" name="q1" id="" />
+              <input className="w-7 h-7 radio-btn" type="radio" name="q1" id="" />
               <p className="max-w-[431px]">
                 ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
                 Lorem ipsum
               </p>
             </div>
             <div className="flex items-center gap-5">
-              <input className="w-7 h-7" type="radio" name="q1" id="" />
+              <input className="w-7 h-7 radio-btn" type="radio" name="q1" id="" />
               <p className="max-w-[431px]">
                 dolor sit amet, consectetur adipiscing elit ut aliquam
               </p>

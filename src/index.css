@@ -179,3 +179,6 @@ input[type='number'] {
 .roles-remove-btn {
   @apply flex gap-1 items-center justify-self-end text-sm font-normal text-extra-12;
 }
+.radio-btn{
+  @apply accent-black;
+}

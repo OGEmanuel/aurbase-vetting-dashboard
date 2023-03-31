@@ -145,7 +145,7 @@ const TrackTest = () => {
         </div>
 
         {skillTests.map(skill => (
-          <div className="relative mb-7 flex flex-col bg-white py-4 md:pt-5 px-[17px] md:pl-[42px] md:pb-[30px] md:pr-[49px]">
+          <div key={skill.logo} className="relative mb-7 flex flex-col bg-white py-4 md:pt-5 px-[17px] md:pl-[42px] md:pb-[30px] md:pr-[49px]">
             <div
               className="absolute left-0 top-0 h-full w-1.5 rounded-r-[50px]"
               style={{ background: `${skill.color}` }}

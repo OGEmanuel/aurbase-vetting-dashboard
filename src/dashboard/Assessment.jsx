@@ -101,7 +101,7 @@ const Assessment = () => {
 
         {/* Frontend stack */}
         {stacks.map((stack, i) => (
-          <div className="relative mb-7 flex flex-col bg-white py-4 md:pt-5 px-[17px] md:pl-[42px] md:pb-[30px] md:pr-[49px]">
+          <div key={i} className="relative mb-7 flex flex-col bg-white py-4 md:pt-5 px-[17px] md:pl-[42px] md:pb-[30px] md:pr-[49px]">
             <div
               className={`absolute left-0 top-0 h-full w-1.5 rounded-r-[50px]`}
               style={{ background: `${stack.color}` }}
@@ -129,7 +129,7 @@ const Assessment = () => {
 
                 <div className="flex flex-wrap items-center gap-[7px] md:gap-4">
                   {stacks[i].skills.map(skill => (
-                    <div className="h-8 md:h-[53px] w-[74px] md:w-[110px] justify-center flex items-center gap-[3px] bg-[#F2F2F2] rounded-[5px]">
+                    <div key={skill.logo} className="h-8 md:h-[53px] w-[74px] md:w-[110px] justify-center flex items-center gap-[3px] bg-[#F2F2F2] rounded-[5px]">
                       <img
                         src={skill.logo}
                         alt={skill.alt}
