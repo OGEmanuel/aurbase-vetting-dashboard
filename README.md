@@ -2,7 +2,7 @@
 
 ## Figma URL: [link](https://www.figma.com/file/2sbUiz4FFOjC16EAtd0b96/Aurbase-Vetting-dashboard?t=MjIUmtpFInFp9bmI-0)
 
-## Live URL: [link](#)
+## Live URL: [link](https://aurbase-vetting.netlify.app)
 
 > **Technology tools:**
 >
