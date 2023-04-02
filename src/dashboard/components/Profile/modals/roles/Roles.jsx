@@ -13,6 +13,7 @@ import Stack from './Stack';
 import dev from '../../../../../assets/dev.svg';
 import node from '../../../../../assets/nodejs.svg';
 import laravel from '../../../../../assets/laravel.svg';
+import { useGetAllTalentsQuery } from '../../../../../redux-store/fetch/talentsSlice';
 
 const PROD = [
   { id: 1, icon: node, name: 'Figma' },
@@ -31,6 +32,8 @@ const FE_TECH = [
 
 const Roles = () => {
   const dispatch = useDispatch();
+  const { data } = useGetAllTalentsQuery('stacks');
+  console.log(data);
 
   const closeHandler = () => {
     dispatch(overlayMain());
@@ -108,3 +111,5 @@ const Roles = () => {
 };
 
 export default Roles;
+
+const loadStacks = async () => {};
