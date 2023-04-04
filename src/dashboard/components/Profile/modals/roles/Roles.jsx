@@ -47,7 +47,7 @@ const Roles = () => {
   };
 
   return (
-    <div className="bg-white px-6 md:px-12 rounded-custom-sm w-[88.5%] max-width xl:w-auto z-[9000] absolute top-[60rem] left-[50%] xl:left-[60%] translate-x-[-50%] translate-y-[-50%] scroll overflow-auto pb-10">
+    <div className="bg-white px-6 md:px-12 rounded-custom-sm w-[88.5%] max-width xl:w-auto z-[9000] fixed md:absolute top-[45rem] md:top-[60rem] left-[50%] xl:left-[60%] translate-x-[-50%] translate-y-[-50%] scroll overflow-auto pb-10">
       <div className="grid xl:grid-cols-[1fr,_max-content] border-b-2 border-extra-10 xl:border-extra-9 mb-5">
         <div className="xl:hidden pt-6 pb-2">
           <Header title="Add Roles" onClick={closeHandler} />

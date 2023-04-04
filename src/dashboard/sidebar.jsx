@@ -125,7 +125,7 @@ const SideBar = () => {
             )}
           </NavLink>
           <div className="mb-6">
-            <NavLink onClick={e => e.preventDefault()} to="/progress">
+            <NavLink to="/progress">
               {({ isActive }) => (
                 <div
                   className={
@@ -145,7 +145,7 @@ const SideBar = () => {
             <div className="font-semibold items-start relative">
               <img src={ellipses} className="absolute top-[8%] left-[5%]" />
               <div>
-                <NavLink onClick={handleClick} to="/progress/personality">
+                <NavLink onClick={handleClick} to="/progress">
                   {({ isActive }) => (
                     <div
                       className={
