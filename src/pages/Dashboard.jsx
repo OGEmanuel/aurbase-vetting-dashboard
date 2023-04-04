@@ -21,9 +21,9 @@ const Dashboard = () => {
             </div>
 
         </section>
-        <section className="mt-8">
+        <section className="mt-8 border ">
             <p className="hidden font-semibold text-3xl">Progress</p>
-           <span className="hidden md:block rounded-[10px] bg-white px-12 py-4 shadow-2xl" ><img src={Prog} alt="progress image" /></span>
+           <span className="hidden md:block rounded-[10px] bg-white px-12 py-4 shadow-2xl " ><img src={Prog} alt="progress image" className="w-full"/></span>
 
            <span className="bg-white  flex justify-center md:hidden"><img src={Mprog} alt="steps" /></span>
         </section>

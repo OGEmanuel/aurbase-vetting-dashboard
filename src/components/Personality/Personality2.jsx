@@ -30,6 +30,20 @@ const skills=[
         id:8,
         title:'Decision-Making',
     }
+    ,{
+        id:9,
+        title:'Stress Management',
+    },
+    {
+        id:10,
+        title:' Adaptation',
+    }
+    ,
+    {
+        id:11,
+        title:' Positive Attitude',
+    }
+   
 ]
 const SkillButton=({item})=>{
   const [colored,setColored]=useState(false)
@@ -45,7 +59,7 @@ const SkillButton=({item})=>{
 
 const Personality2 = ({onClick}) => {
   return (
-    <section className='bg-white p-5'>
+    <section className='bg-white p-5 pb-[10rem] px-10'>
      <div className='flex justify-between'>
         <p className='text-2xl font-semibold'>Please select your soft skills</p>
         <span className='rounded-lg bg-[#F1F1F1] flex p-2.5 items-center gap-3'>
@@ -53,14 +67,14 @@ const Personality2 = ({onClick}) => {
             <input type="text"  className='bg-[#F1F1F1] outline-none' placeholder='Search skill'/>
         </span>
      </div>
-     <div className='flex gap-3 flex-wrap mt-5'>
+     <div className='flex gap-4 flex-wrap mt-10'>
       {skills.map(item=>{
         return(
             <SkillButton item={item}/>
         )
       })}
      </div>
-     <div className='flex justify-end mt-20 '>
+     <div className='flex justify-end mt-28 '>
         <button onClick={onClick} className='bg-[#121212] px-10 p-2 text-white rounded'>Next</button>
      </div>
     </section>

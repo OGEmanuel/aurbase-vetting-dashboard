@@ -47,7 +47,7 @@ const FaqBox=({item})=>{
     }
    return(
     <div  className='rounded border border-[#3A3A3A99] px-4 py-3 cursor-pointer'>
-        <span onClick={()=>handleClick(item.id)} className='flex justify-between items-center'><h3 className='font-semibold md:text-2xl md:font-bold'>{item.title}</h3> <span>{state==item.id?<img src={Minus} alt="plus" />:<img src={Plus} alt="plus" />}</span></span>
+        <span onClick={()=>handleClick(item.id)} className='flex justify-between items-center'><h3 className='font-semibold md:text-2xl '>{item.title}</h3> <span>{state==item.id?<img src={Minus} alt="plus" />:<img src={Plus} alt="plus" />}</span></span>
         {state==item.id && <p className='md:text-lg md:w-[80%] mt-2'>{item.text}</p>}
     </div>
    )

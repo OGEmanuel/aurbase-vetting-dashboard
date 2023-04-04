@@ -3,31 +3,31 @@ import Circle from '../Circle'
 import next from '../../assets/next.png'
 const Language2 = ({onClick}) => {
   return (
-    <section className='bg-white p-4 py-8  md:p-8 md:px-20 '>
+    <section className='bg-white p-4 py-8  md:p-8 md:px-20 md:pb-[8rem]'>
       
-            <section className='flex  justify-between '>
+            <section className='flex  justify-between md:mt-10'>
             <div className='font-semibold relative'>
             <div className='absolute w-1/3 -top-5 -right-[2rem] md:hidden'>
             <Circle/>
            </div>
             <h1 className='font-bold text-[20px] md:text-[36px]'>Question 1</h1>
            <p className='text-lg md:text-[32px] w-[210px] md:w-full mt-[13px] font-normal mb-5'>What do you consider your greatest accomplishment?</p>
-           <span className='flex items-center gap-2 mt-3'>
-           <input type="radio" name='one' className='w-5 h-5 accent-black' />
-          <p > Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
+           <span className='flex items-center gap-2 mt-10'>
+           <input type="radio" name='one' id='1' className='w-5 h-5 accent-black' />
+          <label htmlFor='1' > Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </label>
            </span>
-           <span className='flex items-center gap-2 mt-3'>
-           <input type="radio" name='one' className='w-5 h-5 accent-black'/>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
+           <span className='flex items-center gap-2 mt-8'>
+           <input type="radio" name='one' id='2' className='w-5 h-5 accent-black'/>
+          <label htmlFor='2'> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </label>
            </span>
          
-           <span className='flex items-center gap-2 mt-3'>
-           <input type="radio" name='one' className='w-5 h-5 accent-black' />
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
+           <span className='flex items-center gap-2 mt-8'>
+           <input type="radio" name='one' id='3' className='w-5 h-5 accent-black' />
+          <label htmlFor='3'> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </label>
            </span>
-           <span className='flex items-center gap-2 mt-3'>
-           <input type="radio" name='one' className='w-5 h-5 accent-black'/>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </p>
+           <span className='flex items-center gap-2 mt-8'>
+           <input type="radio" name='one' id='4' className='w-5 h-5 accent-black'/>
+          <label htmlFor='4'> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </label>
            </span>
          
          
@@ -36,7 +36,7 @@ const Language2 = ({onClick}) => {
             <Circle/>
            </div>
             </section>
-             <div className='flex justify-end md:mt-2 mt-8 pb-10'><button onClick={onClick} className='bg-black rounded p-1 md:p-2 px-4 md:px-6 gap-2 text-white text-[10px] md:text-2xl flex items-center'> <p>Next</p> <span className='mt-0.5 w-[20px]'><img src={next} alt="forward" /></span></button></div>
+             <div className='flex justify-end  mt-14 '><button onClick={onClick} className='bg-black rounded p-1 md:p-2 px-4 md:px-6 gap-2 text-white text-[10px] md:text-2xl flex items-center'> <p>Next</p> <span className='mt-0.5 w-[20px]'><img src={next} alt="forward" /></span></button></div>
 
     </section>
   )
