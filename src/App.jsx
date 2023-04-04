@@ -296,6 +296,343 @@ const router = createBrowserRouter([
     ],
   },
   // {
+  //   path: 'progress',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Root />
+  //     </React.Suspense>
+  //   ),
+  //   errorElement: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ErrorPage />
+  //     </React.Suspense>
+  //   ),
+  //   children: [
+  //     {
+  //       index: true,
+  //       path: 'personality',
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <Personality />
+  //         </React.Suspense>
+  //       ),
+  //     },
+  // {
+  //   path: 'language',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Language />
+  //     </React.Suspense>
+  //   ),
+  // },
+  // {
+  //   path: '/progress/interview',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Interview />
+  //     </React.Suspense>
+  //   ),
+  // },
+  // {
+  //   path: 'schedule-interview',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ScheduleInterview />
+  //     </React.Suspense>
+  //   ),
+  // },
+  // {
+  //   path: 'matching',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Matching />
+  //     </React.Suspense>
+  //   ),
+  // },
+  // {
+  //   path: 'live-coding',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Coding />
+  //     </React.Suspense>
+  //   ),
+  // },
+  // {
+  //   path: 'assessment',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ChildRoot />
+  //     </React.Suspense>
+  //   ),
+
+  //   errorElement: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ErrorPage />
+  //     </React.Suspense>
+  //   ),
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <Assessment />
+  //         </React.Suspense>
+  //       ),
+  //       errorElement: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <ErrorPage />
+  //         </React.Suspense>
+  //       ),
+  //     },
+  //     {
+  //       path: ':id',
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <ChildRoot />
+  //         </React.Suspense>
+  //       ),
+  //       errorElement: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <ErrorPage />
+  //         </React.Suspense>
+  //       ),
+  //       children: [
+  //         {
+  //           index: true,
+  //           element: (
+  //             <React.Suspense fallback={<>...</>}>
+  //               <TrackTest />
+  //             </React.Suspense>
+  //           ),
+  //           errorElement: (
+  //             <React.Suspense fallback={<>...</>}>
+  //               <ErrorPage />
+  //             </React.Suspense>
+  //           ),
+  //         },
+
+  //         {
+  //           path: ':questionId',
+  //           element: (
+  //             <React.Suspense fallback={<>...</>}>
+  //               <ChildRoot />
+  //             </React.Suspense>
+  //           ),
+  //           errorElement: (
+  //             <React.Suspense fallback={<>...</>}>
+  //               <ErrorPage />
+  //             </React.Suspense>
+  //           ),
+  //           children: [
+  //             {
+  //               index: true,
+  //               element: (
+  //                 <React.Suspense fallback={<>...</>}>
+  //                   <AssessmentQuestions />
+  //                 </React.Suspense>
+  //               ),
+  //               errorElement: (
+  //                 <React.Suspense fallback={<>...</>}>
+  //                   <ErrorPage />
+  //                 </React.Suspense>
+  //               ),
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+  // ],
+  // },
+  // {
+  //   path: 'progress/language',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Root />
+  //     </React.Suspense>
+  //   ),
+  //   errorElement: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ErrorPage />
+  //     </React.Suspense>
+  //   ),
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <Language />
+  //         </React.Suspense>
+  //       ),
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: 'progress/interview',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Root />
+  //     </React.Suspense>
+  //   ),
+  //   errorElement: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ErrorPage />
+  //     </React.Suspense>
+  //   ),
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <Interview />
+  //         </React.Suspense>
+  //       ),
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: 'progress/assessment',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Root />
+  //     </React.Suspense>
+  //   ),
+  //   errorElement: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ErrorPage />
+  //     </React.Suspense>
+  //   ),
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <Assessment />
+  //         </React.Suspense>
+  //       ),
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: 'interview',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Interview />
+  //     </React.Suspense>
+  //   ),
+  // },
+  // {
+  //   path: 'schedule-interview',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ScheduleInterview />
+  //     </React.Suspense>
+  //   ),
+  // },
+  // {
+  //   path: 'matching',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Matching />
+  //     </React.Suspense>
+  //   ),
+  // },
+  // {
+  //   path: 'live-coding',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <Coding />
+  //     </React.Suspense>
+  //   ),
+  // },
+  // {
+  //   path: 'assessment',
+  //   element: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ChildRoot />
+  //     </React.Suspense>
+  //   ),
+
+  //   errorElement: (
+  //     <React.Suspense fallback={<>...</>}>
+  //       <ErrorPage />
+  //     </React.Suspense>
+  //   ),
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <Assessment />
+  //         </React.Suspense>
+  //       ),
+  //       errorElement: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <ErrorPage />
+  //         </React.Suspense>
+  //       ),
+  //     },
+  //     {
+  //       path: ':id',
+  //       element: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <ChildRoot />
+  //         </React.Suspense>
+  //       ),
+  //       errorElement: (
+  //         <React.Suspense fallback={<>...</>}>
+  //           <ErrorPage />
+  //         </React.Suspense>
+  //       ),
+  //       children: [
+  //         {
+  //           index: true,
+  //           element: (
+  //             <React.Suspense fallback={<>...</>}>
+  //               <TrackTest />
+  //             </React.Suspense>
+  //           ),
+  //           errorElement: (
+  //             <React.Suspense fallback={<>...</>}>
+  //               <ErrorPage />
+  //             </React.Suspense>
+  //           ),
+  //         },
+
+  //         {
+  //           path: ':questionId',
+  //           element: (
+  //             <React.Suspense fallback={<>...</>}>
+  //               <ChildRoot />
+  //             </React.Suspense>
+  //           ),
+  //           errorElement: (
+  //             <React.Suspense fallback={<>...</>}>
+  //               <ErrorPage />
+  //             </React.Suspense>
+  //           ),
+  //           children: [
+  //             {
+  //               index: true,
+  //               element: (
+  //                 <React.Suspense fallback={<>...</>}>
+  //                   <AssessmentQuestions />
+  //                 </React.Suspense>
+  //               ),
+  //               errorElement: (
+  //                 <React.Suspense fallback={<>...</>}>
+  //                   <ErrorPage />
+  //                 </React.Suspense>
+  //               ),
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+  // {
   //   path: 'language',
   //   element: (
   //     <React.Suspense fallback={<>...</>}>

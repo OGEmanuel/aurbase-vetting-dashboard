@@ -9,6 +9,9 @@ import openMainOverlayReducer from './features/open-overlay-body';
 import rolesReducer from './features/roles-modal';
 import salaryReducer from './features/salary-modal';
 import earningReducer from './features/earning-modal';
+// import { talentsApi } from './fetch/talentsSlice';
+import { setupListeners } from '@reduxjs/toolkit/dist/query';
+import { talentsApi } from './fetch/talentsSlice';
 
 export const store = configureStore({
   reducer: {
@@ -21,6 +24,15 @@ export const store = configureStore({
     experience: experienceReducer,
     education: educationReducer,
     roles: rolesReducer,
-    earning:earningReducer
+    earning: earningReducer,
+    // [talentsApi.reducerPath]: talentsApi.reducer,
+    [talentsApi.reducerPath]: talentsApi.reducer,
   },
+
+  // middleware: getDefaultMiddleware =>
+  // getDefaultMiddleware().concat(talentsApi.middleware),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(talentsApi.middleware),
 });
+
+// setupListeners(store.dispatch);

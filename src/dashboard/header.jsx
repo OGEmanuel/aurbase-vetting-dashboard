@@ -17,7 +17,7 @@ const Header = ({ title = 'My Profile' }) => {
   };
 
   return (
-    <nav className="flex justify-between items-center py-[1.9rem] xl:pt-[2.9rem] xl:pb-4 max-width">
+    <nav className="flex justify-between items-center py-[1.9rem] xl:pt-[2.9rem] xl:pb-4 max-width w-full">
       <div
         className={`flex xl:hidden items-end gap-4
       
@@ -26,10 +26,10 @@ const Header = ({ title = 'My Profile' }) => {
       `}
       >
         <button onClick={handleClick}>
-          <img src={menu}  />
+          <img src={menu} />
         </button>
         <Link to="/">
-          <img src={logo}  className="w-[7rem]" />
+          <img src={logo} className="w-[7rem]" />
         </Link>
       </div>
       <h1 className="font-bold text-[2.5rem] hidden xl:block">{title}</h1>
@@ -40,7 +40,7 @@ const Header = ({ title = 'My Profile' }) => {
           </p>
           <Slider />
         </div>
-        <img src={notify}  />
+        <img src={notify} />
       </div>
     </nav>
   );

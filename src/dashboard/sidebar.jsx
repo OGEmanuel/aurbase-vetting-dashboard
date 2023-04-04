@@ -23,7 +23,9 @@ import { salaryModal } from '../redux-store/features/salary-modal';
 import { experienceModal } from '../redux-store/features/experience-modal';
 import { educationModal } from '../redux-store/features/education-modal';
 import { rolesModal } from '../redux-store/features/roles-modal';
+// import { useState } from 'react';
 const SideBar = () => {
+  // const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
   const displayNav = useSelector(state => state.display.sideNav);
   const displayOverlay = useSelector(state => state.show.modal);
@@ -125,7 +127,8 @@ const SideBar = () => {
             )}
           </NavLink>
           <div className="mb-6">
-            <NavLink onClick={e => e.preventDefault()} to="/progress">
+            {/* {redirect && <Redirect to="/progress/personality" />} */}
+            <NavLink to="/progress/personality">
               {({ isActive }) => (
                 <div
                   className={

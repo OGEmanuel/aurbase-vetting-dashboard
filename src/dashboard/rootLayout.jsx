@@ -19,7 +19,7 @@ const RootLayout = ({ children }) => {
       >
         <SideBar />
       </div>
-      <main className="bg-primary col-[2_/_-1] w-full px-5 xl:px-16">
+      <main className="bg-primary col-[2_/_-1] w-full px-5 xl:px-16 flex flex-col justify-between min-h-scren">
         {openModal && <OverlayMain />}
         {children}
         <Footer />
