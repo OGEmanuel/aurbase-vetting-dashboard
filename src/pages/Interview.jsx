@@ -9,7 +9,7 @@ const Interview = () => {
     <div>
         <Header title='Progress'/>
         <p className='font-semibold mb-[12px] md:mb-[37px] text-2xl'>Schedule a Live Interview</p>
-        <section className='bg-white p-8 md:px-10 flex flex-col md:flex-row  md:justify-between '>
+        <section className='bg-white p-8 md:px-10 flex flex-col md:flex-row  md:justify-between pb-20'>
          <div className='md:w-1/2'>
             <header className='flex md:justify-between items-center gap-4'>
             <span><img src={User} alt="user picture" /></span>
@@ -65,7 +65,7 @@ const Interview = () => {
           </section>
           <p className='mt-[32px] font-semibold'>Schedule Interview Date: <span>10/11/2022</span> </p>
           <p className='mt-[21px] md:mt-[40px] font-semibold'> Schedule Interview Link:</p>
-          <p className='text-[12px] md:text-lg text-[#FFCA144D]'>https://www.figma.com/file/SzMGvwwGrFUnekP7MEljEx/AurBase-Tech?node-id=140%3A1790
+          <p className='text-[12px] md:text-lg text-[#FFCA144D]  w-full overflow-hidden'>https://www.figma.com/file/SzMGvwwGrFUnekP7MEljEx/AurBase-Tech?node-id=140%3A1790
 </p>
          </div>
 
