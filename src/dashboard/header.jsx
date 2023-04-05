@@ -40,7 +40,9 @@ const Header = ({ title = 'My Profile' }) => {
           </p>
           <Slider />
         </div>
-        <img src={notify} />
+        <Link to='/notifications'>
+          <img src={notify} />
+        </Link>
       </div>
     </nav>
   );

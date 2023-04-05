@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../header';
-import Circle from '../../components/Circle';
 import Timer from './Timer';
 import next from '../../assets/next.png';
 

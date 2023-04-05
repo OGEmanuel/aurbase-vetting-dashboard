@@ -15,6 +15,7 @@ import Earnings from './pages/Earnings';
 import Matching from './pages/Matching';
 import Coding from './pages/Coding';
 import ScheduleInterview from './pages/ScheduleInterview';
+import Notification from './dashboard/Notification';
 
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
@@ -117,6 +118,29 @@ const router = createBrowserRouter([
         element: (
           <React.Suspense fallback={<>...</>}>
             <ProfilePage />
+          </React.Suspense>
+        ),
+      },
+    ],
+  },
+  {
+    path: 'notifications',
+    element: (
+      <React.Suspense fallback={<>...</>}>
+        <Root />
+      </React.Suspense>
+    ),
+    errorElement: (
+      <React.Suspense fallback={<>...</>}>
+        <ErrorPage />
+      </React.Suspense>
+    ),
+    children: [
+      {
+        path: '',
+        element: (
+          <React.Suspense fallback={<>...</>}>
+            <Notification />
           </React.Suspense>
         ),
       },
