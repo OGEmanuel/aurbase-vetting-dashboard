@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { nav } from '../redux-store/features/display-nav';
 import { overlay } from '../redux-store/features/display-modal';
+import { off } from '../redux-store/features/set-progress';
 
 const Header = ({ title = 'My Profile' }) => {
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ const Header = ({ title = 'My Profile' }) => {
   const handleClick = () => {
     dispatch(nav());
     dispatch(overlay());
+  };
+
+  const handleNotify = () => {
+    dispatch(off());
   };
 
   return (
@@ -40,7 +45,7 @@ const Header = ({ title = 'My Profile' }) => {
           </p>
           <Slider />
         </div>
-        <Link to='/notifications'>
+        <Link onClick={handleNotify} to="/notifications">
           <img src={notify} />
         </Link>
       </div>

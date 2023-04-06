@@ -185,22 +185,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        // path: 'personality',
         element: (
           <React.Suspense fallback={<>...</>}>
-            {/* <Personality /> */}
             <Progress />
           </React.Suspense>
         ),
       },
-      // {
-      //   path: 'language',
-      //   element: (
-      //     <React.Suspense fallback={<>...</>}>
-      //       <Language />
-      //     </React.Suspense>
-      //   ),
-      // },
       {
         path: 'interview',
         element: (

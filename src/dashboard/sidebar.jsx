@@ -14,7 +14,7 @@ import cancel from '../assets/cancel.svg';
 import activeCheck from '../assets/check-active.svg';
 import logout from '../assets/logout.svg';
 import message from '../assets/message.svg';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Overlay from './components/UI/overlay';
 import { nav } from '../redux-store/features/display-nav';
@@ -33,8 +33,9 @@ import {
   off,
   personality,
 } from '../redux-store/features/set-progress';
-// import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const SideBar = () => {
+  const [prog, setProg] = useState(null);
   const dispatch = useDispatch();
   const displayNav = useSelector(state => state.display.sideNav);
   const displayOverlay = useSelector(state => state.show.modal);
@@ -46,6 +47,13 @@ const SideBar = () => {
   const education = useSelector(state => state.education.open);
   const roles = useSelector(state => state.roles.open);
   const progress = useSelector(state => state.progress.page);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname !== '/progress') {
+      dispatch(off());
+    }
+  }, []);
 
   const handleClick = () => {
     if (displayNav && displayOverlay) {
@@ -182,7 +190,7 @@ const SideBar = () => {
             <div className="font-semibold items-start relative">
               <img src={ellipses} className="absolute top-[8%] left-[5%]" />
               <div>
-                <Link
+                <NavLink
                   onClick={handlePersonality}
                   to="/progress"
                   className="w-full"
@@ -197,8 +205,8 @@ const SideBar = () => {
                     </p>
                     <img src={progress === 0 ? activeCheck : cancel} alt="" />
                   </div>
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   onClick={handleLanguage}
                   to="/progress"
                   className="w-full"
@@ -213,7 +221,7 @@ const SideBar = () => {
                     </p>
                     <img src={progress === 1 ? activeCancel : cancel} />
                   </div>
-                </Link>
+                </NavLink>
                 <NavLink onClick={handleAssessment} to="/progress/assessment">
                   {({ isActive }) => (
                     <div
