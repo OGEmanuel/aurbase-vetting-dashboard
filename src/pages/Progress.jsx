@@ -1,8 +1,5 @@
-import { useState } from 'react';
 import Personality from './Personality';
 import Language from './Language';
-import Assessment from '../dashboard/Assessment';
-import Interview from './Interview';
 import { useSelector } from 'react-redux';
 
 const Progress = () => {
