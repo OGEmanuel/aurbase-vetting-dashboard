@@ -7,8 +7,6 @@ import { useSelector } from 'react-redux';
 
 const Progress = () => {
   const page = useSelector(state => state.progress.page);
-  //   const [page, setPage] = useState(0);
-  console.log(page);
 
   const switchPages = () => {
     if (page === 0) {

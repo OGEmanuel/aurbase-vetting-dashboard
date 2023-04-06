@@ -1,4 +1,6 @@
 import activeCancel from '../assets/not-checked.svg';
+import earnings from '../assets/earn.svg';
+import earningsActive from '../assets/earn-active.svg';
 import logo from '../assets/logo.svg';
 import close from '../assets/close.svg';
 import dashboardInactive from '../assets/dashboard.svg';
@@ -244,6 +246,17 @@ const SideBar = () => {
               </div>
             </div>
           </div>
+          <NavLink onClick={handleOthers} to="/earnings">
+            {({ isActive }) => (
+              <div className={isActive ? 'current-page' : 'link'}>
+                <img
+                  src={isActive ? earningsActive : earnings}
+                  className="w-[1.5rem]"
+                />
+                <p>Earnings</p>
+              </div>
+            )}
+          </NavLink>
           <Link
             onClick={handleOthers}
             to="/dashboard"
