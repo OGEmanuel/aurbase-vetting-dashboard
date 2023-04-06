@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import EyeSlash from '../assets/EyeSlash.svg';
 import dropdown from '../assets/dropdown.svg';
@@ -136,7 +137,7 @@ const Apply = () => {
             />
           </div>
           <div className="relative mb-[30px]">
-          <img
+            <img
               onClick={toggleConfirmPassword}
               src={EyeSlash}
               alt="Eye Slash SVG"
@@ -183,15 +184,18 @@ const Apply = () => {
             </p>
           </div>
 
-          <button
-            className="bg-black w-full font-[600] text-white mt-[26px] md:mt-[23px] py-[18px] rounded-[4px] shadow-[0px_4px_8px_0px_#39B54A0A]
+          <Link
+            to="/"
+            className="bg-black w-full font-[600] text-center text-white mt-[26px] md:mt-[23px] py-[18px] rounded-[4px] shadow-[0px_4px_8px_0px_#39B54A0A]
 "
           >
             Apply Now
-          </button>
-          <p className="text-center pt-[22px] md:pt-[14px]">
-            <span className="text-[#3A3A3A80]">Already a member?</span> Login
-            now!
+          </Link>
+          <p className="text-[#3A3A3A80] text-center pt-[22px] md:pt-[14px]">
+            Already a member?{' '}
+            <Link to="/" className="text-black cursor-pointer">
+              Login now!
+            </Link>
           </p>
         </div>
       </div>

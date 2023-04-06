@@ -1,3 +1,4 @@
+import activeCancel from '../assets/not-checked.svg';
 import logo from '../assets/logo.svg';
 import close from '../assets/close.svg';
 import dashboardInactive from '../assets/dashboard.svg';
@@ -11,7 +12,6 @@ import cancel from '../assets/cancel.svg';
 import activeCheck from '../assets/check-active.svg';
 import logout from '../assets/logout.svg';
 import message from '../assets/message.svg';
-import cancelActive from '../assets/not-checked.svg';
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Overlay from './components/UI/overlay';
@@ -26,6 +26,7 @@ import { educationModal } from '../redux-store/features/education-modal';
 import { rolesModal } from '../redux-store/features/roles-modal';
 import {
   assessment,
+  interview,
   language,
   off,
   personality,
@@ -98,6 +99,11 @@ const SideBar = () => {
   const handleAssessment = () => {
     handleClick();
     dispatch(assessment());
+  };
+
+  const handleInterview = () => {
+    handleClick();
+    dispatch(interview());
   };
 
   return (
@@ -174,21 +180,11 @@ const SideBar = () => {
             <div className="font-semibold items-start relative">
               <img src={ellipses} className="absolute top-[8%] left-[5%]" />
               <div>
-                {/* <NavLink onClick={handleClick} to="/progress/personality">
-                  {({ isActive }) => (
-                    <div
-                      className={
-                        isActive ? 'progress-active' : 'progress-inactive'
-                      }
-                    >
-                      <p className={isActive ? '' : 'text-extra'}>
-                        Personality Test
-                      </p>
-                      <img src={isActive ? activeCheck : cancel} alt="" />
-                    </div>
-                  )}
-                </NavLink> */}
-                <button onClick={handlePersonality} className="w-full">
+                <Link
+                  onClick={handlePersonality}
+                  to="/progress"
+                  className="w-full"
+                >
                   <div
                     className={
                       progress === 0 ? 'progress-active' : 'progress-inactive'
@@ -199,22 +195,12 @@ const SideBar = () => {
                     </p>
                     <img src={progress === 0 ? activeCheck : cancel} alt="" />
                   </div>
-                </button>
-                {/* <NavLink onClick={handleClick} to="/progress/language">
-                  {({ isActive }) => (
-                    <div
-                      className={
-                        isActive ? 'progress-active' : 'progress-inactive'
-                      }
-                    >
-                      <p className={isActive ? '' : 'text-extra'}>
-                        Language Test
-                      </p>
-                      <img src={cancel} />
-                    </div>
-                  )}
-                </NavLink> */}
-                <button onClick={handleLanguage} className="w-full">
+                </Link>
+                <Link
+                  onClick={handleLanguage}
+                  to="/progress"
+                  className="w-full"
+                >
                   <div
                     className={
                       progress === 1 ? 'progress-active' : 'progress-inactive'
@@ -223,10 +209,10 @@ const SideBar = () => {
                     <p className={progress === 1 ? '' : 'text-extra'}>
                       Language Test
                     </p>
-                    <img src={progress === 1 ? cancelActive : cancel} />
+                    <img src={progress === 1 ? activeCancel : cancel} />
                   </div>
-                </button>
-                {/* <NavLink onClick={handleClick} to="/progress/assessment">
+                </Link>
+                <NavLink onClick={handleAssessment} to="/progress/assessment">
                   {({ isActive }) => (
                     <div
                       className={
@@ -236,63 +222,30 @@ const SideBar = () => {
                       <p className={isActive ? 'mt-1' : 'text-extra mt-1'}>
                         Assessment
                       </p>
-                      <img src={cancel} />
-                    </div>
-                  )}
-                </NavLink> */}
-                <button onClick={handleAssessment} className="w-full">
-                  <div
-                    className={
-                      progress === 2 ? 'progress-active' : 'progress-inactive'
-                    }
-                  >
-                    <p className={progress === 2 ? 'mt-1' : 'text-extra mt-1'}>
-                      Assessment
-                    </p>
-                    <img src={progress === 2 ? cancelActive : cancel} />
-                  </div>
-                </button>
-                {/* <NavLink onClick={handleClick} to="/progress/interview">
-                  {({ isActive }) => (
-                    <div
-                      className={
-                        isActive ? 'progress-active' : 'progress-inactive'
-                      }
-                    >
-                      <p className={isActive ? '' : 'text-extra'}>
-                        {' '}
-                        Live Interview
-                      </p>
-                      <img src={cancel} />
-                    </div>
-                  )}
-                </NavLink> */}
-                <NavLink onClick={handleClick} to="/progress/interview">
-                  {({ isActive }) => (
-                    <div
-                      className={
-                        isActive ? 'progress-active' : 'progress-inactive'
-                      }
-                    >
-                      <p className={isActive ? '' : 'text-extra'}>
-                        {' '}
-                        Live Interview
-                      </p>
-                      <img src={cancel} />
+                      <img src={isActive ? activeCancel : cancel} />
                     </div>
                   )}
                 </NavLink>
-                {/* <div className="flex justify-between items-center">
-                  <Link onClick={handleClick} to="/progress/interview">
-                    Live Interview
-                  </Link>
-                  <img src={cancel} alt="" />
-                </div> */}
+                <NavLink onClick={handleInterview} to="/progress/interview">
+                  {({ isActive }) => (
+                    <div
+                      className={
+                        isActive ? 'progress-active' : 'progress-inactive'
+                      }
+                    >
+                      <p className={isActive ? '' : 'text-extra'}>
+                        {' '}
+                        Live Interview
+                      </p>
+                      <img src={isActive ? activeCancel : cancel} />
+                    </div>
+                  )}
+                </NavLink>
               </div>
             </div>
           </div>
           <Link
-            onClick={handleClick}
+            onClick={handleOthers}
             to="/dashboard"
             className="flex gap-4 font-semibold text-tertiary items-center py-2 px-1 mb-4"
           >

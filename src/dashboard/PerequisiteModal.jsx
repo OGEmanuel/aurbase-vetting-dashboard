@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import html from '../assets/html.svg';
 import css from '../assets/css.svg';
@@ -8,7 +8,13 @@ import clock from '../assets/clock.svg';
 import close from '../assets/trackClose.svg';
 import logo from '../assets/logo-small.svg';
 
+const dropdownList = [
+  { lang: 'CSS', img: css },
+  { lang: 'JavaScript', img: js },
+];
 const PerequisiteModal = props => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedLang, isSelectedLang] = useState('HTML')
 
   return (
     <div className="md:ml-[-64px] ml-[-20px] z-[100000000] bg-[#D9D9D9] bg-opacity-50 md:w-[80vw] h-screen fixed self-start flex items-center justify-center">
@@ -43,14 +49,30 @@ const PerequisiteModal = props => {
           {/* ))} */}
         </div>
 
-        <div className="mt-6 flex justify-center items-center gap-2.5">
-          <p className="text-lg font-[600]">Choose a Stack :</p>
-          <div className="px-6 py-[13px] h-[50px] md:h-[50px] w-[74px] md:w-[158px] flex items-center bg-[#F2F2F2] rounded-[5px]">
+        <div className=" mt-6 flex justify-center items-center gap-2.5">
+            <div className="relative">
+            {isOpen && <div className="w-[158px] absolute top-[86px] right-0 bg-[#F2F2F2] rounded-[5px]">
+            {dropdownList.map((item, i) => (
+              <div key={i} className="px-6 py-[13px] flex items-center">
+                <img src={item.img} alt="HTML Logo" className="pr-1 w-4 md:w-auto" />
+                <p className="pl-1 pr-10 text-xs md:text-base">{item.lang}</p>
+                {/* <img src={dropdown2} alt="Dropdown Svg" /> */}
+              </div>
+            ))}
+          </div>}
+
+          <p className=" text-lg font-[600]">Choose a Stack :</p>
+          {/* dropdown */}
+          <div onClick={() => setIsOpen(!isOpen)} className=" px-6 py-[13px] h-[50px] md:h-[50px] w-[74px] md:w-[158px] flex items-center bg-[#F2F2F2] rounded-[5px]">
             {/* <div className="flrx"></div> */}
+
             <img src={html} alt="HTML Logo" className="pr-1 w-4 md:w-auto" />
             <p className="pl-1 pr-10 text-xs md:text-base">HTML</p>
             <img src={dropdown2} alt="Dropdown Svg" />
           </div>
+            </div>
+
+          
         </div>
         <h4 className="text-2xl font-[700] mt-5">Instructions</h4>
 

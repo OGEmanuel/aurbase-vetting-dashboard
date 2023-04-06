@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import EyeSlash from '../assets/EyeSlash.svg';
 import curlyArrowDown from '../assets/curlyArrowDown.svg';
@@ -102,18 +103,19 @@ const Login = () => {
             <input type="checkbox" />
             <p className="">Remember me</p>
           </div>
-          <p className="">Forgot Password</p>
+          <Link to='/forgetpassword' className="">Forgot Password</Link>
         </div>
 
-        <button
-          className="bg-black w-full text-white mt-10 md:mt-[49px] py-[18px] rounded-[8px] shadow-[0px_4px_8px_0px_#39B54A0A]
+        <Link
+          to="/dashboard"
+          className="bg-black w-full text-center text-white mt-10 md:mt-[49px] py-[18px] rounded-[8px] shadow-[0px_4px_8px_0px_#39B54A0A]
 "
         >
           Log In
-        </button>
-        <p className="pt-[43px] md:pt-4 text-center">
-          <span className="text-[#3A3A3A80]"> Not yet a member?</span> Create an
-          account now!{' '}
+        </Link>
+        <p className="pt-[43px] text-[#3A3A3A80] md:pt-4 text-center">
+          Not yet a member?{' '}
+          <Link to='/apply' className="text-black cursor-pointer"> Create an account now!</Link>
         </p>
       </div>
     </section>
