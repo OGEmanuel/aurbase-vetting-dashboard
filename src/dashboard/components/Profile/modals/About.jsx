@@ -22,7 +22,7 @@ const About = ({ setModal, modal }) => {
     <Card
       setModal={setModal}
       modal={modal}
-      className="top-[20rem] md:top-[25.5rem]"
+      className="top-1/2 md:top-[25.5rem]"
     >
       <Header onClick={closeHandler} title="About" />
       <form onSubmit={submitHandler} action="" className="label">
