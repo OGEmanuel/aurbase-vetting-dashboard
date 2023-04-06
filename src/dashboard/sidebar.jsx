@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import activeCancel from '../assets/not-checked.svg';
 import earnings from '../assets/earn.svg';
 import earningsActive from '../assets/earn-active.svg';
@@ -27,15 +28,11 @@ import { experienceModal } from '../redux-store/features/experience-modal';
 import { educationModal } from '../redux-store/features/education-modal';
 import { rolesModal } from '../redux-store/features/roles-modal';
 import {
-  assessment,
-  interview,
   language,
   off,
   personality,
 } from '../redux-store/features/set-progress';
-import { useEffect, useState } from 'react';
 const SideBar = () => {
-  const [prog, setProg] = useState(null);
   const dispatch = useDispatch();
   const displayNav = useSelector(state => state.display.sideNav);
   const displayOverlay = useSelector(state => state.show.modal);
@@ -104,16 +101,6 @@ const SideBar = () => {
   const handleLanguage = () => {
     handleClick();
     dispatch(language());
-  };
-
-  const handleAssessment = () => {
-    handleClick();
-    dispatch(assessment());
-  };
-
-  const handleInterview = () => {
-    handleClick();
-    dispatch(interview());
   };
 
   return (
@@ -222,7 +209,7 @@ const SideBar = () => {
                     <img src={progress === 1 ? activeCancel : cancel} />
                   </div>
                 </NavLink>
-                <NavLink onClick={handleAssessment} to="/progress/assessment">
+                <NavLink onClick={handleOthers} to="/progress/assessment">
                   {({ isActive }) => (
                     <div
                       className={
@@ -236,7 +223,7 @@ const SideBar = () => {
                     </div>
                   )}
                 </NavLink>
-                <NavLink onClick={handleInterview} to="/progress/interview">
+                <NavLink onClick={handleOthers} to="/progress/interview">
                   {({ isActive }) => (
                     <div
                       className={

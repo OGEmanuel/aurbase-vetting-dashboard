@@ -14,19 +14,12 @@ const progressPageSlice = createSlice({
     language: state => {
       state.page = 1;
     },
-    assessment: state => {
-      state.page = 2;
-    },
-    interview: state => {
-      state.page = 3;
-    },
     off: state => {
       state.page = -1;
     },
   },
 });
 
-export const { personality, language, assessment, interview, off } =
-  progressPageSlice.actions;
+export const { personality, language, off } = progressPageSlice.actions;
 
 export default progressPageSlice.reducer;
