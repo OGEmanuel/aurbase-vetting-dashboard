@@ -13,9 +13,7 @@ const Progress = () => {
       return <Personality />;
     } else if (page === 1) {
       return <Language />;
-    } else if (page === 2) {
-      return <Assessment />;
-    } else if (page === 3) return <Interview />;
+    }
   };
 
   return <section>{switchPages()}</section>;
