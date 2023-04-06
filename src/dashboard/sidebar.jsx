@@ -11,6 +11,7 @@ import cancel from '../assets/cancel.svg';
 import activeCheck from '../assets/check-active.svg';
 import logout from '../assets/logout.svg';
 import message from '../assets/message.svg';
+import cancelActive from '../assets/not-checked.svg';
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Overlay from './components/UI/overlay';
@@ -23,9 +24,14 @@ import { salaryModal } from '../redux-store/features/salary-modal';
 import { experienceModal } from '../redux-store/features/experience-modal';
 import { educationModal } from '../redux-store/features/education-modal';
 import { rolesModal } from '../redux-store/features/roles-modal';
+import {
+  assessment,
+  language,
+  off,
+  personality,
+} from '../redux-store/features/set-progress';
 // import { useState } from 'react';
 const SideBar = () => {
-  // const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
   const displayNav = useSelector(state => state.display.sideNav);
   const displayOverlay = useSelector(state => state.show.modal);
@@ -36,6 +42,7 @@ const SideBar = () => {
   const experience = useSelector(state => state.experience.open);
   const education = useSelector(state => state.education.open);
   const roles = useSelector(state => state.roles.open);
+  const progress = useSelector(state => state.progress.page);
 
   const handleClick = () => {
     if (displayNav && displayOverlay) {
@@ -73,6 +80,26 @@ const SideBar = () => {
     }
   };
 
+  const handleOthers = () => {
+    handleClick();
+    dispatch(off());
+  };
+
+  const handlePersonality = () => {
+    handleClick();
+    dispatch(personality());
+  };
+
+  const handleLanguage = () => {
+    handleClick();
+    dispatch(language());
+  };
+
+  const handleAssessment = () => {
+    handleClick();
+    dispatch(assessment());
+  };
+
   return (
     <>
       {displayOverlay && <Overlay />}
@@ -103,7 +130,7 @@ const SideBar = () => {
           <hr className="border border-extra-1" />
         </div>
         <div className="mb-60 px-2.5">
-          <NavLink onClick={handleClick} to="/dashboard">
+          <NavLink onClick={handleOthers} to="/dashboard">
             {({ isActive }) => (
               <div className={isActive ? 'current-page' : 'link'}>
                 <img
@@ -115,7 +142,7 @@ const SideBar = () => {
               </div>
             )}
           </NavLink>
-          <NavLink onClick={handleClick} to="/profile">
+          <NavLink onClick={handleOthers} to="/profile">
             {({ isActive }) => (
               <div className={isActive ? 'current-page' : 'link'}>
                 <img
@@ -127,8 +154,7 @@ const SideBar = () => {
             )}
           </NavLink>
           <div className="mb-6">
-            {/* {redirect && <Redirect to="/progress/personality" />} */}
-            <NavLink to="/progress/personality">
+            <NavLink onClick={handlePersonality} to="/progress">
               {({ isActive }) => (
                 <div
                   className={
@@ -148,7 +174,7 @@ const SideBar = () => {
             <div className="font-semibold items-start relative">
               <img src={ellipses} className="absolute top-[8%] left-[5%]" />
               <div>
-                <NavLink onClick={handleClick} to="/progress/personality">
+                {/* <NavLink onClick={handleClick} to="/progress/personality">
                   {({ isActive }) => (
                     <div
                       className={
@@ -161,8 +187,20 @@ const SideBar = () => {
                       <img src={isActive ? activeCheck : cancel} alt="" />
                     </div>
                   )}
-                </NavLink>
-                <NavLink onClick={handleClick} to="/progress/language">
+                </NavLink> */}
+                <button onClick={handlePersonality} className="w-full">
+                  <div
+                    className={
+                      progress === 0 ? 'progress-active' : 'progress-inactive'
+                    }
+                  >
+                    <p className={progress === 0 ? '' : 'text-extra'}>
+                      Personality Test
+                    </p>
+                    <img src={progress === 0 ? activeCheck : cancel} alt="" />
+                  </div>
+                </button>
+                {/* <NavLink onClick={handleClick} to="/progress/language">
                   {({ isActive }) => (
                     <div
                       className={
@@ -175,8 +213,20 @@ const SideBar = () => {
                       <img src={cancel} />
                     </div>
                   )}
-                </NavLink>
-                <NavLink onClick={handleClick} to="/progress/assessment">
+                </NavLink> */}
+                <button onClick={handleLanguage} className="w-full">
+                  <div
+                    className={
+                      progress === 1 ? 'progress-active' : 'progress-inactive'
+                    }
+                  >
+                    <p className={progress === 1 ? '' : 'text-extra'}>
+                      Language Test
+                    </p>
+                    <img src={progress === 1 ? cancelActive : cancel} />
+                  </div>
+                </button>
+                {/* <NavLink onClick={handleClick} to="/progress/assessment">
                   {({ isActive }) => (
                     <div
                       className={
@@ -189,7 +239,34 @@ const SideBar = () => {
                       <img src={cancel} />
                     </div>
                   )}
-                </NavLink>
+                </NavLink> */}
+                <button onClick={handleAssessment} className="w-full">
+                  <div
+                    className={
+                      progress === 2 ? 'progress-active' : 'progress-inactive'
+                    }
+                  >
+                    <p className={progress === 2 ? 'mt-1' : 'text-extra mt-1'}>
+                      Assessment
+                    </p>
+                    <img src={progress === 2 ? cancelActive : cancel} />
+                  </div>
+                </button>
+                {/* <NavLink onClick={handleClick} to="/progress/interview">
+                  {({ isActive }) => (
+                    <div
+                      className={
+                        isActive ? 'progress-active' : 'progress-inactive'
+                      }
+                    >
+                      <p className={isActive ? '' : 'text-extra'}>
+                        {' '}
+                        Live Interview
+                      </p>
+                      <img src={cancel} />
+                    </div>
+                  )}
+                </NavLink> */}
                 <NavLink onClick={handleClick} to="/progress/interview">
                   {({ isActive }) => (
                     <div

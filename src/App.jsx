@@ -15,6 +15,7 @@ import Earnings from './pages/Earnings';
 import Matching from './pages/Matching';
 import Coding from './pages/Coding';
 import ScheduleInterview from './pages/ScheduleInterview';
+import Progress from './pages/Progress';
 
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
@@ -160,10 +161,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        path: 'personality',
+        // path: 'personality',
         element: (
           <React.Suspense fallback={<>...</>}>
-            <Personality />
+            {/* <Personality /> */}
+            <Progress />
           </React.Suspense>
         ),
       },
