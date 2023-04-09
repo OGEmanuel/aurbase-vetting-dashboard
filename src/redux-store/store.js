@@ -11,6 +11,9 @@ import salaryReducer from './features/salary-modal';
 import earningReducer from './features/earning-modal';
 import progressPageReducer from './features/set-progress';
 import { talentsApi } from './fetch/talentsSlice';
+import { authApi } from '../Auth/api/authApi';
+// import { authApi } from '../Auth/api/authApi';
+import { setupListeners } from '@reduxjs/toolkit/query/react';
 
 export const store = configureStore({
   reducer: {
@@ -26,8 +29,11 @@ export const store = configureStore({
     earning: earningReducer,
     progress: progressPageReducer,
     [talentsApi.reducerPath]: talentsApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
   },
 
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(talentsApi.middleware),
+    getDefaultMiddleware().concat(authApi.middleware),
 });
+
+setupListeners(store.dispatch);

@@ -9,7 +9,17 @@ export const talentsApi = createApi({
     getAllTalents: builder.query({
       query: name => `talent/${name}`,
     }),
+
+    loginUser: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/login',
+          method: 'post',
+          body,
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetAllTalentsQuery } = talentsApi;
+export const { useGetAllTalentsQuery, useLoginUserMutation } = talentsApi;

@@ -49,8 +49,8 @@ const PerequisiteModal = props => {
           {/* ))} */}
         </div>
 
-        <div className=" mt-6 flex justify-center items-center gap-2.5">
-            <div className="relative">
+        <div className="relative mt-6 flex justify-center items-center gap-2.5">
+            {/* <div className="relative"> */}
             {isOpen && <div className="w-[158px] absolute top-[86px] right-0 bg-[#F2F2F2] rounded-[5px]">
             {dropdownList.map((item, i) => (
               <div key={i} className="px-6 py-[13px] flex items-center">
@@ -73,7 +73,7 @@ const PerequisiteModal = props => {
             </div>
 
           
-        </div>
+        {/* </div> */}
         <h4 className="text-2xl font-[700] mt-5">Instructions</h4>
 
         <div className="flex items-center gap-4 mt-3">
