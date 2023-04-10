@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import EyeSlash from '../assets/EyeSlash.svg';
 import dropdown from '../assets/dropdown.svg';
@@ -12,12 +12,52 @@ import blackBoy from '../assets/blackBoy.svg';
 import baldBoy from '../assets/baldBoy.svg';
 import whiteBoy from '../assets/whiteBoy.svg';
 
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { useRegisterUserMutation } from '../redux-store/fetch/talentsSlice';
+
+const validationSchema = yup.object().shape({
+  email: yup.string().email().required('Email Address is required'),
+  password: yup
+    .string()
+    .required('Password is Required')
+    .min(8, 'password must be at least 8 characters'),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Password Must Match')
+    .required('Confirm Password is Required'),
+});
+
+// {
+//   "track_id": "1",
+//  "email": "nath@gmail.com",
+//  "password": "12345678" ,
+//  "status": "active",
+//  "ipaddress": "283:234:0:12",
+//  "how_do_you": "Twitter",
+//  }
+
 const Apply = () => {
   const [showTracks, setShowTracks] = useState(false);
   const [showMedia, setShowMedia] = useState(false);
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  //creating IP state
+  const [ip, setIP] = useState('');
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    //creating function to load ip address from the API
+    const getData = async () => {
+      const res = await axios.get('https://geolocation-db.com/json/');
+      console.log(res.data);
+      setIP(res.data.IPv4);
+    };
+    getData();
+  }, []);
 
   const trackDropdownHandler = () => {
     setShowTracks(!showTracks);
@@ -32,6 +72,52 @@ const Apply = () => {
   const toggleConfirmPassword = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
+
+  const submitForm = async data => {
+    console.log(data);
+    if (!isRegisterError)
+      await registerUser({
+        track_id: '1',
+        email: data.email,
+        password: data.password,
+        status: 'active',
+        ipaddress: ip,
+        how_do_you: 'Twitter',
+        deleted: '0',
+      });
+
+    reset({
+      email: '',
+      password: '',
+      confirmPassword: '',
+    });
+  };
+
+  const [
+    registerUser,
+    {
+      data: registerData,
+      isSuccess: isRegisterSuccess,
+      isError: isRegisterError,
+      error: registerError,
+    },
+  ] = useRegisterUserMutation();
+
+  useEffect(() => {
+    if (isRegisterSuccess) {
+      console.log('Register successful');
+      navigate('/');
+    }
+  }, [isRegisterSuccess]);
 
   return (
     // <section className="pt-[147px] pb-[191px] bg-[#FFFFFFF2] h-screen overflow-y-auto flex items-center justify-center ">
@@ -114,6 +200,7 @@ const Apply = () => {
               Email Address
             </label>
             <input
+              {...register('email')}
               type="text"
               id="email"
               placeholder="sample@gmail.com"
@@ -131,6 +218,7 @@ const Apply = () => {
               Password
             </label>
             <input
+              {...register('password')}
               type={showPassword ? 'text' : 'password'}
               placeholder="**********"
               className="w-full h-[58px] py-4 pl-4 rounded-[4px]  border border-[#D6D8E7] "
@@ -148,6 +236,8 @@ const Apply = () => {
               Confirm Password
             </label>
             <input
+              {...register('confirmPassword')}
+              // rhf={{ ...register('confirmPassword') }}
               type={showConfirmPassword ? 'text' : 'password'}
               placeholder="**********"
               className="w-full h-[58px] py-4 pl-4 rounded-[4px]  border border-[#D6D8E7] "
@@ -184,13 +274,13 @@ const Apply = () => {
             </p>
           </div>
 
-          <Link
-            to="/"
+          <button
+            onClick={handleSubmit(submitForm)}
             className="bg-black w-full font-[600] text-center text-white mt-[26px] md:mt-[23px] py-[18px] rounded-[4px] shadow-[0px_4px_8px_0px_#39B54A0A]
 "
           >
             Apply Now
-          </Link>
+          </button>
           <p className="text-[#3A3A3A80] text-center pt-[22px] md:pt-[14px]">
             Already a member?{' '}
             <Link to="/" className="text-black cursor-pointer">

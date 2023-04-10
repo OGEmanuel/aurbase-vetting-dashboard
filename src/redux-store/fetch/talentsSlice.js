@@ -19,7 +19,16 @@ export const talentsApi = createApi({
         };
       },
     }),
+    registerUser: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/register',
+          method: 'post',
+          body,
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetAllTalentsQuery, useLoginUserMutation } = talentsApi;
+export const { useGetAllTalentsQuery, useLoginUserMutation, useRegisterUserMutation } = talentsApi;
