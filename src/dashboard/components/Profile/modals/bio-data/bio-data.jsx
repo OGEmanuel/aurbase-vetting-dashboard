@@ -24,7 +24,7 @@ const Education = () => {
   };
 
   return (
-    <Card className="top-[50%] md:top-[35rem] h-[30rem]">
+    <Card className="top-[50%] md:top-[35rem] h-[30rem] md:h-auto">
       <Header onClick={closeHandler} title="Bio data" />
       <div className="font-semibold mb-7">
         <p className="text-xs md:text-2xl mb-5">Profile Picture(Compulsory)</p>
