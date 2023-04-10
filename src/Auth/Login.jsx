@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import EyeSlash from '../assets/EyeSlash.svg';
 import curlyArrowDown from '../assets/curlyArrowDown.svg';
@@ -12,10 +12,11 @@ import baldBoy from '../assets/baldBoy.svg';
 import whiteBoy from '../assets/whiteBoy.svg';
 
 import axios from 'axios';
+import { isMobile, isTablet, isDesktop } from 'react-device-detect';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-// import { useLoginUserMutation } from '../redux-store/fetch/talentsSlice';
+import { useLoginUserMutation } from '../redux-store/fetch/talentsSlice';
 
 const validationSchema = yup.object().shape({
   email: yup.string().email().required('Email Address is required'),
@@ -24,46 +25,74 @@ const validationSchema = yup.object().shape({
     .required('Password is Required')
     .min(8, 'password must be at least 8 characters'),
 });
+
 const Login = () => {
+  const [device, setDevice] = useState('');
+  //creating IP state
+  const [ip, setIP] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  useEffect(() => {
+    if (isMobile) setDevice('Mobile');
+    if (isTablet) setDevice('Tablet');
+    if (isDesktop) setDevice('Desktop');
+
+    //creating function to load ip address from the API
+    const getData = async () => {
+      const res = await axios.get('https://geolocation-db.com/json/');
+      console.log(res.data);
+      setIP(res.data.IPv4);
+    };
+    getData();
+  }, []);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
 
-  //creating IP state
-  const [ip,setIP] = useState('');
-    
-  //creating function to load ip address from the API
-  const getData = async()=>{
-      const res = await axios.get('https://geolocation-db.com/json/')
-      console.log(res.data);
-      setIP(res.data.IPv4)
-  }
+  const submitForm = async data => {
+    // getData();
+    const loginData = {
+      ...data,
+      ipaddress: ip,
+      device,
+    };
+    console.log(loginData);
 
-  const submitForm = data => {
-    console.log(data);
-    getData()
-    // reset()
+    if(!isLoginError) await loginUser(loginData);
+    reset({
+      email: '',
+      password: '',
+    });
+    console.log(isMobile, isTablet, isDesktop);
   };
 
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePassword = () => {
-    setShowPassword(!showPassword);
-  };
+  const [
+    loginUser,
+    {
+      data: loginData,
+      isSuccess: isLoginSuccess,
+      isError: isLoginError,
+      error: loginError,
+    },
+  ] = useLoginUserMutation();
 
-  // const [
-  //   loginUser,
-  //   {
-  //     data: loginData,
-  //     isSuccess: isLoginSuccess,
-  //     isError: isLoginError,
-  //     error: loginError,
-  //   },
-  // ] = useLoginUserMutation();
-
+  useEffect(() => {
+    if (isLoginSuccess) {
+      console.log('login successful');
+      navigate('/dashboard');
+    }
+  }, [isLoginSuccess]);
   // const handleLogin = async () => {
   //   if (email && password) {
   //     await loginUser({ email, password, ipaddress, device });

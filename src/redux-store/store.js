@@ -33,7 +33,7 @@ export const store = configureStore({
   },
 
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(authApi.middleware),
+    getDefaultMiddleware().concat(talentsApi.middleware),
 });
 
 setupListeners(store.dispatch);
