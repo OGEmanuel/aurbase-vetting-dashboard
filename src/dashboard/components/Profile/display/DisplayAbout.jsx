@@ -15,8 +15,13 @@ const DisplayAbout = ({ aboutHandler, pen, displayOverlay }) => {
           displayOverlay ? 'opacity-100' : 'opacity-40'
         } `}
       />
-      <p className="text-[11px] md:text-lg text-tertiary pb-32">
-        Tell us about yourself in 300 words
+      <p className="text-[11px] md:text-lg text-tertiary pb-10">
+        {/* pb-32 */}
+        {/* Tell us about yourself in 300 words */}
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident,
+        excepturi nostrum, tempora sapiente cumque dolore atque saepe hic
+        numquam deleniti dignissimos vero libero a consequatur, amet ea
+        voluptate sunt tempore.
       </p>
     </Card>
   );
