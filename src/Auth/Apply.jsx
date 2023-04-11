@@ -48,7 +48,7 @@ const Apply = () => {
   //creating IP state
   const [ip, setIP] = useState('');
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     //creating function to load ip address from the API
     const getData = async () => {
@@ -115,7 +115,7 @@ const Apply = () => {
   useEffect(() => {
     if (isRegisterSuccess) {
       console.log('Register successful');
-      navigate('/');
+      navigate('/verify');
     }
   }, [isRegisterSuccess]);
 
@@ -177,20 +177,36 @@ const Apply = () => {
 
           <div className="mb-[30px]">
             <p className="pb-[6px] text-lg md:text-xl font-[600]">Track</p>
-            <div className="flex items-center justify-between md:text-xl font-[600] w-full h-[58px] py-4 pl-[23px] pr-[25px] rounded border border-[#D6D8E7] ">
-              I am a Developer
+            <div className="relative">
               <img
                 onClick={trackDropdownHandler}
                 src={dropdown}
                 alt="Dropdown Icon"
-                className="w-[15px] h-2.5"
+                className="pointer-events-none absolute bottom-[24px] right-[25px] w-[15px] h-2.5"
               />
+              <select
+                name=""
+                id=""
+                className=" appearance-none flex items-center justify-between md:text-xl font-[600] w-full h-[58px] py-4 pl-[23px] pr-[25px] rounded border border-[#D6D8E7] "
+              >
+                {/* I am a Developer */}
+
+                <option value="" className="">
+                  I am a Developer
+                </option>
+                <option value="" className="">
+                  I am a Product Manager
+                </option>
+                <option value="" className="">
+                  I am a Product Designer
+                </option>
+              </select>
             </div>
-            {showTracks && (
+            {/* {showTracks && (
               <div className="h-[58px] md:text-xl font-[600] w-full pl-[23px] mt-4 bg-white shadow-md">
                 <li className=" list-none">I am a Product Manager</li>
               </div>
-            )}
+            )} */}
           </div>
           <div className="mb-[30px]">
             <label
@@ -248,20 +264,30 @@ const Apply = () => {
             <p className="pb-[6px] text-xl font-[600]">
               How do you hear about us ?
             </p>
-            <div className="flex items-center justify-between  md:text-xl font-[600] w-full h-[58px] py-4 pl-[23px] pr-[25px] rounded-[4px] border border-[#D6D8E7] ">
+
+            <div className="relative">
+
+            <img
+              onClick={mediumDropdownHandler}
+              src={dropdown}
+              alt="Dropdown Icon"
+              className="pointer-events-none absolute bottom-[24px] right-[25px] w-[15px] h-2.5"
+            />
+            <select
+              name=""
+              id=""
+              className=" appearance-none flex items-center justify-between  md:text-xl font-[600] w-full h-[58px] py-4 pl-[23px] pr-[25px] rounded-[4px] border border-[#D6D8E7] "
+            >
               Twitter
-              <img
-                onClick={mediumDropdownHandler}
-                src={dropdown}
-                alt="Dropdown Icon"
-                className="w-[15px] h-2.5"
-              />
+              <option value="">Twitter</option>
+              <option value="">Facebook</option>
+            </select>
             </div>
-            {showMedia && (
+            {/* {showMedia && (
               <div className="h-[58px] text-xl font-[600] w-full pl-[23px] mt-4 bg-white shadow-md">
                 <li className=" list-none">Facebook</li>
               </div>
-            )}
+            )} */}
           </div>
           <div className="mt-[22px] items-start flex gap-2">
             <input type="checkbox" />
