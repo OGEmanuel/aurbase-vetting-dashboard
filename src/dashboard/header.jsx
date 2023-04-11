@@ -8,7 +8,7 @@ import { nav } from '../redux-store/features/display-nav';
 import { overlay } from '../redux-store/features/display-modal';
 import { off } from '../redux-store/features/set-progress';
 
-const Header = ({ title = 'My Profile' }) => {
+const Header = ({ title = 'My Profiles' }) => {
   const dispatch = useDispatch();
   const displayNav = useSelector(state => state.display.sideNav);
 
