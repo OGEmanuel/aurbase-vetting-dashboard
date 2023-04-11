@@ -65,7 +65,7 @@ const OTP = () => {
 
   const firstInputRef = useRef();
 
-  // Focus on first input field on reload
+  // Focus on first input field on rerender
   useEffect(() => {
     firstInputRef.current.focus();
   }, []);

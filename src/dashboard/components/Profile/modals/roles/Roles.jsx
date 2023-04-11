@@ -3,7 +3,7 @@ import frontendlg from '../../../../../assets/frontend-lg.svg';
 import close from '../../../../../assets/close.svg';
 import search from '../../../../../assets/search.svg';
 import StackForm from './StackForm';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { overlayMain } from '../../../../../redux-store/features/open-overlay-body';
 import { rolesModal } from '../../../../../redux-store/features/roles-modal';
 import Header from '../../UI/ModalHeader';
@@ -13,7 +13,7 @@ import Stack from './Stack';
 import dev from '../../../../../assets/dev.svg';
 import node from '../../../../../assets/nodejs.svg';
 import laravel from '../../../../../assets/laravel.svg';
-import { useGetAllTalentsQuery } from '../../../../../redux-store/fetch/talentsSlice';
+// import { useGetAllTalentsQuery } from '../../../../../redux-store/fetch/talentsSlice';
 
 const PROD = [
   { id: 1, icon: node, name: 'Figma' },
@@ -31,9 +31,9 @@ const FE_TECH = [
 ];
 
 const Roles = () => {
-  const dispatch = useDispatch();
-  const { data } = useGetAllTalentsQuery('stacks');
-  console.log(data);
+  // const dispatch = useDispatch();
+  // const { data } = useGetAllTalentsQuery('stacks');
+  // console.log(data);
 
   const closeHandler = () => {
     dispatch(overlayMain());
