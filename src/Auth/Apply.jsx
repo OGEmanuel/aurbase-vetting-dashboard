@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import logo from '../assets/logo.svg';
 import EyeSlash from '../assets/EyeSlash.svg';
 import dropdown from '../assets/dropdown.svg';
@@ -17,6 +18,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useRegisterUserMutation } from '../redux-store/fetch/talentsSlice';
+import { saveEmail, saveIp } from '../redux-store/fetch/authSlice';
 
 const validationSchema = yup.object().shape({
   email: yup.string().email().required('Email Address is required'),
@@ -48,6 +50,7 @@ const Apply = () => {
   //creating IP state
   const [ip, setIP] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     //creating function to load ip address from the API
@@ -94,7 +97,8 @@ const Apply = () => {
         how_do_you: 'Twitter',
         deleted: '0',
       });
-
+    dispatch(saveEmail(data.email));
+    dispatch(saveIp(ip));
     reset({
       email: '',
       password: '',
@@ -266,22 +270,21 @@ const Apply = () => {
             </p>
 
             <div className="relative">
-
-            <img
-              onClick={mediumDropdownHandler}
-              src={dropdown}
-              alt="Dropdown Icon"
-              className="pointer-events-none absolute bottom-[24px] right-[25px] w-[15px] h-2.5"
-            />
-            <select
-              name=""
-              id=""
-              className=" appearance-none flex items-center justify-between  md:text-xl font-[600] w-full h-[58px] py-4 pl-[23px] pr-[25px] rounded-[4px] border border-[#D6D8E7] "
-            >
-              Twitter
-              <option value="">Twitter</option>
-              <option value="">Facebook</option>
-            </select>
+              <img
+                onClick={mediumDropdownHandler}
+                src={dropdown}
+                alt="Dropdown Icon"
+                className="pointer-events-none absolute bottom-[24px] right-[25px] w-[15px] h-2.5"
+              />
+              <select
+                name=""
+                id=""
+                className=" appearance-none flex items-center justify-between  md:text-xl font-[600] w-full h-[58px] py-4 pl-[23px] pr-[25px] rounded-[4px] border border-[#D6D8E7] "
+              >
+                Twitter
+                <option value="">Twitter</option>
+                <option value="">Facebook</option>
+              </select>
             </div>
             {/* {showMedia && (
               <div className="h-[58px] text-xl font-[600] w-full pl-[23px] mt-4 bg-white shadow-md">
