@@ -13,7 +13,9 @@ import Stack from './Stack';
 import dev from '../../../../../assets/dev.svg';
 import node from '../../../../../assets/nodejs.svg';
 import laravel from '../../../../../assets/laravel.svg';
-// import { useGetAllTalentsQuery } from '../../../../../redux-store/fetch/talentsSlice';
+import { useDispatch } from 'react-redux';
+import { useGetAllQuery } from '../../../../../redux-store/fetch/talentsSlice';
+import { useEffect } from 'react';
 
 const PROD = [
   { id: 1, icon: node, name: 'Figma' },
@@ -31,9 +33,19 @@ const FE_TECH = [
 ];
 
 const Roles = () => {
-  // const dispatch = useDispatch();
-  // const { data } = useGetAllTalentsQuery('stacks');
-  // console.log(data);
+  const dispatch = useDispatch();
+
+  const { data } = useGetAllQuery('stacks');
+  console.log(data?.stacks[7]);
+
+  // const FE_TECH = [
+  //   {
+  //     id: data?.stacks[7].id,
+  //     icon: data?.stacks[7].image,
+  //     name: data?.stacks[7].name,
+  //   },
+  //   { id: 2, icon: angular, name: 'Angular' },
+  // ];
 
   const closeHandler = () => {
     dispatch(overlayMain());

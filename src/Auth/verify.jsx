@@ -10,11 +10,16 @@ import apple from '../assets/apple.svg';
 import netflix from '../assets/netflix.svg';
 import google from '../assets/google.svg';
 import microsoft from '../assets/microsoft.svg';
+import { VerifyOtpVendor } from './api/authApi';
+import { useSelector } from 'react-redux';
 
 const OTP = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [start, setStart] = useState(false);
+
+  const email = useSelector(state => state.auth.email);
+  const ip = useSelector(state => state.auth.ip);
 
   let timer;
 
@@ -93,8 +98,20 @@ const OTP = () => {
     if (!charStr.match(/^[0-9]+$/)) e.preventDefault();
   };
 
-  const handleSubmit = () => {
-    setStart(true);
+  const otp = [
+    enteredFirstField,
+    enteredSecondField,
+    enteredThirdField,
+    enteredFourthField,
+    enteredFifthField,
+    enteredSixthField,
+  ];
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    // setStart(true);
+    VerifyOtpVendor(email, otp, ip);
+    // console.log(otp);
   };
 
   return (

@@ -6,9 +6,9 @@ export const talentsApi = createApi({
     baseUrl: 'https://atarchgroup.capriquota.com/api/v1/',
   }),
   endpoints: builder => ({
-    // getAllTalents: builder.query({
-    //   query: name => `talent/${name}`,
-    // }),
+    getAll: builder.query({
+      query: name => `talent/${name}`,
+    }),
 
     loginUser: builder.mutation({
       query: body => {
@@ -28,11 +28,21 @@ export const talentsApi = createApi({
         };
       },
     }),
+    otpVerify: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/verify',
+          method: 'post',
+          body,
+        };
+      },
+    }),
   }),
 });
 
 export const {
-  useGetAllTalentsQuery,
+  useGetAllQuery,
   useLoginUserMutation,
   useRegisterUserMutation,
+  useOtpVerifyMutation,
 } = talentsApi;
