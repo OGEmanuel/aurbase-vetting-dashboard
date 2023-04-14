@@ -19,3 +19,13 @@ export const authApi = createApi({
 });
 
 export const { useLoginUserMutation } = authApi;
+
+export const verifyOtpUser = async (userEmail, dataOtp, ip) => {
+  const valueItem = JSON.stringify({
+    email: userEmail,
+    otp: dataOtp?.join(''),
+    ipAddress: ip,
+  });
+
+  // return await verify
+};

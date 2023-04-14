@@ -28,11 +28,21 @@ export const talentsApi = createApi({
         };
       },
     }),
+    verifyUser: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/verify',
+          method: 'post',
+          body,
+        };
+      },
+    }),
   }),
 });
 
 export const {
-  useGetAllTalentsQuery,
+  // useGetAllTalentsQuery,
   useLoginUserMutation,
   useRegisterUserMutation,
+  useVerifyUserMutation,
 } = talentsApi;

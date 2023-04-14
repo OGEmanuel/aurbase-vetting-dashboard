@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import useOTPInput from '../hooks/use-input-otp';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import logo from '../assets/logo.svg';
 import back from '../assets/back-arrow.svg';
 import logo2 from '../assets/logo-plain.svg';
@@ -10,11 +12,28 @@ import apple from '../assets/apple.svg';
 import netflix from '../assets/netflix.svg';
 import google from '../assets/google.svg';
 import microsoft from '../assets/microsoft.svg';
+import { useForm } from 'react-hook-form';
+import { useVerifyUserMutation } from '../redux-store/fetch/talentsSlice';
+import { useSelector } from 'react-redux';
 
 const OTP = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [start, setStart] = useState(false);
+  const email = useSelector(state => state.auth.email);
+  const ip = useSelector(state => state.auth.ip);
+
+  // const schema = yup.object().shape({
+  //   fieldOne: yup.number().integer().required(),
+  //   fieldTwo: yup.number().integer().required(),
+  //   fieldThree: yup.number().integer().required(),
+  //   fieldFour: yup.number().integer().required(),
+  //   fieldFive: yup.number().integer().required(),
+  // });
+
+  // const { register, handleSubmit } = useForm({
+  //   resolver: yupResolver(schema),
+  // });
 
   let timer;
 
@@ -93,8 +112,47 @@ const OTP = () => {
     if (!charStr.match(/^[0-9]+$/)) e.preventDefault();
   };
 
-  const handleSubmit = () => {
-    setStart(true);
+  const otp = [
+    enteredFirstField,
+    enteredSecondField,
+    enteredThirdField,
+    enteredFourthField,
+    enteredFifthField,
+    enteredSixthField,
+  ];
+
+  const validateOTP =
+    enteredFirstField.length === 1 &&
+    enteredSecondField.length === 1 &&
+    enteredThirdField.length === 1 &&
+    enteredFourthField.length === 1 &&
+    enteredFifthField.length === 1 &&
+    enteredSixthField.length === 1;
+
+  // const [
+  //   registerUser,
+  //   {
+  //     data: registerData,
+  //     isSuccess: isRegisterSuccess,
+  //     isError: isRegisterError,
+  //     error: registerError,
+  //   },
+  // ] = useRegisterUserMutation();
+
+  const [
+    verifyUser,
+    {
+      data: otpData,
+      isSuccess: isVerificationSuccessful,
+      isError: isVerificationError,
+      error: verifyError,
+    },
+  ] = useVerifyUserMutation(email, otp, ip);
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    await verifyUser({});
+    console.log(validateOTP);
   };
 
   return (
@@ -141,6 +199,7 @@ const OTP = () => {
               tabIndex="1"
               onKeyUp={e => inputFocus(e)}
               onChange={firstFieldChangeHandler}
+              // {...register('fieldOne')}
             />
             <input
               type="number"
@@ -152,6 +211,7 @@ const OTP = () => {
               tabIndex="2"
               onKeyUp={e => inputFocus(e)}
               onChange={secondFieldChangeHandler}
+              // {...register('fieldTwo')}
             />
             <input
               type="number"
@@ -163,6 +223,7 @@ const OTP = () => {
               tabIndex="3"
               onKeyUp={e => inputFocus(e)}
               onChange={thirdFieldChangeHandler}
+              // {...register('fieldThree')}
             />
             <input
               type="number"
@@ -174,6 +235,7 @@ const OTP = () => {
               tabIndex="4"
               onKeyUp={e => inputFocus(e)}
               onChange={fourthFieldChangeHandler}
+              // {...register('fieldFour')}
             />
             <input
               type="number"
@@ -185,6 +247,7 @@ const OTP = () => {
               tabIndex="5"
               onKeyUp={e => inputFocus(e)}
               onChange={fifthFieldChangeHandler}
+              // {...register('fieldFive')}
             />
             <input
               type="number"
@@ -196,6 +259,7 @@ const OTP = () => {
               tabIndex="6"
               onKeyUp={e => inputFocus(e)}
               onChange={sixthFieldChangeHandler}
+              // {...register('fieldSix')}
             />
           </div>
           <button className="bg-black font-semibold text-xs md:text-lg px-5 py-3 text-white rounded-custom-xs">
