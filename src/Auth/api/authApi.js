@@ -20,12 +20,35 @@ export const authApi = createApi({
 
 export const { useLoginUserMutation } = authApi;
 
-export const verifyOtpUser = async (userEmail, dataOtp, ip) => {
-  const valueItem = JSON.stringify({
-    email: userEmail,
-    otp: dataOtp?.join(''),
-    ipAddress: ip,
-  });
+// const [
+//   verifyUser,
+//   {
+//     data: otpData,
+//     isSuccess: isVerificationSuccessful,
+//     isError: isVerificationError,
+//     error: verifyError,
+//   },
+// ] = useVerifyUserMutation(email, otp, ip);
 
-  // return await verify
-};
+// export const verifyOtpUser = async (userEmail, dataOtp, ip) => {
+//   const valueItem = JSON.stringify({
+//     email: userEmail,
+//     otp: dataOtp?.join(''),
+//     ipAddress: ip,
+//   });
+//   const [
+//     verifyUser,
+//     {
+//       data: valueItem,
+//       isSuccess: isVerificationSuccessful,
+//       isError: isVerificationError,
+//       error: verifyError,
+//     },
+//     await 
+//   ] = useVerifyUserMutation(email, otp, ip);
+  
+
+//   return await verifyOtpUser(valueItem);
+// };
+
+

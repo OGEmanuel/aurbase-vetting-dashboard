@@ -139,19 +139,21 @@ const OTP = () => {
   //   },
   // ] = useRegisterUserMutation();
 
-  const [
-    verifyUser,
-    {
-      data: otpData,
-      isSuccess: isVerificationSuccessful,
-      isError: isVerificationError,
-      error: verifyError,
-    },
-  ] = useVerifyUserMutation(email, otp, ip);
+  // const [
+  //   verifyUser,
+  //   {
+  //     data: otpData,
+  //     isSuccess: isVerificationSuccessful,
+  //     isError: isVerificationError,
+  //     error: verifyError,
+  //   },
+  // ] = useVerifyUserMutation(email, otp, ip);
 
-  const handleSubmit = async e => {
+  const handleSubmit = async () => {
     e.preventDefault();
-    await verifyUser({});
+    await verifyUser({
+      ip,
+    });
     console.log(validateOTP);
   };
 
