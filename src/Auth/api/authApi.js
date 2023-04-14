@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { useOtpVerifyMutation } from '../../redux-store/fetch/talentsSlice';
+// import { useOtpVerifyMutation } from '../../redux-store/fetch/talentsSlice';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -21,17 +21,32 @@ export const authApi = createApi({
 
 export const { useLoginUserMutation } = authApi;
 
-export const VerifyOtpVendor = async (dataEmail, dataOtp, ipAddress) => {
-  const valueItem = JSON.stringify({
-    email: dataEmail,
-    otp: dataOtp?.join(''),
-    ip: ipAddress,
-  });
-  return axios.post(
-    `https://atarchgroup.capriquota.com/api/v1/talent/verify`,
-    valueItem,
-    config
-  );
+// const [
+//   verifyUser,
+//   {
+//     data: otpData,
+//     isSuccess: isVerificationSuccessful,
+//     isError: isVerificationError,
+//     error: verifyError,
+//   },
+// ] = useVerifyUserMutation(email, otp, ip);
 
-  // useOtpVerifyMutation;
-};
+// export const verifyOtpUser = async (userEmail, dataOtp, ip) => {
+//   const valueItem = JSON.stringify({
+//     email: userEmail,
+//     otp: dataOtp?.join(''),
+//     ipAddress: ip,
+//   });
+//   const [
+//     verifyUser,
+//     {
+//       data: valueItem,
+//       isSuccess: isVerificationSuccessful,
+//       isError: isVerificationError,
+//       error: verifyError,
+//     },
+//     await
+//   ] = useVerifyUserMutation(email, otp, ip);
+
+//   return await verifyOtpUser(valueItem);
+// };

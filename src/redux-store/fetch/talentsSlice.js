@@ -28,7 +28,7 @@ export const talentsApi = createApi({
         };
       },
     }),
-    otpVerify: builder.mutation({
+    verifyUser: builder.mutation({
       query: body => {
         return {
           url: 'talent/verify',
@@ -41,8 +41,8 @@ export const talentsApi = createApi({
 });
 
 export const {
-  useGetAllQuery,
+  // useGetAllTalentsQuery,
   useLoginUserMutation,
   useRegisterUserMutation,
-  useOtpVerifyMutation,
+  useVerifyUserMutation,
 } = talentsApi;

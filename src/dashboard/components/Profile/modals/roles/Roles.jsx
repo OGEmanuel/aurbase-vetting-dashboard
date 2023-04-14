@@ -14,7 +14,7 @@ import dev from '../../../../../assets/dev.svg';
 import node from '../../../../../assets/nodejs.svg';
 import laravel from '../../../../../assets/laravel.svg';
 import { useDispatch } from 'react-redux';
-import { useGetAllQuery } from '../../../../../redux-store/fetch/talentsSlice';
+// import { useGetAllQuery } from '../../../../../redux-store/fetch/talentsSlice';
 import { useEffect } from 'react';
 
 const PROD = [
@@ -35,8 +35,8 @@ const FE_TECH = [
 const Roles = () => {
   const dispatch = useDispatch();
 
-  const { data } = useGetAllQuery('stacks');
-  console.log(data?.stacks[7]);
+  // const { data } = useGetAllQuery('stacks');
+  // console.log(data?.stacks[7]);
 
   // const FE_TECH = [
   //   {
