@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import useOTPInput from '../hooks/use-input-otp';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from 'yup';
+// import { yupResolver } from '@hookform/resolvers/yup';
 import logo from '../assets/logo.svg';
 import back from '../assets/back-arrow.svg';
 import logo2 from '../assets/logo-plain.svg';
@@ -12,7 +12,7 @@ import apple from '../assets/apple.svg';
 import netflix from '../assets/netflix.svg';
 import google from '../assets/google.svg';
 import microsoft from '../assets/microsoft.svg';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 import { useVerifyUserMutation } from '../redux-store/fetch/talentsSlice';
 import { useSelector } from 'react-redux';
 
@@ -20,8 +20,8 @@ const OTP = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [start, setStart] = useState(false);
-  // const email = useSelector(state => state.auth.email);
-  // const ip = useSelector(state => state.auth.ip);
+  const email = useSelector(state => state.auth.email);
+  const ip = useSelector(state => state.auth.ip);
 
   // const schema = yup.object().shape({
   //   fieldOne: yup.number().integer().required(),
@@ -129,44 +129,35 @@ const OTP = () => {
     enteredFifthField.length === 1 &&
     enteredSixthField.length === 1;
 
-  // const [
-  //   registerUser,
-  //   {
-  //     data: registerData,
-  //     isSuccess: isRegisterSuccess,
-  //     isError: isRegisterError,
-  //     error: registerError,
-  //   },
-  // ] = useRegisterUserMutation();
+  console.log(validateOTP && otp.join(''));
 
   const [
     verifyUser,
-    // {
-    //   data: otpData,
-    //   isSuccess: isVerificationSuccessful,
-    //   isError: isVerificationError,
-    //   error: verifyError,
-    // },
+    {
+      data: verifyData,
+      isSuccess: isVerifySuccess,
+      isError: isVerifyError,
+      error: verifyError,
+    },
   ] = useVerifyUserMutation();
 
   const handleSubmit = async e => {
     e.preventDefault();
     if (validateOTP)
       await verifyUser({
-        ipaddress: '283:234:0:12',
+        ipaddress: ip,
         token: otp.join(''),
-        email: 'nath@gmail.com',
+        email: email,
       });
     console.log(validateOTP);
-    return {
-      enteredFirstField: '',
-      enteredSecondField: '',
-      enteredThirdField: '',
-      enteredFourthField: '',
-      enteredFifthField: '',
-      enteredSixthField: '',
-    };
   };
+
+  useEffect(() => {
+    if (isVerifySuccess) {
+      console.log('Verification successful');
+      navigate('/');
+    }
+  }, [isVerifySuccess]);
 
   return (
     <section className="xl:bg-bg-2 px-5 md:px-10 xl:px-20 pt-10 pb-20 min-h-screen">
