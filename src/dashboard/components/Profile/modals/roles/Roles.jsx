@@ -33,6 +33,7 @@ const FE_TECH = [
 
 const Roles = () => {
   const [searchInput, setSearchInput] = useState();
+  const [stacks, setStacks] = useState(0);
 
   const handleSearch = e => {
     setSearchInput(e.target.value);
@@ -70,7 +71,7 @@ const Roles = () => {
   ];
 
   let visibleData = DATA;
-
+  // console.log(DATA);
   if (searchInput && searchInput !== '') {
     visibleData = DATA.map(data => data).filter(data =>
       data.title.includes(searchInput.toLowerCase())
@@ -117,6 +118,7 @@ const Roles = () => {
             {visibleData.map(data => (
               <div
                 key={data.id}
+                onClick={() => setStacks(data.id)}
                 className="flex bg-bg-6 py-[10px] px-5 gap-2.5 rounded-b-custom-sm w-full xl:w-[20.07rem] cursor-pointer"
               >
                 <img src={data.icon} alt="" className="" />
@@ -132,9 +134,14 @@ const Roles = () => {
           >
             <img src={close} alt="" className="" />
           </button>
-          <div>
+          <div className="h-[14.33375rem] overflow-auto scroll md:min-w-[23.9rem] md:h-[13.49625rem] xl:h-fit">
             <p className="text-xs md:text-sm mb-3">Add your prefered stack</p>
-            <StackForm />
+            {DATA.map(
+              data =>
+                data.id === stacks && (
+                  <StackForm data={data.roles} key={data.id} />
+                )
+            )}
           </div>
         </div>
       </div>

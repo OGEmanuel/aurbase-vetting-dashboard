@@ -15,7 +15,8 @@ const STACK = [
   { id: 6, icon: vue, tech: 'Vue' },
 ];
 
-const StackForm = () => {
+const StackForm = props => {
+  const { data } = props;
   const [checked, setChecked] = useState([]);
   const handleCheckChange = id => {
     const currentIndex = checked.indexOf(id);
@@ -30,9 +31,21 @@ const StackForm = () => {
     setChecked(newChecked);
   };
 
+  // console.log(data);
+
   return (
-    <form action="" className="grid grid-cols-3 gap-3.5 pb-1 md:pb-0">
-      {STACK.map(stack => (
+    <form
+      action=""
+      className={`${
+        data.length > 0 ? 'grid' : ''
+      } grid-cols-3 grid-rows-3 gap-3.5 pb-1 md:pb-0`}
+    >
+      {data.length < 1 && (
+        <p className="text-xs md:text-sm mb-3" key={data.id}>
+          No Stacks yet! Please reach out to our team for more enquiries.
+        </p>
+      )}
+      {data.map(stack => (
         <label htmlFor={stack.id} key={stack.id}>
           <input
             type="checkbox"
@@ -47,20 +60,19 @@ const StackForm = () => {
                 : 'border-transparent'
             }`}
           >
-            <img
-              src={stack.icon}
-              alt=""
-              className={` ${
-                stack.icon === angular ? 'w-[0.9rem]' : 'w-[1.2rem]'
-              } md:w-[1.2rem]`}
-            />
-            <p className="text-xs md:text-base">{stack.tech}</p>
+            {/* ${
+                stack.image === angular ? 'w-[0.9rem]' : 'w-[1.2rem]'
+              } */}
+            <img src={stack.image} alt="" className={`md:w-[1.2rem]`} />
+            <p className="text-xs md:text-base">{stack.name}</p>
           </div>
         </label>
       ))}
       <button
         type="button"
-        className="text-sm text-white px-10 py-2.5 md:p-4 w-max md:w-auto bg-black rounded-custom-sm col-[1_/_span_2] md:col-[3_/_span_1]"
+        className={`${
+          data.length < 1 ? 'hidden' : ''
+        } text-sm text-white px-10 py-2.5 md:p-4 w-max md:w-auto bg-black rounded-custom-sm row-[3_/_span_1] col-[1_/_span_2] md:col-[3_/_span_1]`}
       >
         Add
       </button>
