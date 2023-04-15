@@ -7,8 +7,8 @@ import close from '../assets/trackClose.svg';
 const StartTestModal = props => {
   const closeModalHandler = () => {};
   return (
-    <div className="md:ml-[-64px] ml-[-20px] z-[100000000] bg-[#D9D9D9] bg-opacity-50 w-[78.4%] h-screen fixed  flex items-center justify-center">
-      <div className="bg-white px-10 pt-[30px] pb-9 w-[506px]">
+    <div className="px-5 md:ml-[-64px] ml-[-20px] z-[100000000] bg-[#D9D9D9] bg-opacity-50 md:w-[78.4%] h-screen fixed  flex items-center justify-center">
+      <div className="bg-white px-10 pt-[30px] pb-9 w-full md:w-[506px]">
         <img
           onClick={props.onClose}
           src={close}
@@ -16,8 +16,8 @@ const StartTestModal = props => {
           className="ml-auto"
         />
         <div className="flex gap-3 items-center ">
-          <img src={react} alt="" className="w-[58px] h-[52px]" />
-          <h4 className="text-2xl font-[700]">React Js Test</h4>
+          <img src={react} alt="" className="w-12 h-[42px] md:w-[58px] md:h-[52px]" />
+          <h4 className="text-lg md:text-2xl font-[700]">React Js Test</h4>
         </div>
 
         <p className="mt-2">

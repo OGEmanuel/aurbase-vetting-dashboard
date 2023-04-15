@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import useOTPInput from '../hooks/use-input-otp';
+import { useNavigate } from 'react-router-dom';
 // import * as yup from 'yup';
 // import { yupResolver } from '@hookform/resolvers/yup';
 import logo from '../assets/logo.svg';
@@ -22,7 +23,7 @@ const OTP = () => {
   const [start, setStart] = useState(false);
   const email = useSelector(state => state.auth.email);
   const ip = useSelector(state => state.auth.ip);
-
+  const navigate = useNavigate;
   // const schema = yup.object().shape({
   //   fieldOne: yup.number().integer().required(),
   //   fieldTwo: yup.number().integer().required(),

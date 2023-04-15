@@ -12,11 +12,13 @@ import earningReducer from './features/earning-modal';
 import progressPageReducer from './features/set-progress';
 import { talentsApi } from './fetch/talentsSlice';
 import { authApi } from '../Auth/api/authApi';
+import authSlice from '../redux-store/fetch/authSlice'
 // import { authApi } from '../Auth/api/authApi';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
 
 export const store = configureStore({
   reducer: {
+    auth: authSlice,
     display: displayNavReducer,
     show: displayOverlayReducer,
     mainOverlay: openMainOverlayReducer,
