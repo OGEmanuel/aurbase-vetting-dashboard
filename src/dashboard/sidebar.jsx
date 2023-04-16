@@ -15,7 +15,7 @@ import cancel from '../assets/cancel.svg';
 import activeCheck from '../assets/check-active.svg';
 import logout from '../assets/logout.svg';
 import message from '../assets/message.svg';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Overlay from './components/UI/overlay';
 import { nav } from '../redux-store/features/display-nav';
@@ -27,6 +27,7 @@ import { salaryModal } from '../redux-store/features/salary-modal';
 import { experienceModal } from '../redux-store/features/experience-modal';
 import { educationModal } from '../redux-store/features/education-modal';
 import { rolesModal } from '../redux-store/features/roles-modal';
+import { saveEmail, saveIp } from '../redux-store/fetch/authSlice';
 import {
   language,
   off,
@@ -45,6 +46,7 @@ const SideBar = () => {
   const roles = useSelector(state => state.roles.open);
   const progress = useSelector(state => state.progress.page);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (location.pathname !== '/progress') {
@@ -57,6 +59,13 @@ const SideBar = () => {
       dispatch(nav());
       dispatch(overlay());
     } else return;
+  };
+
+  const logoutHandler = () => {
+    sessionStorage.removeItem('data');
+    dispatch(saveEmail(null));
+    dispatch(saveIp(null));
+    navigate('/', { replace: true });
   };
 
   const handleNavClick = () => {
@@ -267,8 +276,7 @@ const SideBar = () => {
           </Link>
         </div>
         <Link
-          onClick={handleClick}
-          to="/"
+          onClick={logoutHandler}
           className="flex gap-4 font-semibold text-tertiary items-center py-2 px-3.5"
         >
           <img src={logout} />
