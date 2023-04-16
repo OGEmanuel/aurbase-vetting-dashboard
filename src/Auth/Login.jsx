@@ -75,6 +75,9 @@ const Login = () => {
       password: '',
     });
     console.log(isMobile, isTablet, isDesktop);
+
+    // //To store data for implementation of protected routes
+    // sessionStorage.setItem('data', JSON.stringify(loginData));
   };
 
   const [
@@ -90,6 +93,8 @@ const Login = () => {
   useEffect(() => {
     if (isLoginSuccess) {
       console.log('login successful');
+          //To store data for implementation of protected routes
+    sessionStorage.setItem('data', JSON.stringify(loginData));
       navigate('/dashboard');
     }
   }, [isLoginSuccess]);

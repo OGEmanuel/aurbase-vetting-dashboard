@@ -42,7 +42,7 @@ const Roles = () => {
   const dispatch = useDispatch();
 
   const { data, isError, isLoading } = useGetAllStacksQuery();
-
+console.log(data)
   const DATA = [
     {
       id: 1,

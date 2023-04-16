@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { checkAuthLoader } from './util/RouteProtection';
 import OTP from './Auth/verify';
 import RootLayout from './pages/Root';
 import ChildRoot from './pages/ChildRootLayout';
@@ -90,6 +91,7 @@ const router = createBrowserRouter([
         <ErrorPage />
       </React.Suspense>
     ),
+    loader: checkAuthLoader,
     children: [
       {
         path: '',
@@ -113,6 +115,7 @@ const router = createBrowserRouter([
         <ErrorPage />
       </React.Suspense>
     ),
+    loader: checkAuthLoader,
     children: [
       {
         path: '',
@@ -136,6 +139,7 @@ const router = createBrowserRouter([
         <ErrorPage />
       </React.Suspense>
     ),
+    loader: checkAuthLoader,
     children: [
       {
         path: '',
@@ -159,6 +163,7 @@ const router = createBrowserRouter([
         <ErrorPage />
       </React.Suspense>
     ),
+    loader: checkAuthLoader,
     children: [
       {
         path: '',
@@ -182,6 +187,7 @@ const router = createBrowserRouter([
         <ErrorPage />
       </React.Suspense>
     ),
+    loader: checkAuthLoader,
     children: [
       {
         index: true,
@@ -198,6 +204,7 @@ const router = createBrowserRouter([
             <Interview />
           </React.Suspense>
         ),
+        loader: checkAuthLoader,
       },
       {
         path: 'schedule-interview',
@@ -206,6 +213,7 @@ const router = createBrowserRouter([
             <ScheduleInterview />
           </React.Suspense>
         ),
+        loader: checkAuthLoader,
       },
       {
         path: 'matching',
@@ -214,6 +222,7 @@ const router = createBrowserRouter([
             <Matching />
           </React.Suspense>
         ),
+        loader: checkAuthLoader,
       },
       {
         path: 'live-coding',
@@ -222,6 +231,7 @@ const router = createBrowserRouter([
             <Coding />
           </React.Suspense>
         ),
+        loader: checkAuthLoader,
       },
       {
         path: 'assessment',
@@ -236,6 +246,7 @@ const router = createBrowserRouter([
             <ErrorPage />
           </React.Suspense>
         ),
+        loader: checkAuthLoader,
         children: [
           {
             index: true,
@@ -244,11 +255,13 @@ const router = createBrowserRouter([
                 <Assessment />
               </React.Suspense>
             ),
+            loader: checkAuthLoader,
             errorElement: (
               <React.Suspense fallback={<>...</>}>
                 <ErrorPage />
               </React.Suspense>
             ),
+            loader: checkAuthLoader,
           },
           {
             path: ':id',
@@ -275,6 +288,7 @@ const router = createBrowserRouter([
                     <ErrorPage />
                   </React.Suspense>
                 ),
+                loader: checkAuthLoader,
               },
 
               {
@@ -289,6 +303,7 @@ const router = createBrowserRouter([
                     <ErrorPage />
                   </React.Suspense>
                 ),
+                loader: checkAuthLoader,
                 children: [
                   {
                     index: true,
@@ -302,6 +317,7 @@ const router = createBrowserRouter([
                         <ErrorPage />
                       </React.Suspense>
                     ),
+                    loader: checkAuthLoader,
                   },
                 ],
               },
