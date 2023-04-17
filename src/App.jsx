@@ -1,4 +1,6 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { checkAuthLoader } from './util/RouteProtection';
 import OTP from './Auth/verify';
@@ -739,6 +741,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+      <ToastContainer position="top-right" autoClose={5000} />
       <RouterProvider router={router} />
     </>
   );

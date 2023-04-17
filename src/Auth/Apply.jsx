@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import logo from '../assets/logo.svg';
@@ -30,6 +31,8 @@ const validationSchema = yup.object().shape({
     .string()
     .oneOf([yup.ref('password'), null], 'Password Must Match')
     .required('Confirm Password is Required'),
+    terms: yup.bool()
+    .oneOf([true], "You must accept the terms and conditions")
 });
 
 // {
@@ -47,6 +50,8 @@ const Apply = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   //creating IP state
   const [ip, setIP] = useState('');
   const navigate = useNavigate();
@@ -87,6 +92,7 @@ const Apply = () => {
 
   const submitForm = async data => {
     console.log(data);
+    setIsLoading(true);
     if (!isRegisterError)
       await registerUser({
         track_id: '1',
@@ -118,10 +124,16 @@ const Apply = () => {
 
   useEffect(() => {
     if (isRegisterSuccess) {
+      setIsLoading(false);
+      toast.success(registerData.message)
       console.log('Register successful');
       navigate('/verify');
     }
-  }, [isRegisterSuccess]);
+    if (isRegisterError) {
+      setIsLoading(false);
+      toast.error(registerError?.data.error)
+    }
+  }, [isRegisterSuccess, isRegisterError]);
 
   return (
     // <section className="pt-[147px] pb-[191px] bg-[#FFFFFFF2] h-screen overflow-y-auto flex items-center justify-center ">
@@ -198,12 +210,12 @@ const Apply = () => {
                 <option value="" className="">
                   I am a Developer
                 </option>
-                <option value="" className="">
+                {/* <option value="" className="">
                   I am a Product Manager
-                </option>
-                <option value="" className="">
+                </option> */}
+                {/* <option value="" className="">
                   I am a Product Designer
-                </option>
+                </option> */}
               </select>
             </div>
             {/* {showTracks && (
@@ -281,9 +293,9 @@ const Apply = () => {
                 id=""
                 className=" appearance-none flex items-center justify-between  md:text-xl font-[600] w-full h-[58px] py-4 pl-[23px] pr-[25px] rounded-[4px] border border-[#D6D8E7] "
               >
-                Twitter
+                {/* Twitter */}
                 <option value="">Twitter</option>
-                <option value="">Facebook</option>
+                {/* <option value="">Facebook</option> */}
               </select>
             </div>
             {/* {showMedia && (
@@ -293,7 +305,7 @@ const Apply = () => {
             )} */}
           </div>
           <div className="mt-[22px] items-start flex gap-2">
-            <input type="checkbox" />
+            <input  type="checkbox" {...register('terms')} />
             <p className="text-[10px] md:text-sm leading-[18px] mt-[-2px]">
               You acknowledge that the Aurbase screening procedure is
               confidential and that you will not reveal any information about it
@@ -308,7 +320,7 @@ const Apply = () => {
             className="bg-black w-full font-[600] text-center text-white mt-[26px] md:mt-[23px] py-[18px] rounded-[4px] shadow-[0px_4px_8px_0px_#39B54A0A]
 "
           >
-            Apply Now
+            {!isLoading ? 'Apply Now' : 'Applying...'}
           </button>
           <p className="text-[#3A3A3A80] text-center pt-[22px] md:pt-[14px]">
             Already a member?{' '}

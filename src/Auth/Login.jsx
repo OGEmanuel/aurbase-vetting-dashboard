@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import logo from '../assets/logo.svg';
 import EyeSlash from '../assets/EyeSlash.svg';
 import curlyArrowDown from '../assets/curlyArrowDown.svg';
@@ -27,6 +28,7 @@ const validationSchema = yup.object().shape({
 });
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [device, setDevice] = useState('');
   //creating IP state
   const [ip, setIP] = useState('');
@@ -68,8 +70,9 @@ const Login = () => {
       device,
     };
     console.log(loginData);
+    setIsLoading(true);
+    if (!isLoginError) await loginUser(loginData);
 
-    if(!isLoginError) await loginUser(loginData);
     reset({
       email: '',
       password: '',
@@ -93,11 +96,17 @@ const Login = () => {
   useEffect(() => {
     if (isLoginSuccess) {
       console.log('login successful');
-          //To store data for implementation of protected routes
-    sessionStorage.setItem('data', JSON.stringify(loginData));
+      setIsLoading(false);
+      //To store data for implementation of protected routes
+      sessionStorage.setItem('data', JSON.stringify(loginData));
       navigate('/dashboard');
     }
-  }, [isLoginSuccess]);
+    if (isLoginError) {
+      console.log(loginError.data.error);
+      setIsLoading(false);
+      toast.error(loginError?.data.error)
+    }
+  }, [isLoginSuccess, isLoginError]);
   // const handleLogin = async () => {
   //   if (email && password) {
   //     await loginUser({ email, password, ipaddress, device });
@@ -219,7 +228,7 @@ const Login = () => {
           className="bg-black w-full text-center text-white mt-10 md:mt-[49px] py-[18px] rounded-[8px] shadow-[0px_4px_8px_0px_#39B54A0A]
 "
         >
-          Log In
+          {!isLoading ? 'Log In' : 'Logging In...'}
         </button>
         <p className="pt-[43px] text-[#3A3A3A80] md:pt-4 text-center">
           Not yet a member?{' '}
