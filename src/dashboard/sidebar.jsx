@@ -63,9 +63,9 @@ const SideBar = () => {
 
   const logoutHandler = () => {
     sessionStorage.removeItem('data');
-    dispatch(saveEmail(null));
-    dispatch(saveIp(null));
     navigate('/', { replace: true });
+    // dispatch(saveEmail(null));
+    // dispatch(saveIp(null));
   };
 
   const handleNavClick = () => {
