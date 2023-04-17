@@ -151,12 +151,12 @@ const OTP = () => {
         email: email,
       });
     console.log(validateOTP);
+    navigate('/');
   };
 
   useEffect(() => {
     if (isVerifySuccess) {
       console.log('Verification successful');
-      navigate('/');
     }
   }, [isVerifySuccess]);
 
