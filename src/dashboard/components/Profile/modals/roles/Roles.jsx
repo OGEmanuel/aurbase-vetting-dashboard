@@ -111,6 +111,7 @@ const Roles = () => {
               placeholder="Frontend"
               className="w-full outline-none py-2.5 md:py-[7px] border border-extra-6 focus:border-extra-8 rounded-custom-sm bg-bg-3 xl:w-[20.07rem] pl-10 pr-5 placeholder:opacity-50 text-[10px] md:text-base"
               onChange={handleSearch}
+              value={search.input}
             />
             <img
               src={Search}
