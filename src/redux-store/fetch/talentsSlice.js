@@ -37,6 +37,15 @@ export const talentsApi = createApi({
         };
       },
     }),
+    reVerifyUser: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/resend-verification',
+          method: 'post',
+          body,
+        };
+      },
+    }),
   }),
 });
 
@@ -45,4 +54,5 @@ export const {
   useLoginUserMutation,
   useRegisterUserMutation,
   useVerifyUserMutation,
+  useReVerifyUserMutation,
 } = talentsApi;

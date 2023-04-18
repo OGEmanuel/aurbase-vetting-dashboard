@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const authApi = createApi({
-  reducerPath: 'authApi',
+export const talentProfileApi = createApi({
+  reducerPath: 'talentProfileApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://atarchgroup.capriquota.com/api/v1/talent',
+    baseUrl: '127.0.01:8000/api/v1/talent',
   }),
   endpoints: builder => ({
-    loginUser: builder.mutation({
+    addStacks: builder.mutation({
       query: body => {
         return {
-          url: '/login',
+          url: '/stacks',
           method: 'post',
           body,
         };
@@ -18,4 +18,4 @@ export const authApi = createApi({
   }),
 });
 
-export const { useLoginUserMutation } = authApi;
+export const { useAddStacksMutation } = talentProfileApi;

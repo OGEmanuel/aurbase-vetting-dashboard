@@ -15,6 +15,7 @@ import laravel from '../../../../../assets/laravel.svg';
 import { useDispatch } from 'react-redux';
 import { useGetAllStacksQuery } from '../../../../../redux-store/fetch/talentsSlice';
 import { useState } from 'react';
+import { useAddStacksMutation } from '../../API/talentprofile';
 
 const PROD = [
   { id: 1, icon: node, name: 'Figma' },
@@ -42,6 +43,13 @@ const Roles = () => {
   const dispatch = useDispatch();
 
   const { data, isError, isLoading } = useGetAllStacksQuery();
+  const {
+    data: addStacksData,
+    isError: addStacksIsError,
+    isLoading: addStacksIsLoading,
+  } = useAddStacksMutation();
+  // console.log(addStacksData);
+
   const DATA = [
     {
       id: 1,

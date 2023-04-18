@@ -16,7 +16,10 @@ import netflix from '../assets/netflix.svg';
 import google from '../assets/google.svg';
 import microsoft from '../assets/microsoft.svg';
 // import { useForm } from 'react-hook-form';
-import { useVerifyUserMutation } from '../redux-store/fetch/talentsSlice';
+import {
+  useReVerifyUserMutation,
+  useVerifyUserMutation,
+} from '../redux-store/fetch/talentsSlice';
 import { useSelector } from 'react-redux';
 
 const formatTime = time => {
@@ -29,8 +32,10 @@ const formatTime = time => {
   return minutes + ':' + seconds;
 };
 
+const TIME_IN_SECONDS = 60;
+
 const OTP = () => {
-  const [countdown, setCountdown] = useState(30);
+  const [countdown, setCountdown] = useState(TIME_IN_SECONDS);
   const [isLoading, setIsLoading] = useState(false);
 
   const timerId = useRef();
@@ -139,6 +144,8 @@ const OTP = () => {
     },
   ] = useVerifyUserMutation();
 
+  const [reVerifyUser] = useReVerifyUserMutation();
+
   const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
@@ -148,17 +155,14 @@ const OTP = () => {
         token: otp.join(''),
         email: email,
       });
-    // if (isVerifySuccess) {
-    //   setIsLoading(false);
-    //   toast.success('User Verification Successful');
-    //   console.log(verifyData?.message);
-    //   navigate('/', { replace: true });
-    // }
-    // if (!validateOTP && isVerifyError) {
-    //   setIsLoading(false);
-    //   toast.error('User Verification not successful. Please, try again!');
-    //   console.log(verifyError?.data.error);
-    // }
+  };
+
+  const handleResend = async () => {
+    await reVerifyUser({
+      ipaddress: ip,
+      email: email,
+    });
+    setCountdown(TIME_IN_SECONDS);
   };
 
   useEffect(() => {
@@ -285,8 +289,20 @@ const OTP = () => {
           </button>
         </form>
         <p className="font-semibold text-xs md:text-xl">
-          Didn’t receive an OTP? Resend in{' '}
-          <span className="text-secondary">{formatTime(countdown)}</span>
+          Didn’t receive an OTP?{' '}
+          {countdown > 0 ? (
+            'Resend in'
+          ) : (
+            <span
+              onClick={handleResend}
+              className="text-secondary cursor-pointer"
+            >
+              Resend
+            </span>
+          )}{' '}
+          {countdown > 0 && (
+            <span className="text-secondary">{formatTime(countdown)}</span>
+          )}
         </p>
       </div>
       <div className="max-width flex flex-wrap bg-bg-2 xl:bg-white justify-center xl:justify-between gap-3 md:gap-5 xl:gap-0 xl:px-7 items-start py-3 rounded-custom-lg">
