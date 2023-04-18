@@ -277,6 +277,7 @@ const router = createBrowserRouter([
                 <ErrorPage />
               </React.Suspense>
             ),
+            loader: checkAuthLoader,
             children: [
               {
                 index: true,

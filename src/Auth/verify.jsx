@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import useOTPInput from '../hooks/use-input-otp';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 // import * as yup from 'yup';
 // import { yupResolver } from '@hookform/resolvers/yup';
 import logo from '../assets/logo.svg';
@@ -17,41 +19,38 @@ import microsoft from '../assets/microsoft.svg';
 import { useVerifyUserMutation } from '../redux-store/fetch/talentsSlice';
 import { useSelector } from 'react-redux';
 
+const formatTime = time => {
+  let minutes = Math.floor(time / 60);
+  let seconds = Math.floor(time - minutes * 60);
+
+  if (minutes < 10) minutes = '0' + minutes;
+  if (seconds < 10) seconds = '0' + seconds;
+
+  return minutes + ':' + seconds;
+};
+
 const OTP = () => {
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [start, setStart] = useState(false);
+  const [countdown, setCountdown] = useState(30);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const timerId = useRef();
+
   const email = useSelector(state => state.auth.email);
   const ip = useSelector(state => state.auth.ip);
-  const navigate = useNavigate;
-  // const schema = yup.object().shape({
-  //   fieldOne: yup.number().integer().required(),
-  //   fieldTwo: yup.number().integer().required(),
-  //   fieldThree: yup.number().integer().required(),
-  //   fieldFour: yup.number().integer().required(),
-  //   fieldFive: yup.number().integer().required(),
-  // });
+  const navigate = useNavigate();
 
-  // const { register, handleSubmit } = useForm({
-  //   resolver: yupResolver(schema),
-  // });
-
-  let timer;
-
-  const startTimer = () => {
-    timer = setInterval(() => {
-      setSeconds(seconds + 1);
-
-      if (seconds === 59) {
-        setMinutes(minutes + 1);
-        setSeconds(0);
-      }
+  useEffect(() => {
+    timerId.current = setInterval(() => {
+      setCountdown(prev => prev - 1);
     }, 1000);
-  };
+    return () => clearInterval(timerId.current);
+  }, []);
 
-  const stopTimer = () => {
-    clearInterval(timer);
-  };
+  useEffect(() => {
+    if (countdown <= 0) {
+      clearInterval(timerId.current);
+    }
+  }, [countdown]);
 
   const {
     value: enteredFirstField,
@@ -130,8 +129,6 @@ const OTP = () => {
     enteredFifthField.length === 1 &&
     enteredSixthField.length === 1;
 
-  console.log(validateOTP && otp.join(''));
-
   const [
     verifyUser,
     {
@@ -144,21 +141,37 @@ const OTP = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if (validateOTP)
+    setIsLoading(true);
+    if (validateOTP && !verifyError)
       await verifyUser({
         ipaddress: ip,
         token: otp.join(''),
         email: email,
       });
-    console.log(validateOTP);
-    navigate('/');
+    // if (isVerifySuccess) {
+    //   setIsLoading(false);
+    //   toast.success('User Verification Successful');
+    //   console.log(verifyData?.message);
+    //   navigate('/', { replace: true });
+    // }
+    // if (!validateOTP && isVerifyError) {
+    //   setIsLoading(false);
+    //   toast.error('User Verification not successful. Please, try again!');
+    //   console.log(verifyError?.data.error);
+    // }
   };
 
   useEffect(() => {
     if (isVerifySuccess) {
-      console.log('Verification successful');
+      setIsLoading(false);
+      toast.success('User Verification Successful');
+      navigate('/', { replace: true });
     }
-  }, [isVerifySuccess]);
+    if (!validateOTP && isVerifyError) {
+      setIsLoading(false);
+      toast.error('User Verification not successful. Please, try again!');
+    }
+  }, [isVerifySuccess, isVerifyError]);
 
   return (
     <section className="xl:bg-bg-2 px-5 md:px-10 xl:px-20 pt-10 pb-20 min-h-screen">
@@ -268,15 +281,12 @@ const OTP = () => {
             />
           </div>
           <button className="bg-black font-semibold text-xs md:text-lg px-5 py-3 text-white rounded-custom-xs">
-            Validate OTP
+            {isLoading ? 'Validating...' : 'Validate OTP'}
           </button>
         </form>
         <p className="font-semibold text-xs md:text-xl">
           Didn’t receive an OTP? Resend in{' '}
-          <span className="text-secondary">
-            {minutes < 10 ? '0' + minutes : minutes}:
-            {seconds < 10 ? '0' + seconds : seconds}
-          </span>
+          <span className="text-secondary">{formatTime(countdown)}</span>
         </p>
       </div>
       <div className="max-width flex flex-wrap bg-bg-2 xl:bg-white justify-center xl:justify-between gap-3 md:gap-5 xl:gap-0 xl:px-7 items-start py-3 rounded-custom-lg">
