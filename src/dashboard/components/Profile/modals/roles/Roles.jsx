@@ -1,7 +1,7 @@
 import frontend from '../../../../../assets/frontend.svg';
 import frontendlg from '../../../../../assets/frontend-lg.svg';
 import close from '../../../../../assets/close.svg';
-import search from '../../../../../assets/search.svg';
+import Search from '../../../../../assets/search.svg';
 import StackForm from './StackForm';
 import { overlayMain } from '../../../../../redux-store/features/open-overlay-body';
 import { rolesModal } from '../../../../../redux-store/features/roles-modal';
@@ -32,17 +32,16 @@ const FE_TECH = [
 ];
 
 const Roles = () => {
-  const [searchInput, setSearchInput] = useState();
+  const [search, setSearch] = useState({ input: '' });
   const [stacks, setStacks] = useState(0);
 
   const handleSearch = e => {
-    setSearchInput(e.target.value);
+    setSearch({ input: e.target.value });
   };
 
   const dispatch = useDispatch();
 
   const { data, isError, isLoading } = useGetAllStacksQuery();
-console.log(data)
   const DATA = [
     {
       id: 1,
@@ -72,9 +71,9 @@ console.log(data)
 
   let visibleData = DATA;
   // console.log(DATA);
-  if (searchInput && searchInput !== '') {
+  if (search.input && search.input !== '') {
     visibleData = DATA.map(data => data).filter(data =>
-      data.title.includes(searchInput.toLowerCase())
+      data.title.includes(search.input.toLowerCase())
     );
   } else {
     visibleData = [];
@@ -83,6 +82,11 @@ console.log(data)
   const closeHandler = () => {
     dispatch(overlayMain());
     dispatch(rolesModal());
+  };
+
+  const selectHandler = id => {
+    setStacks(id);
+    setSearch({ input: '' });
   };
 
   const submitHandler = e => {
@@ -109,7 +113,7 @@ console.log(data)
               onChange={handleSearch}
             />
             <img
-              src={search}
+              src={Search}
               alt=""
               className="absolute top-[.6rem] md:top-[.8rem] left-[.8rem]"
             />
@@ -118,7 +122,7 @@ console.log(data)
             {visibleData.map(data => (
               <div
                 key={data.id}
-                onClick={() => setStacks(data.id)}
+                onClick={() => selectHandler(data.id)}
                 className="flex bg-bg-6 py-[10px] px-5 gap-2.5 rounded-b-custom-sm w-full xl:w-[20.07rem] cursor-pointer"
               >
                 <img src={data.icon} alt="" className="" />
@@ -139,7 +143,11 @@ console.log(data)
             {DATA.map(
               data =>
                 data.id === stacks && (
-                  <StackForm data={data.roles} key={data.id} />
+                  <StackForm
+                    data={data.roles}
+                    key={data.id}
+                    isLoading={isLoading}
+                  />
                 )
             )}
           </div>

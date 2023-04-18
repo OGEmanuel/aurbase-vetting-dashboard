@@ -4,6 +4,10 @@ import { useSelector } from 'react-redux';
 const Footer = () => {
   const displayOverlay = useSelector(state => state.show.modal);
 
+  // Create a date
+  const now = new Date();
+  const year = now.getFullYear();
+
   return (
     <footer
       className={`text-xs md:text-base xl:text-lg font-semibold xl:opacity-50 text-extra-4 flex flex-col md:flex-row gap-5 md:gap-0 justify-between mt-16 pb-10 md:pb-5 max-width w-full 
@@ -11,7 +15,7 @@ const Footer = () => {
       
       `}
     >
-      <p>© 2022 Aurbase Technologies inc</p>
+      <p>© {year} Aurbase Technologies inc</p>
       <ul className="flex flex-col md:flex-row gap-5 md:gap-10">
         <li>
           <Link to="/">Privacy & Policy</Link>

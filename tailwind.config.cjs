@@ -3,9 +3,7 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   presets: [],
   darkMode: 'media', // or 'class'
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [require('@tailwindcss/forms')],
   theme: {
     accentColor: ({ theme }) => ({
       ...theme('colors'),
@@ -17,6 +15,7 @@ module.exports = {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+      barWidth: 'barWidth 2s linear infinite',
     },
     aria: {
       checked: 'checked="true"',
@@ -58,7 +57,7 @@ module.exports = {
       'gradient-to-tl':
         'linear-gradient(to top left, var(--tw-gradient-stops))',
       dp: 'url(/src/assets/images/dash-pattern.png)',
-      matchdp:'url(/src/assets/matching-dp.png)'
+      matchdp: 'url(/src/assets/matching-dp.png)',
     },
     backgroundOpacity: ({ theme }) => theme('opacity'),
     backgroundPosition: {
@@ -593,6 +592,23 @@ module.exports = {
         '50%': {
           transform: 'none',
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+        },
+      },
+      barWidth: {
+        '0%': {
+          width: '0%',
+        },
+        '25%': {
+          width: '50%',
+        },
+        '50%': {
+          width: '100%',
+        },
+        '75%': {
+          width: '50%',
+        },
+        '100%': {
+          width: '0%',
         },
       },
     },

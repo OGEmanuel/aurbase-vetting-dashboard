@@ -4,6 +4,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .animate-loader {
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  .delay-loader {
+    animation-delay: 0s;
+  }
+}
+
 :root {
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -179,6 +191,6 @@ input[type='number'] {
 .roles-remove-btn {
   @apply flex gap-1 items-center justify-self-end text-sm font-normal text-extra-12;
 }
-.radio-btn{
+.radio-btn {
   @apply accent-black;
 }
