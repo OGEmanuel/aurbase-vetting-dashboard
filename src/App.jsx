@@ -24,6 +24,7 @@ import Progress from './pages/Progress';
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
 const Apply = React.lazy(() => import('./Auth/Apply'));
+const ResetPasword = React.lazy(() => import('./Auth/resetPassword'));
 const Assessment = React.lazy(() => import('./dashboard/Assessment'));
 const TrackTest = React.lazy(() => import('./dashboard/TrackTest'));
 // const AssessmentQuestions = React.lazy(() => import('./dashboard/AssessmentQuestions'));
@@ -73,6 +74,19 @@ const router = createBrowserRouter([
     element: (
       <React.Suspense fallback={<>...</>}>
         <ForgetPassword />
+      </React.Suspense>
+    ),
+    errorElement: (
+      <React.Suspense fallback={<>...</>}>
+        <ErrorPage />
+      </React.Suspense>
+    ),
+  },
+  {
+    path: 'resetpassword',
+    element: (
+      <React.Suspense fallback={<>...</>}>
+        <ResetPasword />
       </React.Suspense>
     ),
     errorElement: (

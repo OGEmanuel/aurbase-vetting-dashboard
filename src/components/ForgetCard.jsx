@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Close from '../assets/close.png'
 import Logo from '../assets/images/logo.png'
 
@@ -12,7 +13,7 @@ const ForgetCard = () => {
      <form action="">
         <label htmlFor="label" className='block font-bold text-lg mt-8'>Email Address</label>
         <input type="text" placeholder='Enter your email address here' className='w-full mt-2 border border-[#D6D8E7] px-5 rounded h-[58px] font-bold'/>
-        <div className='mt-14'><button className='text-white bg-black p-4 w-full rounded-lg'>Proceed</button></div>
+        <div className='mt-14'><Link to='/resetpassword' className='text-white bg-black p-4 w-full rounded-lg'>Proceed</Link></div>
      </form>
     </div>
   )
