@@ -46,6 +46,15 @@ export const talentsApi = createApi({
         };
       },
     }),
+    forgetPassword: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/forgot',
+          method: 'post',
+          body,
+        };
+      },
+    }),
   }),
 });
 
@@ -55,4 +64,5 @@ export const {
   useRegisterUserMutation,
   useVerifyUserMutation,
   useReVerifyUserMutation,
+  useForgetPasswordMutation
 } = talentsApi;
