@@ -12,9 +12,10 @@ import earningReducer from './features/earning-modal';
 import progressPageReducer from './features/set-progress';
 import { talentsApi } from './fetch/talentsSlice';
 import { authApi } from '../Auth/api/authApi';
-import authSlice from '../redux-store/fetch/authSlice'
+import authSlice from '../redux-store/fetch/authSlice';
 // import { authApi } from '../Auth/api/authApi';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
+import getTokenReducer from './features/get-token';
 
 export const store = configureStore({
   reducer: {
@@ -30,6 +31,7 @@ export const store = configureStore({
     roles: rolesReducer,
     earning: earningReducer,
     progress: progressPageReducer,
+    authToken: getTokenReducer,
     [talentsApi.reducerPath]: talentsApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
   },

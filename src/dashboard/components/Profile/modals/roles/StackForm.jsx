@@ -65,7 +65,7 @@ const StackForm = props => {
                     : 'border-transparent'
                 }`}
               >
-                <img src={stack.image} alt="" className={`md:w-[1.2rem]`} />
+                <img src={stack.image} alt="" className={`w-[1.2rem]`} />
                 <p className="text-xs md:text-base">{stack.name}</p>
               </div>
             </label>

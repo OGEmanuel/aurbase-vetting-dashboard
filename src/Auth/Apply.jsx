@@ -31,8 +31,7 @@ const validationSchema = yup.object().shape({
     .string()
     .oneOf([yup.ref('password'), null], 'Password Must Match')
     .required('Confirm Password is Required'),
-    terms: yup.bool()
-    .oneOf([true], "You must accept the terms and conditions")
+  terms: yup.bool().oneOf([true], 'You must accept the terms and conditions'),
 });
 
 // {
@@ -121,17 +120,16 @@ const Apply = () => {
       error: registerError,
     },
   ] = useRegisterUserMutation();
-
   useEffect(() => {
     if (isRegisterSuccess) {
       setIsLoading(false);
-      toast.success(registerData.message)
+      toast.success(registerData.message);
       console.log('Register successful');
       navigate('/verify');
     }
     if (isRegisterError) {
       setIsLoading(false);
-      toast.error(registerError?.data.error)
+      toast.error(registerError?.data.error);
     }
   }, [isRegisterSuccess, isRegisterError]);
 
@@ -305,7 +303,7 @@ const Apply = () => {
             )} */}
           </div>
           <div className="mt-[22px] items-start flex gap-2">
-            <input  type="checkbox" {...register('terms')} />
+            <input type="checkbox" {...register('terms')} />
             <p className="text-[10px] md:text-sm leading-[18px] mt-[-2px]">
               You acknowledge that the Aurbase screening procedure is
               confidential and that you will not reveal any information about it
