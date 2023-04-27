@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Close from '../assets/close.png';
@@ -54,8 +55,31 @@ const ForgetCard = () => {
       ipaddress: ip,
     };
 
-    if (!isForgetPasswordError) await forgetPassword(forgetPasswordData);
+    reset({
+      email: '',
+    });
+    
+    // if(isForgetPasswordError) toast.error(forgetPasswordError?.data.error);
+
+    if (!isForgetPasswordError) {
+      
+      await forgetPassword(forgetPasswordData);
+    }
+
   };
+
+  useEffect(() => {
+    if (isForgetPasswordSuccess) {
+      // setIsLoading(false);
+      toast.success(forgetPasswordData.message)
+      console.log('successful');
+      // navigate('/verify');
+    }
+    if (isForgetPasswordError) {
+      // setIsLoading(false);
+      toast.error(forgetPasswordError?.data.error);
+    }
+  }, [isForgetPasswordSuccess, isForgetPasswordError]);
 
   return (
     <div className="bg-white px-5 md:px-10  lg:px-20 py-10">

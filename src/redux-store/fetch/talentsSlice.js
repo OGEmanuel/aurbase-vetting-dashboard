@@ -1,5 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+const data = sessionStorage.getItem('data');
+console.log(JSON.parse(data)?.[0].token.original.access_token);
+
 export const talentsApi = createApi({
   reducerPath: 'talentsApi',
   baseQuery: fetchBaseQuery({
@@ -55,6 +58,20 @@ export const talentsApi = createApi({
         };
       },
     }),
+    resetPassword: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/forgot',
+          method: 'post',
+          headers: {
+            Authorization: `Bearer${
+              JSON.parse(data)?.[0].token.original.access_token
+            }`,
+          },
+          body,
+        };
+      },
+    }),
   }),
 });
 
@@ -64,5 +81,6 @@ export const {
   useRegisterUserMutation,
   useVerifyUserMutation,
   useReVerifyUserMutation,
-  useForgetPasswordMutation
+  useForgetPasswordMutation,
+  useResetPasswordMutation,
 } = talentsApi;
