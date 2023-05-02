@@ -58,10 +58,19 @@ export const talentsApi = createApi({
         };
       },
     }),
+    passwordToken: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/reset',
+          method: 'post',
+          body,
+        };
+      },
+    }),
     resetPassword: builder.mutation({
       query: body => {
         return {
-          url: 'talent/forgot',
+          url: 'talent/update_password',
           method: 'post',
           headers: {
             Authorization: `Bearer${
@@ -82,5 +91,6 @@ export const {
   useVerifyUserMutation,
   useReVerifyUserMutation,
   useForgetPasswordMutation,
+  usePasswordTokenMutation,
   useResetPasswordMutation,
 } = talentsApi;

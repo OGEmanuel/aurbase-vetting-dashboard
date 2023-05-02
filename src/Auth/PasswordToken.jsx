@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import useOTPInput from '../hooks/use-input-otp';
 import { useNavigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 // import * as yup from 'yup';
@@ -16,11 +17,8 @@ import netflix from '../assets/netflix.svg';
 import google from '../assets/google.svg';
 import microsoft from '../assets/microsoft.svg';
 // import { useForm } from 'react-hook-form';
-import {
-  useReVerifyUserMutation,
-  useVerifyUserMutation,
-} from '../redux-store/fetch/talentsSlice';
-import { useSelector } from 'react-redux';
+import { usePasswordTokenMutation } from '../redux-store/fetch/talentsSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 const formatTime = time => {
   let minutes = Math.floor(time / 60);
@@ -42,7 +40,10 @@ const PasswordToken = () => {
 
   const email = useSelector(state => state.auth.email);
   const ip = useSelector(state => state.auth.ip);
+
+  console.log(email, ip)
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     timerId.current = setInterval(() => {
@@ -135,47 +136,47 @@ const PasswordToken = () => {
     enteredSixthField.length === 1;
 
   const [
-    verifyUser,
+    passwordToken,
     {
-      data: verifyData,
-      isSuccess: isVerifySuccess,
-      isError: isVerifyError,
-      error: verifyError,
+      data: passwordTokenData,
+      isSuccess: isPasswordTokenSuccess,
+      isError: isPasswordTokenError,
+      error: passwordTokenError,
     },
-  ] = useVerifyUserMutation();
+  ] = usePasswordTokenMutation();
 
-  const [reVerifyUser] = useReVerifyUserMutation();
+//   const [reVerifyUser] = useReVerifyUserMutation();
 
   const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
-    if (validateOTP && !verifyError)
-      await verifyUser({
-        ipaddress: ip,
-        token: otp.join(''),
+    if (validateOTP && !passwordTokenError)
+      await passwordToken({
         email: email,
+        token: otp.join(''),
+        ipaddress: ip,
       });
   };
 
-  const handleResend = async () => {
-    await reVerifyUser({
-      ipaddress: ip,
-      email: email,
-    });
-    setCountdown(TIME_IN_SECONDS);
-  };
+//   const handleResend = async () => {
+//     await reVerifyUser({
+//       ipaddress: ip,
+//       email: email,
+//     });
+//     setCountdown(TIME_IN_SECONDS);
+//   };
 
   useEffect(() => {
-    if (isVerifySuccess) {
+    if (isPasswordTokenSuccess) {
       setIsLoading(false);
       toast.success('User Verification Successful');
-      navigate('/', { replace: true });
+      navigate('/resetpassword', { replace: true });
     }
-    if (!validateOTP && isVerifyError) {
+    if (!validateOTP && isPasswordTokenError) {
       setIsLoading(false);
       toast.error('User Verification not successful. Please, try again!');
     }
-  }, [isVerifySuccess, isVerifyError]);
+  }, [isPasswordTokenSuccess, isPasswordTokenError]);
 
   return (
     <section className="xl:bg-bg-2 px-5 md:px-10 xl:px-20 pt-10 pb-20 min-h-screen">
@@ -288,7 +289,7 @@ const PasswordToken = () => {
             {isLoading ? 'Validating...' : 'Validate OTP'}
           </button>
         </form>
-        <p className="font-semibold text-xs md:text-xl">
+        {/* <p className="font-semibold text-xs md:text-xl">
           Didn’t receive an OTP?{' '}
           {countdown > 0 ? (
             'Resend in'
@@ -303,7 +304,7 @@ const PasswordToken = () => {
           {countdown > 0 && (
             <span className="text-secondary">{formatTime(countdown)}</span>
           )}
-        </p>
+        </p> */}
       </div>
       <div className="max-width flex flex-wrap bg-bg-2 xl:bg-white justify-center xl:justify-between gap-3 md:gap-5 xl:gap-0 xl:px-7 items-start py-3 rounded-custom-lg">
         <img src={facebook} alt="" className="w-[4.375rem] md:w-auto" />

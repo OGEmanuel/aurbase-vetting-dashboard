@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Close from '../assets/close.png';
 import Logo from '../assets/images/logo.png';
 
@@ -10,12 +10,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useForgetPasswordMutation } from '../redux-store/fetch/talentsSlice';
+import { saveIp, saveEmail } from '../redux-store/fetch/authSlice';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required('Email Address is required'),
 });
 
 const ForgetCard = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   //creating IP state
   const [ip, setIP] = useState('');
 
@@ -55,25 +59,26 @@ const ForgetCard = () => {
       ipaddress: ip,
     };
 
+    dispatch(saveEmail(forgetPasswordData.email));
+    dispatch(saveIp(ip));
+
     reset({
       email: '',
     });
-    
+
     // if(isForgetPasswordError) toast.error(forgetPasswordError?.data.error);
 
     if (!isForgetPasswordError) {
-      
       await forgetPassword(forgetPasswordData);
     }
-
   };
 
   useEffect(() => {
     if (isForgetPasswordSuccess) {
       // setIsLoading(false);
-      toast.success(forgetPasswordData.message)
+      toast.success(forgetPasswordData.message);
+      navigate('/passwordtoken');
       console.log('successful');
-      // navigate('/verify');
     }
     if (isForgetPasswordError) {
       // setIsLoading(false);
