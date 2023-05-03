@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { aboutModal } from '../../../../redux-store/features/about-modal';
 import { overlayMain } from '../../../../redux-store/features/open-overlay-body';
 import Button from '../UI/Button';
@@ -11,11 +11,13 @@ import { getAuthData } from '../../../../util/RouteProtection';
 const About = ({ setModal, modal }) => {
   const [formData, setFormData] = useState({ input: '' });
   const [addAbout, data] = useAddAboutMutation();
-  console.log(data);
+  // console.log(data);
   const dispatch = useDispatch();
   const getAuth = getAuthData();
   const talentId = getAuth[0].onboard.talent_id;
-  console.log(getAuth[0].onboard.talent_id);
+  // const ip = useSelector(state => state.auth.ip);
+  // console.log(getAuth[0].onboard.talent_id);
+  // console.log(ip);
 
   const closeHandler = () => {
     dispatch(overlayMain());
@@ -27,7 +29,7 @@ const About = ({ setModal, modal }) => {
     await addAbout({
       talent_id: talentId,
       ipaddress: '127.0.0.1',
-      about: "I'm jovial",
+      about: formData.input,
       deleted: 0,
       status: 'Active',
     });

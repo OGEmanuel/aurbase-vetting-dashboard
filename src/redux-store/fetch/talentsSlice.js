@@ -83,12 +83,15 @@ export const talentsApi = createApi({
     }),
     addAbout: builder.mutation({
       query: body => {
+        // console.log(JSON.parse(data)?.[0].token.original.access_token);
         return {
-          // headers: {
-          //   'Content-Type': 'application/json',
-          // },
           url: 'talent/about',
           method: 'post',
+          headers: {
+            Authorization: `Bearer${
+              JSON.parse(data)?.[0].token.original.access_token
+            }`,
+          },
           body,
         };
       },
@@ -116,6 +119,34 @@ export const talentsApi = createApi({
         };
       },
     }),
+    updateSalary: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/salary',
+          method: 'post',
+          headers: {
+            Authorization: `Bearer${
+              JSON.parse(data)?.[0].token.original.access_token
+            }`,
+          },
+          body,
+        };
+      },
+    }),
+    updateExperience: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/experience/update/1',
+          method: 'post',
+          headers: {
+            Authorization: `Bearer${
+              JSON.parse(data)?.[0].token.original.access_token
+            }`,
+          },
+          body,
+        };
+      },
+    }),
   }),
 });
 
@@ -130,4 +161,6 @@ export const {
   useAddAboutMutation,
   usePasswordTokenMutation,
   useResetPasswordMutation,
+  useUpdateSalaryMutation,
+  useUpdateExperienceMutation,
 } = talentsApi;

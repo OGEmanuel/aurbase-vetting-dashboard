@@ -59,6 +59,7 @@ const Profile = () => {
   const salaryHandler = () => {
     dispatch(overlayMain());
     dispatch(salaryModal());
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
   const rolesHandler = () => {
@@ -67,6 +68,8 @@ const Profile = () => {
     dispatch(Auth(token));
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
+
+  // const
 
   return (
     <>
