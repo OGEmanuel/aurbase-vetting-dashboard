@@ -13,7 +13,6 @@ import progressPageReducer from './features/set-progress';
 import { talentsApi } from './fetch/talentsSlice';
 import { authApi } from '../Auth/api/authApi';
 import authSlice from '../redux-store/fetch/authSlice';
-// import { authApi } from '../Auth/api/authApi';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
 import getTokenReducer from './features/get-token';
 

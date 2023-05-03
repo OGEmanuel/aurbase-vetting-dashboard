@@ -21,6 +21,8 @@ import DisplaySalary from './display/DisplaySalary';
 import DisplayRoles from './display/DisplayRoles';
 import DisplayExperience from './display/DisplayExperience';
 import DisplayEducation from './display/DisplayEducation';
+import { getAuthData } from '../../../util/RouteProtection';
+import { Auth } from '../../../redux-store/features/get-token';
 
 const Profile = () => {
   const displayOverlay = useSelector(state => state.show.modal);
@@ -31,6 +33,8 @@ const Profile = () => {
   const education = useSelector(state => state.education.open);
   const roles = useSelector(state => state.roles.open);
   const dispatch = useDispatch();
+  const authData = getAuthData();
+  const token = authData[0].token.original.access_token;
 
   const bioHandler = () => {
     dispatch(overlayMain());
@@ -60,6 +64,7 @@ const Profile = () => {
   const rolesHandler = () => {
     dispatch(overlayMain());
     dispatch(rolesModal());
+    dispatch(Auth(token));
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 

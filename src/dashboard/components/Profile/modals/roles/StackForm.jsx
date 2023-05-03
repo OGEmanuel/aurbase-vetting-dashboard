@@ -19,20 +19,26 @@ const STACK = [
 const StackForm = props => {
   const { data, isLoading } = props;
   const [checked, setChecked] = useState([]);
-  const handleCheckChange = id => {
-    const currentIndex = checked.indexOf(id);
+  // const [chosenStacks, setChosenStacks] = useState([]);
+  const chosenStacks = [];
+  const handleCheckChange = data => {
+    const currentIndex = checked.indexOf(data);
     const newChecked = [...checked];
 
     if (currentIndex === -1) {
-      newChecked.push(id);
+      newChecked.push(data);
     } else {
       newChecked.splice(currentIndex, 1);
     }
 
     setChecked(newChecked);
+
+    console.log(checked);
   };
 
-  // console.log(data);
+  const submitHandler = e => {
+    e.preventDefault();
+  };
 
   return (
     <>
@@ -56,11 +62,11 @@ const StackForm = props => {
                 type="checkbox"
                 id={stack.id}
                 className="hidden"
-                onChange={() => handleCheckChange(stack.id)}
+                onChange={() => handleCheckChange(stack)}
               />
               <div
                 className={`flex gap-1 items-center bg-bg-7 py-3 px-1 justify-center md:p-3 rounded-custom-sm border-[1.5px] ${
-                  checked.includes(stack.id)
+                  checked.includes(stack)
                     ? 'border-extra-10'
                     : 'border-transparent'
                 }`}

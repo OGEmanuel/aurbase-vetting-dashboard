@@ -1,5 +1,3 @@
-import axios from 'axios';
-import * as yup from 'yup';
 import frontend from '../../../../../assets/frontend.svg';
 import frontendlg from '../../../../../assets/frontend-lg.svg';
 import close from '../../../../../assets/close.svg';
@@ -19,12 +17,7 @@ import {
   useAddStacksMutation,
   useGetAllStacksQuery,
 } from '../../../../../redux-store/fetch/talentsSlice';
-import { useEffect, useState } from 'react';
-// import { useAddStacksMutation } from '../../API/talentprofile';
-import { getAuthData } from '../../../../../util/RouteProtection';
-import { Auth } from '../../../../../redux-store/features/get-token';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 const PROD = [
   { id: 1, icon: node, name: 'Figma' },
@@ -41,48 +34,22 @@ const FE_TECH = [
   { id: 2, icon: angular, name: 'Angular' },
 ];
 
-// const validateForm = yup.object().shape({
-//   roleYear: yup.number().required('Select role year'),
-//   priority: yup.number().required('Select role priority'),
-// });
-
 const Roles = () => {
   const [search, setSearch] = useState({ input: '' });
+  const [addStacks, addStacksData] = useAddStacksMutation();
+  // console.log(addStacksData);
+  const [prioritySeniorityData, setPrioritySeniorityData] = useState({});
   const [stacks, setStacks] = useState(0);
-  const [holdAddStacksSubmit, setHoldAddStacksSubmit] = useState();
-  const [validateForm, setValidateForm] = useState();
   const dispatch = useDispatch();
-  const authData = getAuthData();
-  const token = authData[0].token.original.access_token;
-  const authToken = useSelector(state => state.authToken.token);
+  const ip = useSelector(state => state.auth.ip);
 
-  useEffect(() => {
-    dispatch(Auth(token));
-  }, [dispatch]);
-
-  console.log(authToken);
+  // console.log(ip);
 
   const handleSearch = e => {
     setSearch({ input: e.target.value });
   };
 
-  const submit = submit => {
-    setHoldAddStacksSubmit(submit);
-  };
-
-  const validate = validate => {
-    setValidateForm(validate);
-  };
-
   const { data, isError, isLoading } = useGetAllStacksQuery();
-  // const [
-  //   addStacks,
-  //   {
-  //     data: addStacksData,
-  //     isError: addStacksIsError,
-  //     isLoading: addStacksIsLoading,
-  //   },
-  // ] = useAddStacksMutation();
 
   const DATA = [
     {
@@ -111,8 +78,12 @@ const Roles = () => {
     },
   ];
 
+  const FE_TECH = [
+    { id: 1, icon: react, name: 'React Js' },
+    { id: 2, icon: angular, name: 'Angular' },
+  ];
+
   let visibleData = DATA;
-  // console.log(DATA);
   if (search.input && search.input !== '') {
     visibleData = DATA.map(data => data).filter(data =>
       data.title.includes(search.input.toLowerCase())
@@ -120,6 +91,12 @@ const Roles = () => {
   } else {
     visibleData = [];
   }
+
+  const getPrioritySeniorityData = data => {
+    setPrioritySeniorityData(data);
+    // console.log(data);
+  };
+  // console.log(addStacksData);
 
   const closeHandler = () => {
     dispatch(overlayMain());
@@ -131,23 +108,26 @@ const Roles = () => {
     setSearch({ input: '' });
   };
 
-  const {
-    register,
-    handleSubmit,
-    // reset,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(validateForm),
-  });
+  // console.log(prioritySeniorityData);
 
-  const submitHandler = e => {
-    // e.preventDefault();
-    holdAddStacksSubmit;
+  const submitHandler = async e => {
+    e.preventDefault();
+    await addStacks([
+      {
+        role_id: 1,
+        role_name: 'Front-End Design',
+        role_year: prioritySeniorityData.roleYear,
+        stack_id: 12,
+        level: 'Senior',
+        years: 2,
+        priority: prioritySeniorityData.priority,
+        ipaddress: '128.0.0.1',
+      },
+    ]);
+    // console.log(addStacksData);
     dispatch(overlayMain());
     dispatch(rolesModal());
   };
-
-  // onSubmit={handleSubmit(holdAddStacksSubmit)}
 
   return (
     <div className="bg-white px-6 md:px-12 rounded-custom-sm w-[88.5%] max-width xl:w-auto z-[9000] fixed md:absolute top-1/2 md:top-[40rem] left-[50%] xl:left-[60%] translate-x-[-50%] translate-y-[-50%] h-[30rem] scroll overflow-auto pb-10 md:h-auto">
@@ -208,33 +188,24 @@ const Roles = () => {
           </div>
         </div>
       </div>
-      <form
-        onSubmit={e => handleSubmit(submitHandler(e.preventDefault()))}
-        action=""
-      >
+      <form onSubmit={submitHandler} action="">
         <Stack
           icon={frontendlg}
           title={'Frontend Developer'}
           roles={FE_TECH}
-          passSubmit={() => submit()}
-          register={register}
-          validate={validate}
+          onGetPrioritySeniorityData={getPrioritySeniorityData}
         />
         <Stack
           icon={dev}
           title={'Backend Developer'}
           roles={BE_TECH}
-          passSubmit={() => submit}
-          register={register}
-          validate={validate}
+          onGetPrioritySeniorityData={getPrioritySeniorityData}
         />
         <Stack
           icon={dev}
           title={'Product Designer'}
           roles={PROD}
-          passSubmit={() => submit}
-          register={register}
-          validate={validate}
+          onGetPrioritySeniorityData={getPrioritySeniorityData}
         />
         <div className="w-max ml-auto text-xs md:text-sm flex gap-2 md:gap-5">
           <button

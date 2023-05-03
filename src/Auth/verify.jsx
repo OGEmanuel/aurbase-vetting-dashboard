@@ -2,9 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import useOTPInput from '../hooks/use-input-otp';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-
-// import * as yup from 'yup';
-// import { yupResolver } from '@hookform/resolvers/yup';
 import logo from '../assets/logo.svg';
 import back from '../assets/back-arrow.svg';
 import logo2 from '../assets/logo-plain.svg';
@@ -15,7 +12,6 @@ import apple from '../assets/apple.svg';
 import netflix from '../assets/netflix.svg';
 import google from '../assets/google.svg';
 import microsoft from '../assets/microsoft.svg';
-// import { useForm } from 'react-hook-form';
 import {
   useReVerifyUserMutation,
   useVerifyUserMutation,

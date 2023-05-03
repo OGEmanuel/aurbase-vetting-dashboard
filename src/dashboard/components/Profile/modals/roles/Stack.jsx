@@ -1,73 +1,20 @@
-// import { useState } from 'react';
-import * as yup from 'yup';
-// import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import bin from '../../../../../assets/bin.svg';
 import arrow from '../../../../../assets/roles-drop.svg';
-import { useAddStacksMutation } from '../../../../../redux-store/fetch/talentsSlice';
 import StackRolesData from './StackRolesData';
-// import { yupResolver } from '@hookform/resolvers/yup';
-import { useSelector } from 'react-redux';
-
-const validateForm = yup.object().shape({
-  roleYear: yup.string().required('Select role year'),
-  priority: yup.string().required('Select role priority'),
-});
 
 const Stack = props => {
-  const { icon, title, roles, passSubmit, register, validate } = props;
-  const ip = useSelector(state => state.auth.ip);
+  const [formData, setFormData] = useState({
+    roleYear: '4 years',
+    priority: '1st',
+  });
+
+  const { icon, title, roles, onGetPrioritySeniorityData } = props;
 
   useEffect(() => {
-    passSubmit(submit);
-    validate(validateForm);
-  }, [passSubmit, validate]);
+    onGetPrioritySeniorityData(formData);
+  }, [formData]);
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   // reset,
-  //   formState: { errors },
-  // } = useForm({
-  //   resolver: yupResolver(validateForm),
-  // });
-
-  const [
-    addStacks,
-    {
-      data: addStacksData,
-      isError: addStacksError,
-      isLoading: addStacksLoading,
-    },
-  ] = useAddStacksMutation();
-
-  const submit = async (e, data) => {
-    console.log(data);
-    // e.preventDefault();
-    // setIsLoading(true);
-    if (!addStacksError)
-      await addStacks({
-        role_id: 1,
-        role_name: 'Front-End Design',
-        role_year: 5,
-        stack_id: 9,
-        level: 'Senior',
-        years: data.roleYear,
-        priority: data.priority,
-        ipaddress: ip,
-      });
-  };
-
-  // {
-  // role_id: 1,
-  // role_name: 'Front-End Design',
-  // role_year: 5,
-  // stack_id: 9,
-  // level: 'Senior',
-  // years: 2,
-  // priority: 0,
-  // ipaddress: '128.0.0.1',
-  // },
   return (
     <div className="mb-5">
       <div className="roles-header">
@@ -84,9 +31,11 @@ const Stack = props => {
             <select
               name="Seniority Level"
               id="Seniority Level"
-              defaultValue="4"
               className="roles-title-select"
-              {...register('RoleYear')}
+              value={formData.roleYear}
+              onChange={e =>
+                setFormData({ ...formData, roleYear: e.target.value })
+              }
             >
               <option value="1 year">1 year</option>
               <option value="2 years">2 years</option>
@@ -103,9 +52,11 @@ const Stack = props => {
             <select
               name="Role priority"
               id="Role Priority"
-              defaultValue="1"
               className="roles-title-select"
-              {...register('priority')}
+              value={formData.priority}
+              onChange={e =>
+                setFormData({ ...formData, priority: e.target.value })
+              }
             >
               <option value="1st">1st</option>
               <option value="2nd">2nd</option>
