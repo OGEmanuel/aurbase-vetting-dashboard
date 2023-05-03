@@ -20,11 +20,13 @@ import Coding from './pages/Coding';
 import ScheduleInterview from './pages/ScheduleInterview';
 import Notification from './dashboard/Notification';
 import Progress from './pages/Progress';
+// import PasswordToken from './Auth/PasswordToken';
 
 const ErrorPage = React.lazy(() => import('./pages/Error'));
 const Login = React.lazy(() => import('./Auth/Login'));
 const Apply = React.lazy(() => import('./Auth/Apply'));
-const ResetPasword = React.lazy(() => import('./Auth/resetPassword'));
+const ResetPassword = React.lazy(() => import('./Auth/ResetPassword'));
+const PasswordToken = React.lazy(() => import('./Auth/PasswordToken'));
 const Assessment = React.lazy(() => import('./dashboard/Assessment'));
 const TrackTest = React.lazy(() => import('./dashboard/TrackTest'));
 // const AssessmentQuestions = React.lazy(() => import('./dashboard/AssessmentQuestions'));
@@ -86,7 +88,20 @@ const router = createBrowserRouter([
     path: 'resetpassword',
     element: (
       <React.Suspense fallback={<>...</>}>
-        <ResetPasword />
+        <ResetPassword />
+      </React.Suspense>
+    ),
+    errorElement: (
+      <React.Suspense fallback={<>...</>}>
+        <ErrorPage />
+      </React.Suspense>
+    ),
+  },
+  {
+    path: 'passwordtoken',
+    element: (
+      <React.Suspense fallback={<>...</>}>
+        <PasswordToken />
       </React.Suspense>
     ),
     errorElement: (

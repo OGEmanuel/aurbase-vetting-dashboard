@@ -1,5 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+const data = sessionStorage.getItem('data');
+console.log(JSON.parse(data)?.[0].token.original.access_token);
+
 export const talentsApi = createApi({
   reducerPath: 'talentsApi',
   baseQuery: fetchBaseQuery({
@@ -68,13 +71,11 @@ export const talentsApi = createApi({
     }),
     addStacks: builder.mutation({
       query: body => {
-        // console.log(body);
         return {
           headers: {
             'Content-Type': 'application/json',
           },
           url: 'talent/stacks',
-          // url: 'https://dummy.restapiexample.com/api/v1/create',
           method: 'post',
           body,
         };
@@ -82,49 +83,41 @@ export const talentsApi = createApi({
     }),
     addAbout: builder.mutation({
       query: body => {
-        // console.log(body);
         return {
           // headers: {
           //   'Content-Type': 'application/json',
           // },
           url: 'talent/about',
-          // url: 'https://dummy.restapiexample.com/api/v1/create',
           method: 'post',
+          body,
+        };
+      },
+    }),
+    passwordToken: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/reset',
+          method: 'post',
+          body,
+        };
+      },
+    }),
+    resetPassword: builder.mutation({
+      query: body => {
+        return {
+          url: 'talent/update_password',
+          method: 'post',
+          headers: {
+            Authorization: `Bearer${
+              JSON.parse(data)?.[0].token.original.access_token
+            }`,
+          },
           body,
         };
       },
     }),
   }),
 });
-
-// const baseQueryWithAuth = async (args, api, extraOptions) => {
-//   let result = await baseQuery(args, api, extraOptions);
-
-//   if (result?.error?.originalStatus === 401) {
-//     console.log('sending refresh token');
-
-//     // send refresh token to get new access token
-//     const refreshResult = await baseQuery('/refresh', api, extraOptions);
-//     console.log(refreshResult);
-//     if (refreshResult?.data) {
-//       const user = api.getState().authToken.token;
-//       // Store the new token
-//       api.dispatch(setCredentials({ ...refreshResult.data, user }));
-//       // retry the originam query with new access token
-//       result = await baseQuery(args, api, extraOptions);
-//     } else {
-//       // api.dispatch(logOut())
-//       console.log('Does not work');
-//     }
-//   }
-
-//   return result;
-// };
-
-// export const apiSlice = createApi({
-//   baseQuery: baseQueryWithAuth,
-//   endpoints: builder => ({}),
-// });
 
 export const {
   useGetAllStacksQuery,
@@ -135,4 +128,6 @@ export const {
   useForgetPasswordMutation,
   useAddStacksMutation,
   useAddAboutMutation,
+  usePasswordTokenMutation,
+  useResetPasswordMutation,
 } = talentsApi;
